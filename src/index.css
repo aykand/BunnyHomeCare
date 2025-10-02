@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.perspective {
+    perspective: 1000px;
+  }
+  
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+.swiper-button-prev,
+.swiper-button-next {
+  color: #14b8a6; /* teal-500 */
+  font-weight: bold;
+  transform: scale(1.3);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px; /* ok ikon büyüklüğü */
+}
