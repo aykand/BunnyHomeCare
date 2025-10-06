@@ -278,7 +278,7 @@ function App() {
 
         <a
           href="#contact"
-          className="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+          className="hidden md:block bg-[#30d5c8] text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
         >
           Switch Now
         </a>
