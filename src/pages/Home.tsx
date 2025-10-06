@@ -7,20 +7,43 @@ import "../index.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, Mousewheel } from "swiper/modules";
 import WhatWeOffer from "../components/WhatWeOffer";
+import Navbar from "../components/Navbar";
 
-// ✅ CTA mesajı sadece ilk videoda 5 saniye görünür
+// ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
   const [visible, setVisible] = useState(true);
+  const [inView, setInView] = useState(false);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 5000);
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ctaRef.current) {
+      observer.observe(ctaRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!inView) return;
+
+    const timer = setTimeout(() => setVisible(false), 3000);
+    return () => clearTimeout(timer);
+  }, [inView]);
 
   if (!visible) return null;
 
   return (
-    <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xl font-bold px-6 py-3 rounded-lg animate-bounce z-20">
+    <div
+      ref={ctaRef}
+      className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xl font-bold px-6 py-3 rounded-lg animate-bounce z-20"
+    >
       ⬆ Swipe Up / Down ⬇
     </div>
   );
@@ -172,7 +195,6 @@ const allReviews = [
 ];
 
 function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
   const swiperRef = useRef<any>(null);
@@ -241,84 +263,8 @@ function Home() {
 
   return (
     <div className="font-sans text-gray-800 text-center">
-      {/* HEADER */}
-      <header className="flex justify-between items-center px-6 py-4 bg-white shadow-md fixed w-full top-0 z-20">
-        <div className="flex items-center">
-          <img
-            src="/logos/BunnyHomeCare_Logo.png"
-            alt="Bunny Home Care"
-            className="h-12 w-auto cursor-pointer transition-transform duration-200 hover:scale-105 hover:opacity-90"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
-        </div>
-
-        <nav className="hidden md:flex space-x-6">
-          <a href="#about" className="hover:text-blue-600">
-            About Us
-          </a>
-          <a href="#benefits" className="hover:text-blue-600">
-            What We Offer
-          </a>
-          <a href="#switching" className="hover:text-blue-600">
-            Switching
-          </a>
-          <a href="#languages" className="hover:text-blue-600">
-            Languages
-          </a>
-          <a href="#trust" className="hover:text-blue-600">
-            Trust
-          </a>
-          <a href="#reviews" className="hover:text-blue-600">
-            Reviews
-          </a>
-          <a href="#contact" className="hover:text-blue-600">
-            Contact
-          </a>
-        </nav>
-
-        <a
-          href="#contact"
-          className="hidden md:block bg-[#30d5c8] text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
-        >
-          Switch Now
-        </a>
-
-        <button
-          className="md:hidden text-blue-600 text-3xl focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
-      </header>
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg fixed top-16 left-0 w-full z-10 py-6">
-          <nav className="flex flex-col space-y-4">
-            <a href="#about" onClick={() => setMenuOpen(false)}>
-              About Us
-            </a>
-            <a href="#benefits" onClick={() => setMenuOpen(false)}>
-              What We Offer
-            </a>
-            <a href="#switching" onClick={() => setMenuOpen(false)}>
-              Switching
-            </a>
-            <a href="#languages" onClick={() => setMenuOpen(false)}>
-              Languages
-            </a>
-            <a href="#trust" onClick={() => setMenuOpen(false)}>
-              Trust
-            </a>
-            <a href="#reviews" onClick={() => setMenuOpen(false)}>
-              Reviews
-            </a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>
-              Contact
-            </a>
-          </nav>
-        </div>
-      )}
       {/* HERO */}
-      <section className="bg-gray-50 min-h-screen flex items-center pt-24">
+      <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-8">
           {/* Left Content */}
           <div className="md:w-1/2 text-center md:text-left">
@@ -340,13 +286,13 @@ function Home() {
             <div className="flex items-center gap-4 mt-3 md:mt-4">
               <a
                 href="#switch"
-                className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90"
+                className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
               >
                 Switch Now
               </a>
               <a
                 href="#offer"
-                className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white"
+                className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
               >
                 Get Your Offer
               </a>
@@ -387,7 +333,7 @@ function Home() {
             <img
               src="/images/bhc_hero.png"
               alt="Happy seniors with Bunny mascot"
-              className="rounded-xl shadow-xl w-[550px] md:w-[650px]"
+              className="rounded-xl shadow-xl w-[550px] md:w-[650px] transition-transform duration-300 hover:scale-105"
             />
           </div>
         </div>
@@ -416,7 +362,7 @@ function Home() {
             <img
               src="/images/bunny-flag.png"
               alt="Bunny Mascot"
-              className="max-w-sm w-full"
+              className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
             />
           </div>
         </div>
@@ -439,14 +385,14 @@ function Home() {
           <img
             src="/images/Bunny_question.png"
             alt="Do these sound familiar?"
-            className="max-w-[200px] w-full object-contain"
+            className="max-w-[200px] w-full object-contain transition-transform duration-300 hover:scale-105"
           />
 
           {/* Chat Bubble Görseli */}
           <img
             src="/images/chat_bubbles.png"
             alt="Complaints"
-            className="max-w-[350px] w-full object-contain"
+            className="max-w-[350px] w-full object-contain transition-transform duration-300 hover:scale-105"
           />
         </div>
         {/* Alt başlık */}
@@ -458,46 +404,49 @@ function Home() {
         </h4>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-10">
-  {[
-    {
-      title: "Get Paid Every Friday",
-      text: "Reliable weekly payments on time, every week.",
-      img: "/images/friday.png",
-    },
-    {
-      title: "Best Rates",
-      text: "The highest pay rates in Pennsylvania.",
-      img: "/images/best_rate.png",
-    },
-    {
-      title: "No Lost Hours",
-      text: "Keep every hour you’ve worked without gaps.",
-      img: "/images/hha.png",
-    },
-    {
-      title: "We Speak Your Language",
-      text: "Support and service in 15+ languages.",
-      img: "/images/wsyl.png",
-    },
-  ].map((item, i) => (
-    <div key={i} className="flex flex-col items-center text-center">
-      {/* Title + Text üstte */}
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-      <p className="text-base text-gray-700 leading-relaxed mb-4">
-        {item.text}
-      </p>
+          {[
+            {
+              title: "Get Paid Every Friday",
+              text: "Reliable weekly payments on time, every week.",
+              img: "/images/friday.png",
+            },
+            {
+              title: "Best Rates",
+              text: "The highest pay rates in Pennsylvania.",
+              img: "/images/best_rate.png",
+            },
+            {
+              title: "No Lost Hours",
+              text: "Keep every hour you’ve worked without gaps.",
+              img: "/images/hha.png",
+            },
+            {
+              title: "We Speak Your Language",
+              text: "Support and service in 15+ languages.",
+              img: "/images/wsyl.png",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
+            >
+              {/* Title + Text üstte */}
+              <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-primary">
+                {item.title}
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                {item.text}
+              </p>
 
-      {/* Görsel altta */}
-      <img
-        src={item.img}
-        alt={item.title}
-        className="w-full h-40 object-cover rounded-xl shadow"
-      />
-    </div>
-  ))}
-</div>
-
-
+              {/* Görsel altta */}
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
+              />
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* LANGUAGES */}
@@ -529,7 +478,7 @@ function Home() {
             {languages.map((lang, index) => (
               <SwiperSlide key={index}>
                 <div
-                  className="relative w-full h-28 cursor-pointer perspective mx-auto"
+                  className="relative w-full h-28 cursor-pointer perspective mx-auto transition-transform duration-300 hover:scale-105"
                   onClick={() =>
                     setFlippedIndex(flippedIndex === index ? null : index)
                   }
@@ -665,7 +614,7 @@ function Home() {
           {allReviews.slice(0, visibleCount).map((review, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-left"
+              className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-left transition-all duration-300 hover:shadow-md hover:border-primary/20 hover:transform hover:scale-[1.02]"
             >
               {/* Üst kısım */}
               <div className="flex items-center mb-3">
@@ -711,7 +660,7 @@ function Home() {
           <div className="text-center mt-8 mb-16">
             <button
               onClick={() => setVisibleCount((prev) => prev + 10)}
-              className="inline-block bg-[#30d5c8] text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-teal-500 transition"
+              className="inline-block bg-[#30d5c8] text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
             >
               See More Reviews
             </button>
@@ -773,13 +722,13 @@ function Home() {
             {/* Custom Navigation Buttons */}
             <button
               onClick={() => swiperRef.current?.slidePrev()}
-              className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70"
+              className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
             >
               ↑
             </button>
             <button
               onClick={() => swiperRef.current?.slideNext()}
-              className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70"
+              className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
             >
               ↓
             </button>
@@ -805,28 +754,28 @@ function Home() {
             <input
               type="text"
               placeholder="Full Name"
-              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
             />
 
             {/* Phone */}
             <input
               type="tel"
               placeholder="Phone Number"
-              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
             />
 
             {/* Zip Code */}
             <input
               type="text"
               placeholder="Zip Code"
-              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
             />
 
             {/* Button */}
             <div className="md:col-span-3">
               <button
                 type="submit"
-                className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-500 transition-colors"
+                className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
               >
                 Subscribe Now
               </button>
@@ -924,16 +873,16 @@ function Home() {
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
                   />
                   <input
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
                   />
                   <button
                     type="submit"
-                    className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-500"
+                    className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
                   >
                     Send
                   </button>
@@ -945,13 +894,13 @@ function Home() {
                 </h3>
                 <a
                   href="tel:+12674839642"
-                  className="block text-primary mb-2 hover:underline"
+                  className="block text-primary mb-2 hover:underline transition-all duration-300 hover:text-teal-600 transform hover:scale-105"
                 >
                   📞 +1 267-483-9642
                 </a>
                 <a
                   href="mailto:info@bunnyhomecare.com"
-                  className="block text-primary hover:underline"
+                  className="block text-primary hover:underline transition-all duration-300 hover:text-teal-600 transform hover:scale-105"
                 >
                   📧 help@bunnyhomecare.com
                 </a>
@@ -1019,92 +968,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#30d5c8] text-white py-8">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-left text-sm">
-          {/* Sol Kısım */}
-          <div className="col-span-2 md:col-span-1">
-            <img
-              src="/logos/BunnyHomeCare_WhiteLogo.png"
-              alt="Bunny Home Care"
-              className="h-16 mb-3"
-            />
-            <p className="text-xs leading-relaxed">
-              Providing compassionate, family-first home care with the best
-              rates in the area.
-            </p>
-          </div>
-           {/* Contact */}
-           <div>
-            <h3 className="font-semibold mb-2 text-sm">Contact Us</h3>
-            <p className="text-xs">📞 +1 267-483-9642</p>
-            <p className="text-xs">✉ help@bunnyhomecare.com</p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-2 text-sm">Quick Links</h3>
-            <ul className="space-y-1">
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">What We Offer</a>
-              </li>
-              <li>
-                <a href="#">Switching</a>
-              </li>
-              <li>
-                <a href="#">Languages</a>
-              </li>
-              <li>
-                <a href="#">Reviews</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Policies */}
-          <div>
-            <h3 className="font-semibold mb-2 text-sm">Policies</h3>
-            <ul className="space-y-1">
-              <li>
-                <a href="#">Non Discrimination Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#">SMS Terms of Notification</a>
-              </li>
-            </ul>
-          </div>
-
-         
-        </div>
-
-        {/* Social + Copy */}
-        <div className="mt-6 border-t border-white/20 pt-4 flex flex-col md:flex-row items-center justify-between text-xs px-6">
-          <div className="flex space-x-4 mb-3 md:mb-0">
-            <a href="#">
-              <i className="fab fa-facebook text-lg"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-instagram text-lg"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-tiktok text-lg"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-linkedin text-lg"></i>
-            </a>
-          </div>
-          <p>© 2025 Bunny Home Care. All Rights Reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
