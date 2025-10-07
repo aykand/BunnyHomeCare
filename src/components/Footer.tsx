@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Phone,
-  Mail,
-  Shield,
-  FileText,
-  Lock,
-} from "lucide-react";
+  FaPhone,
+  FaEnvelope,
+  FaShieldAlt,
+  FaFileAlt,
+  FaLock,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -29,9 +30,10 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             {[
-              { Icon: Facebook, href: "#" },
-              { Icon: Instagram, href: "#" },
-              { Icon: Linkedin, href: "#" },
+              { Icon: FaFacebook, href: "#" },
+              { Icon: FaInstagram, href: "#" },
+              { Icon: FaLinkedin, href: "#" },
+              { Icon: FaTiktok, href: "#" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}
@@ -72,9 +74,9 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-6">Legal</h3>
           <ul className="space-y-3 text-sm">
             {[
-              { name: "Non Discrimination Policy", Icon: Shield },
-              { name: "Terms of Service", Icon: FileText },
-              { name: "Privacy Policy", Icon: Lock, to: "/privacy-policy" },
+              { name: "Non Discrimination Policy", Icon: FaShieldAlt },
+              { name: "Terms of Service", Icon: FaFileAlt },
+              { name: "Privacy Policy", Icon: FaLock, to: "/privacy-policy" },
             ].map(({ name, Icon, to }, i) => (
               <li key={i}>
                 {to ? (
@@ -82,14 +84,14 @@ export default function Footer() {
                     to={to}
                     className="flex items-center gap-2 hover:text-white hover:translate-x-1 transition-all duration-300"
                   >
-                    <Icon size={14} /> {name}
+                    <Icon className="w-3.5 h-3.5" /> {name}
                   </Link>
                 ) : (
                   <a
                     href="#"
                     className="flex items-center gap-2 hover:text-white hover:translate-x-1 transition-all duration-300"
                   >
-                    <Icon size={14} /> {name}
+                    <Icon className="w-3.5 h-3.5" /> {name}
                   </a>
                 )}
               </li>
@@ -102,7 +104,7 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-3">
-              <Phone size={16} className="text-white" />
+              <FaPhone className="w-4 h-4 text-white" />
               <a
                 href="tel:+12674839642"
                 className="hover:text-white/80 transition-colors"
@@ -111,7 +113,7 @@ export default function Footer() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail size={16} className="text-white" />
+              <FaEnvelope className="w-4 h-4 text-white" />
               <a
                 href="mailto:help@bunnyhomecare.com"
                 className="hover:text-white/80 transition-colors"

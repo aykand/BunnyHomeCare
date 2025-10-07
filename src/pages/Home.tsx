@@ -7,7 +7,7 @@ import "../index.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, Mousewheel } from "swiper/modules";
 import WhatWeOffer from "../components/WhatWeOffer";
-import Navbar from "../components/Navbar";
+import ReactPlayer from "react-player";
 
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
@@ -33,7 +33,7 @@ function SwipeCTA() {
   useEffect(() => {
     if (!inView) return;
 
-    const timer = setTimeout(() => setVisible(false), 3000);
+    const timer = setTimeout(() => setVisible(false), 4000);
     return () => clearTimeout(timer);
   }, [inView]);
 
@@ -42,7 +42,7 @@ function SwipeCTA() {
   return (
     <div
       ref={ctaRef}
-      className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xl font-bold px-6 py-3 rounded-lg animate-bounce z-20"
+      className="absolute top-4 left-[20%] -translate-x-1/2 bg-gray-600/50 text-white text-xl font-bold px-6 py-3 rounded-lg animate-bounce z-20"
     >
       ⬆ Swipe Up / Down ⬇
     </div>
@@ -339,82 +339,115 @@ function Home() {
         </div>
       </section>
       {/* ABOUT US */}
-<section
-  id="about"
-  className="py-16 px-6 bg-blue-50"
-  style={{ backgroundColor: "#eff6ff" }}
->
-  <div className="container mx-auto flex flex-col md:flex-row items-center">
-    {/* Text Section */}
-    <div className="md:w-1/2 md:pr-12 text-center md:text-left">
-      {/* 💻 Masaüstü versiyonu */}
-      <div className="hidden md:block">
-        <h2 className="text-3xl font-bold mb-6">About Us</h2>
-        <p className="text-lg leading-relaxed text-gray-700 mb-4">
-          With +20 years of combined experience and caring multicultural
-          professionals, Bunny Home Care is a BBB A+ Certified Trusted Company
-          focused on 5★ customer service in your language.
-        </p>
-        <p className="text-lg leading-relaxed text-gray-700">
-          We hire family members or friends to take care of their seniors and
-          they get paid for their help, or we find the best fit for their
-          companionship and support on their daily basis activities.
-        </p>
-      </div>
-
-      {/* Mobile About Us - Glassmorphism */}
-<div className="md:hidden">
-  <div className="rounded-2xl bg-white/30 backdrop-blur-lg border border-white/50 shadow-md">
-    <button
-      type="button"
-      className="w-full flex justify-between items-center p-4 text-gray-900 font-semibold text-lg"
-      onClick={() => {
-        const c = document.getElementById("about2");
-        const a = document.getElementById("arrow2");
-        c?.classList.toggle("hidden");
-        a?.classList.toggle("rotate-180");
-      }}
-    >
-      <span>About Us</span>
-      <span
-        id="arrow2"
-        className="text-xl text-[#30d5c8] transform transition-transform duration-300"
+      <section
+        id="about"
+        className="py-16 px-6 bg-blue-50"
+        style={{ backgroundColor: "#eff6ff" }}
       >
-        ▼
-      </span>
-    </button>
+        <div className="container mx-auto flex flex-col md:flex-row items-center">
+          {/* Text Section */}
+          <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
+            {/* 💻 Desktop version */}
+            <div className="hidden md:block">
+              <h2 className="text-3xl font-bold mb-6">About Us</h2>
+              <p className="text-lg leading-relaxed text-gray-700 mb-4">
+                With +20 years of combined experience and caring multicultural
+                professionals, Bunny Home Care is a BBB A+ Certified Trusted
+                Company focused on 5★ customer service in your language.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                We hire family members or friends to take care of their seniors
+                and they get paid for their help, or we find the best fit for
+                their companionship and support on their daily basis activities.
+              </p>
+            </div>
 
-    <div
-      id="about2"
-      className="hidden p-5 text-gray-700 text-base leading-relaxed bg-white/70 backdrop-blur-sm rounded-b-2xl"
-    >
-      <p className="mb-3">
-        With +20 years of combined experience and caring multicultural
-        professionals, Bunny Home Care is a BBB A+ Certified Trusted
-        Company focused on 5★ customer service in your language.
-      </p>
-      <p>
-        We hire family members or friends to take care of their seniors
-        and they get paid for their help, or we find the best fit for
-        their companionship and support on their daily activities.
-      </p>
-    </div>
-  </div>
-</div>
+            {/* 📱 Mobile version - Modern Card Design */}
+            <div className="md:hidden">
+              <div className="bg-gradient-to-br from-white to-blue-50/50 rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
+                <button
+                  type="button"
+                  className="w-full flex justify-between items-center p-5 text-gray-900 font-bold text-xl group"
+                  onClick={() => {
+                    const c = document.getElementById("about2");
+                    const a = document.getElementById("arrow2");
+                    c?.classList.toggle("hidden");
+                    a?.classList.toggle("rotate-180");
+                  }}
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="w-10 h-10 bg-gradient-to-r from-primary to-teal-400 rounded-full flex items-center justify-center shadow-lg">
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </span>
+                    <span>About Us</span>
+                  </span>
+                  <span
+                    id="arrow2"
+                    className="text-2xl text-primary transform transition-transform duration-300 group-hover:scale-110"
+                  >
+                    ▼
+                  </span>
+                </button>
 
-    </div>
+                <div
+                  id="about2"
+                  className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
+                >
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl mt-1">🏆</span>
+                      <p>
+                        With{" "}
+                        <span className="font-semibold text-primary">
+                          +20 years
+                        </span>{" "}
+                        of combined experience and caring multicultural
+                        professionals, Bunny Home Care is a{" "}
+                        <span className="font-semibold">BBB A+ Certified</span>{" "}
+                        Trusted Company focused on 5★ customer service in your
+                        language.
+                      </p>
+                    </div>
+                  </div>
 
-    {/* Image Section */}
-    <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-      <img
-        src="/images/bunny-flag.png"
-        alt="Bunny Mascot"
-        className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
-      />
-    </div>
-  </div>
-</section>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl mt-1">💙</span>
+                      <p>
+                        We hire family members or friends to take care of their
+                        seniors and they get paid for their help, or we find the
+                        best fit for their companionship and support on their
+                        daily activities.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          {/* Image Section */}
+          <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+            <img
+              src="/images/bunny-flag.png"
+              alt="Bunny Mascot"
+              className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* TESTIMONIALS */}
       <section className="px-6 py-16 bg-white" id="reviews">
@@ -517,13 +550,14 @@ function Home() {
                   className="flex items-center justify-center bg-black"
                 >
                   <div className="relative w-full h-full">
-                    <video
+                    <ReactPlayer
                       src={video.src}
-                      controls
-                      playsInline
-                      className="h-full w-full object-cover"
+                      controls={true}
+                      playing={false}
+                      width="100%"
+                      height="100%"
                     />
-                    <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg">
+                    <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg z-10">
                       {video.name}
                     </p>
                     {index === 0 && <SwipeCTA />}
@@ -554,33 +588,32 @@ function Home() {
 
       {/* SWITCHING */}
       <section className="px-6 py-20 bg-white" id="switching">
-{/* Başlık */}
-<h2 className="text-4xl font-extrabold text-center mb-4">Switching</h2>
-<p className="text-center text-xl text-gray-700 mb-14">
-  Spoiler alert! No reapply, no lost hours, no gaps.
-</p>
+        {/* Başlık */}
+        <h2 className="text-4xl font-extrabold text-center mb-4">Switching</h2>
+        <p className="text-center text-xl text-gray-700 mb-14">
+          Spoiler alert! No reapply, no lost hours, no gaps.
+        </p>
 
-{/* Bunny + Chat Görseli */}
-<div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-24 md:mb-32 flex-nowrap">
-  {/* Bunny */}
-  <div className="flex-shrink-0">
-    <img
-      src="/images/Bunny_question.png"
-      alt="Do these sound familiar?"
-      className="w-[130px] sm:w-[180px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
-    />
-  </div>
+        {/* Bunny + Chat Görseli */}
+        <div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-24 md:mb-32 flex-nowrap">
+          {/* Bunny */}
+          <div className="flex-shrink-0">
+            <img
+              src="/images/Bunny_question.png"
+              alt="Do these sound familiar?"
+              className="w-[130px] sm:w-[180px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
+            />
+          </div>
 
-  {/* Chat */}
-  <div className="flex-shrink-0">
-    <img
-      src="/images/chat_bubbles.png"
-      alt="Complaints"
-      className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
-    />
-  </div>
-</div>
-
+          {/* Chat */}
+          <div className="flex-shrink-0">
+            <img
+              src="/images/chat_bubbles.png"
+              alt="Complaints"
+              className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
 
         {/* Alt başlık */}
         <h3 className="text-3xl font-semibold text-center mb-10">
@@ -790,8 +823,6 @@ function Home() {
         </Swiper>
       </section>
 
-      
-
       {/* SUBSCRIBE / CAREGIVER FORM */}
       <section className="bg-white py-16" id="subscribe">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -910,123 +941,245 @@ function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="bg-blue-50 py-12">
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="relative bg-gradient-to-br from-blue-50 via-white to-teal-50 py-20"
+      >
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
-            Contact Us
-          </h2>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            {/* Form */}
-            <div>
-              <div className="bg-white p-6 rounded-xl shadow-md mb-6">
-                <form className="space-y-4">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Get In Touch
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Have questions? We're here to help you with compassionate care
+              solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {/* Left Side - Contact Form */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-300 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Send us a Message
+              </h3>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
-                    placeholder="Full Name"
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
+                    placeholder="John Doe"
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50"
                   />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="john.doe@example.com"
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="tel"
-                    placeholder="Phone Number"
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
+                    placeholder="+1 (555) 123-4567"
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50"
                   />
-                  <button
-                    type="submit"
-                    className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
-                  >
-                    Send
-                  </button>
-                </form>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-md text-center">
-                <h3 className="text-lg font-semibold mt-3 md:mt-4">
-                  Contact Info
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Message (Optional)
+                  </label>
+                  <textarea
+                    rows={5}
+                    placeholder="Tell us how we can help..."
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50 resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-primary to-teal-500 text-white py-4 rounded-lg font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            {/* Right Side - Contact Info & Quick Actions */}
+            <div className="space-y-6">
+              {/* Contact Methods */}
+              <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Contact Information
                 </h3>
-                <a
-                  href="tel:+12674839642"
-                  className="block text-primary mb-2 hover:underline transition-all duration-300 hover:text-teal-600 transform hover:scale-105"
-                >
-                  📞 +1 267-483-9642
-                </a>
-                <a
-                  href="mailto:info@bunnyhomecare.com"
-                  className="block text-primary hover:underline transition-all duration-300 hover:text-teal-600 transform hover:scale-105"
-                >
-                  📧 help@bunnyhomecare.com
-                </a>
+                <div className="space-y-4">
+                  <a
+                    href="tel:+12674839642"
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <svg
+                        className="w-6 h-6 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-500 font-medium">Phone</p>
+                      <p className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                        +1 267-483-9642
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="mailto:help@bunnyhomecare.com"
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <svg
+                        className="w-6 h-6 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-500 font-medium">Email</p>
+                      <p className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                        help@bunnyhomecare.com
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              {/* Counties We Serve */}
+              <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Counties We Serve
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    "Berks",
+                    "Bucks",
+                    "Carbon",
+                    "Chester",
+                    "Dauphin",
+                    "Delaware",
+                    "Lancaster",
+                    "Lebanon",
+                    "Lehigh",
+                    "Luzerne",
+                    "Monroe",
+                    "Montgomery",
+                    "Northampton",
+                    "Philadelphia",
+                    "Schuylkill",
+                    "York",
+                  ].map((county, index) => (
+                    <div
+                      key={index}
+                      className="px-4 py-2 bg-gradient-to-r from-blue-50 to-teal-50 rounded-lg text-center font-medium text-gray-700 hover:from-primary/10 hover:to-teal-100 transition-all duration-300 hover:scale-105"
+                    >
+                      {county}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            {/* Counties */}
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-lg font-semibold mb-4 text-center">
-                Counties We Serve
-              </h3>
-              <div className="grid grid-cols-2 gap-2 text-center">
-                <span>Berks</span>
-                <span>Bucks</span>
-                <span>Carbon</span>
-                <span>Chester</span>
-                <span>Dauphin</span>
-                <span>Delaware</span>
-                <span>Lancaster</span>
-                <span>Lebanon</span>
-                <span>Lehigh</span>
-                <span>Luzerne</span>
-                <span>Monroe</span>
-                <span>Montgomery</span>
-                <span>Northampton</span>
-                <span>Philadelphia</span>
-                <span>Schuylkill</span>
-                <span>York</span>
+          </div>
+
+          {/* Office Locations */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+              Our Office Locations
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="group">
+                <div className="mb-4">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+                    Greater Philadelphia
+                  </h4>
+                  <p className="text-sm text-gray-600">Main Office</p>
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <iframe
+                    src="https://www.google.com/maps?q=Bunny+Home+Care,+1000+NORTHBROOK+DR,+STE+124,+Feasterville+Trevose,+PA+19053&output=embed"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    className="transition-all duration-300"
+                  ></iframe>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="mb-4">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+                    Allentown
+                  </h4>
+                  <p className="text-sm text-gray-600">Regional Office</p>
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <iframe
+                    src="https://www.google.com/maps?q=Bunny+Home+Care,+4905+Tilghman+St+%23300,+Allentown,+PA+18104&output=embed"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    className="transition-all duration-300"
+                  ></iframe>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="mb-4">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+                    Lancaster
+                  </h4>
+                  <p className="text-sm text-gray-600">Regional Office</p>
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <iframe
+                    src="https://www.google.com/maps?q=Bunny+Home+Care,+Lancaster,+PA&output=embed"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    className="transition-all duration-300"
+                  ></iframe>
+                </div>
               </div>
             </div>
-            {/* Maps */}
-<div className="space-y-6">
-  {/* Greater Philadelphia */}
-  <div>
-    <h4 className="font-semibold mb-2 text-center">
-      Greater Philadelphia
-    </h4>
-    <iframe
-      src="https://www.google.com/maps?q=Bunny+Home+Care,+1000+NORTHBROOK+DR,+STE+124,+Feasterville+Trevose,+PA+19053&output=embed"
-      width="100%"
-      height="150"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
-
-  {/* Allentown */}
-  <div>
-    <h4 className="font-semibold mb-2 text-center">Allentown</h4>
-    <iframe
-      src="https://www.google.com/maps?q=Bunny+Home+Care,+4905+Tilghman+St+%23300,+Allentown,+PA+18104&output=embed"
-      width="100%"
-      height="150"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
-
-  {/* Lancaster */}
-  <div>
-    <h4 className="font-semibold mb-2 text-center">Lancaster</h4>
-    <iframe
-      src="https://www.google.com/maps?q=Bunny+Home+Care,+Lancaster,+PA&output=embed"
-      width="100%"
-      height="150"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
-</div>
-
           </div>
         </div>
       </section>

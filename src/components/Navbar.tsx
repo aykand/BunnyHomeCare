@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -7,129 +9,172 @@ export default function Navbar() {
   return (
     <div>
       {/* HEADER */}
-      <header className="flex justify-between items-center px-6 py-4 bg-white shadow-md fixed w-full top-0 z-20">
+      <header className="flex justify-between items-center px-6 py-4 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 fixed w-full top-0 z-20 transition-all duration-300">
         <div className="flex items-center">
-          <Link to="/">
+          <Link to="/" className="group">
             <img
               src="/logos/BunnyHomeCare_Logo.png"
               alt="Bunny Home Care"
-              className="h-12 w-auto cursor-pointer transition-transform duration-200 hover:scale-105 hover:opacity-90"
+              className="h-12 xl:w-auto cursor-pointer transition-all duration-300 group-hover:scale-110 group-hover:brightness-110 object-contain drop-shadow-sm"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             />
           </Link>
         </div>
 
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden lg:flex space-x-8">
           <a
             href="#about"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             About Us
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#benefits"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             What We Offer
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#switching"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Switching
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#languages"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Languages
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#trust"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Trust
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#reviews"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Reviews
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#contact"
-            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Contact
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
         </nav>
 
         <a
           href="#contact"
-          className="hidden md:block bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-300"
+          className="hidden lg:block bg-gradient-to-r from-primary to-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
         >
           Switch Now
         </a>
 
         <button
-          className="md:hidden text-blue-600 text-3xl focus:outline-none transition-colors duration-300 hover:text-primary"
+          className="lg:hidden text-primary text-3xl focus:outline-none transition-all duration-300 group p-2 rounded-xl hover:bg-primary/10"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ☰
+          {menuOpen ? (
+            <IoClose className="transform transition-transform duration-300 rotate-90 group-hover:rotate-180 group-hover:text-red-500" />
+          ) : (
+            <RxHamburgerMenu className="transition-all duration-300 group-hover:text-primary/80" />
+          )}
         </button>
       </header>
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg fixed top-16 left-0 w-full z-10 py-6 transition-all duration-300">
-          <nav className="flex flex-col space-y-4">
+        <div className="lg:hidden bg-white/95 backdrop-blur-md shadow-2xl border-t border-gray-100 fixed top-20 left-0 w-full z-10 py-8 transition-all duration-300 animate-slideDown">
+          <nav className="flex flex-col space-y-2 max-w-sm mx-auto">
             <a
               href="#about"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              About Us
+              <span className="flex items-center justify-between">
+                About Us
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
             <a
               href="#benefits"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              What We Offer
+              <span className="flex items-center justify-between">
+                What We Offer
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
             <a
               href="#switching"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              Switching
+              <span className="flex items-center justify-between">
+                Switching
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
             <a
               href="#languages"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              Languages
+              <span className="flex items-center justify-between">
+                Languages
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
             <a
               href="#trust"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              Trust
+              <span className="flex items-center justify-between">
+                Trust
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
             <a
               href="#reviews"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              Reviews
+              <span className="flex items-center justify-between">
+                Reviews
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="px-6 py-2 hover:text-blue-600 transition-colors duration-300"
+              className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
-              Contact
+              <span className="flex items-center justify-between">
+                Contact
+                <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </a>
+
+            {/* Mobile CTA Button */}
+            <div className="px-4 pt-4">
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="block w-full bg-gradient-to-r from-primary to-teal-500 text-white px-6 py-4 rounded-xl font-semibold text-center hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                Switch Now
+              </a>
+            </div>
           </nav>
         </div>
       )}
