@@ -18,7 +18,7 @@ export default function Footer() {
         {/* 1️⃣ Logo & About */}
         <div>
           <img
-            src="/logos/BunnyHomeCare_WhiteLogo.png"
+            src="/logos/BunnyHomeCare_w_logo.png"
             alt="Bunny Home Care"
             className="h-16 mb-6 transition-transform duration-300 hover:scale-105"
           />

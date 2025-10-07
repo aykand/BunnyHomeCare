@@ -29,7 +29,8 @@
   
 .swiper-button-prev,
 .swiper-button-next {
-  color: #14b8a6; /* teal-500 */
+  color: #30d5c8;
+  
   font-weight: bold;
   transform: scale(1.3);
 }

@@ -299,9 +299,9 @@ function Home() {
             </div>
             {/* Stats Row under buttons */}
             <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:justify-start">
-              {/* 20+ Years Experience */}
+              {/* +20 Years Experience */}
               <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                <span className="text-2xl font-bold text-gray-900">20+</span>
+                <span className="text-2xl font-bold text-gray-900">+20</span>
                 <span className="text-gray-600 text-sm">
                   Years of Combined Experience
                 </span>
@@ -339,31 +339,212 @@ function Home() {
         </div>
       </section>
       {/* ABOUT US */}
-      <section
-        id="about"
-        className="py-16 px-6 bg-blue-50"
-        style={{ backgroundColor: "#eff6ff" }}
+<section
+  id="about"
+  className="py-16 px-6 bg-blue-50"
+  style={{ backgroundColor: "#eff6ff" }}
+>
+  <div className="container mx-auto flex flex-col md:flex-row items-center">
+    {/* Text Section */}
+    <div className="md:w-1/2 md:pr-12 text-center md:text-left">
+      {/* 💻 Masaüstü versiyonu */}
+      <div className="hidden md:block">
+        <h2 className="text-3xl font-bold mb-6">About Us</h2>
+        <p className="text-lg leading-relaxed text-gray-700 mb-4">
+          With +20 years of combined experience and caring multicultural
+          professionals, Bunny Home Care is a BBB A+ Certified Trusted Company
+          focused on 5★ customer service in your language.
+        </p>
+        <p className="text-lg leading-relaxed text-gray-700">
+          We hire family members or friends to take care of their seniors and
+          they get paid for their help, or we find the best fit for their
+          companionship and support on their daily basis activities.
+        </p>
+      </div>
+
+      {/* Mobile About Us - Glassmorphism */}
+<div className="md:hidden">
+  <div className="rounded-2xl bg-white/30 backdrop-blur-lg border border-white/50 shadow-md">
+    <button
+      type="button"
+      className="w-full flex justify-between items-center p-4 text-gray-900 font-semibold text-lg"
+      onClick={() => {
+        const c = document.getElementById("about2");
+        const a = document.getElementById("arrow2");
+        c?.classList.toggle("hidden");
+        a?.classList.toggle("rotate-180");
+      }}
+    >
+      <span>About Us</span>
+      <span
+        id="arrow2"
+        className="text-xl text-[#30d5c8] transform transition-transform duration-300"
       >
-        <div className="container mx-auto flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 md:pr-12 text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-6">About Us</h2>
-            <p className="text-lg leading-relaxed text-gray-700 mb-4">
-              With +20 years of combined experience and caring multicultural
-              professionals, Bunny Home Care is a BBB A+ Certified Trusted
-              Company focused on 5* customer service in your language.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-700">
-              We hire family members or friends to take care of their seniors
-              and they get paid for their help, or we find the best fit for
-              their companionship and support on their daily basis activities.
-            </p>
+        ▼
+      </span>
+    </button>
+
+    <div
+      id="about2"
+      className="hidden p-5 text-gray-700 text-base leading-relaxed bg-white/70 backdrop-blur-sm rounded-b-2xl"
+    >
+      <p className="mb-3">
+        With +20 years of combined experience and caring multicultural
+        professionals, Bunny Home Care is a BBB A+ Certified Trusted
+        Company focused on 5★ customer service in your language.
+      </p>
+      <p>
+        We hire family members or friends to take care of their seniors
+        and they get paid for their help, or we find the best fit for
+        their companionship and support on their daily activities.
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    {/* Image Section */}
+    <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+      <img
+        src="/images/bunny-flag.png"
+        alt="Bunny Mascot"
+        className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
+      />
+    </div>
+  </div>
+</section>
+
+
+      {/* TESTIMONIALS */}
+      <section className="px-6 py-16 bg-white" id="reviews">
+        <h2 className="text-3xl font-bold mb-10 text-center">
+          Testimonials & Reviews
+        </h2>
+
+        {/* Reviews List */}
+        <div className="max-w-3xl mx-auto space-y-8">
+          {allReviews.slice(0, visibleCount).map((review, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-left transition-all duration-300 hover:shadow-md hover:border-primary/20 hover:transform hover:scale-[1.02]"
+            >
+              {/* Üst kısım */}
+              <div className="flex items-center mb-3">
+                <img
+                  src={review.avatar}
+                  alt={review.name}
+                  className="w-10 h-10 rounded-full mr-3"
+                />
+                <div>
+                  <h3 className="font-semibold text-gray-900">{review.name}</h3>
+                  <p className="text-xs text-gray-500">{review.time}</p>
+                </div>
+                <img
+                  src="/images/g_google.png"
+                  alt="Google Logo"
+                  className="ml-auto w-6 h-6"
+                />
+              </div>
+
+              {/* Stars */}
+              <div className="flex text-yellow-400 mb-2">
+                {Array.from({ length: review.stars }).map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    className="w-5 h-5"
+                  >
+                    <path d="M12 .587l3.668 7.568L24 9.748l-6 5.854 1.417 8.263L12 19.896 4.583 23.865 6 15.602 0 9.748l8.332-1.593z" />
+                  </svg>
+                ))}
+              </div>
+
+              {/* Review Text */}
+              <p className="text-gray-700 leading-relaxed">{review.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* See More */}
+        {visibleCount < allReviews.length ? (
+          <div className="text-center mt-8 mb-16">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 10)}
+              className="inline-block bg-[#30d5c8] text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
+            >
+              See More Reviews
+            </button>
           </div>
-          <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <img
-              src="/images/bunny-flag.png"
-              alt="Bunny Mascot"
-              className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
-            />
+        ) : (
+          // ✅ Tüm yorumlar açıldığında da boşluk bırak
+          <div className="mt-8 mb-16"></div>
+        )}
+
+        {/* TikTok Style Video Slider */}
+        <div className="mx-auto w-full flex justify-center">
+          <div className="relative w-full max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
+            <Swiper
+              modules={[Navigation, Pagination, Mousewheel]}
+              direction="vertical"
+              slidesPerView={1}
+              mousewheel
+              pagination={{ clickable: true }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={(swiper) => {
+                const videos =
+                  document.querySelectorAll<HTMLVideoElement>("video");
+                videos.forEach((video, i) => {
+                  if (i !== swiper.activeIndex) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                });
+              }}
+              className="h-full w-full"
+            >
+              {[
+                { src: "/videos/shareen.mp4", name: "Shareen C." },
+                { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
+                { src: "/videos/nuhash.mp4", name: "Nuash M." },
+                { src: "/videos/timothy.mp4", name: "Timothy M." },
+                { src: "/videos/azer.mp4", name: "Azer G." },
+              ].map((video, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="flex items-center justify-center bg-black"
+                >
+                  <div className="relative w-full h-full">
+                    <video
+                      src={video.src}
+                      controls
+                      playsInline
+                      className="h-full w-full object-cover"
+                    />
+                    <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg">
+                      {video.name}
+                    </p>
+                    {index === 0 && <SwipeCTA />}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Custom Navigation Buttons */}
+            <button
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
+            >
+              ↑
+            </button>
+            <button
+              onClick={() => swiperRef.current?.slideNext()}
+              className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
+            >
+              ↓
+            </button>
           </div>
         </div>
       </section>
@@ -373,28 +554,34 @@ function Home() {
 
       {/* SWITCHING */}
       <section className="px-6 py-20 bg-white" id="switching">
-        {/* Başlık */}
-        <h2 className="text-4xl font-extrabold text-center mb-4">Switching</h2>
-        <p className="text-center text-xl text-gray-700 mb-14">
-          Spoiler alert! No reapply, no lost hours, no gaps.
-        </p>
+{/* Başlık */}
+<h2 className="text-4xl font-extrabold text-center mb-4">Switching</h2>
+<p className="text-center text-xl text-gray-700 mb-14">
+  Spoiler alert! No reapply, no lost hours, no gaps.
+</p>
 
-        {/* Bunny + Chat Görseli */}
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10  mb-20">
-          {/* Bunny */}
-          <img
-            src="/images/Bunny_question.png"
-            alt="Do these sound familiar?"
-            className="max-w-[200px] w-full object-contain transition-transform duration-300 hover:scale-105"
-          />
+{/* Bunny + Chat Görseli */}
+<div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-24 md:mb-32 flex-nowrap">
+  {/* Bunny */}
+  <div className="flex-shrink-0">
+    <img
+      src="/images/Bunny_question.png"
+      alt="Do these sound familiar?"
+      className="w-[130px] sm:w-[180px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
+    />
+  </div>
 
-          {/* Chat Bubble Görseli */}
-          <img
-            src="/images/chat_bubbles.png"
-            alt="Complaints"
-            className="max-w-[350px] w-full object-contain transition-transform duration-300 hover:scale-105"
-          />
-        </div>
+  {/* Chat */}
+  <div className="flex-shrink-0">
+    <img
+      src="/images/chat_bubbles.png"
+      alt="Complaints"
+      className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
+    />
+  </div>
+</div>
+
+
         {/* Alt başlık */}
         <h3 className="text-3xl font-semibold text-center mb-10">
           How does Bunny Home Care do it?
@@ -603,138 +790,7 @@ function Home() {
         </Swiper>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="px-6 py-16 bg-white" id="reviews">
-        <h2 className="text-3xl font-bold mb-10 text-center">
-          Testimonials & Reviews
-        </h2>
-
-        {/* Reviews List */}
-        <div className="max-w-3xl mx-auto space-y-8">
-          {allReviews.slice(0, visibleCount).map((review, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-left transition-all duration-300 hover:shadow-md hover:border-primary/20 hover:transform hover:scale-[1.02]"
-            >
-              {/* Üst kısım */}
-              <div className="flex items-center mb-3">
-                <img
-                  src={review.avatar}
-                  alt={review.name}
-                  className="w-10 h-10 rounded-full mr-3"
-                />
-                <div>
-                  <h3 className="font-semibold text-gray-900">{review.name}</h3>
-                  <p className="text-xs text-gray-500">{review.time}</p>
-                </div>
-                <img
-                  src="/images/g_google.png"
-                  alt="Google Logo"
-                  className="ml-auto w-6 h-6"
-                />
-              </div>
-
-              {/* Stars */}
-              <div className="flex text-yellow-400 mb-2">
-                {Array.from({ length: review.stars }).map((_, i) => (
-                  <svg
-                    key={i}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    className="w-5 h-5"
-                  >
-                    <path d="M12 .587l3.668 7.568L24 9.748l-6 5.854 1.417 8.263L12 19.896 4.583 23.865 6 15.602 0 9.748l8.332-1.593z" />
-                  </svg>
-                ))}
-              </div>
-
-              {/* Review Text */}
-              <p className="text-gray-700 leading-relaxed">{review.text}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* See More */}
-        {visibleCount < allReviews.length ? (
-          <div className="text-center mt-8 mb-16">
-            <button
-              onClick={() => setVisibleCount((prev) => prev + 10)}
-              className="inline-block bg-[#30d5c8] text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
-            >
-              See More Reviews
-            </button>
-          </div>
-        ) : (
-          // ✅ Tüm yorumlar açıldığında da boşluk bırak
-          <div className="mt-8 mb-16"></div>
-        )}
-
-        {/* TikTok Style Video Slider */}
-        <div className="mx-auto w-full flex justify-center">
-          <div className="relative w-full max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
-            <Swiper
-              modules={[Navigation, Pagination, Mousewheel]}
-              direction="vertical"
-              slidesPerView={1}
-              mousewheel
-              pagination={{ clickable: true }}
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
-              onSlideChange={(swiper) => {
-                const videos =
-                  document.querySelectorAll<HTMLVideoElement>("video");
-                videos.forEach((video, i) => {
-                  if (i !== swiper.activeIndex) {
-                    video.pause();
-                    video.currentTime = 0;
-                  }
-                });
-              }}
-              className="h-full w-full"
-            >
-              {[
-                { src: "/videos/shareen.mp4", name: "Shareen C." },
-                { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
-                { src: "/videos/nuhash.mp4", name: "Nuash M." },
-                { src: "/videos/timothy.mp4", name: "Timothy M." },
-                { src: "/videos/arabic.mp4", name: "Azer G." },
-              ].map((video, index) => (
-                <SwiperSlide
-                  key={index}
-                  className="flex items-center justify-center bg-black"
-                >
-                  <div className="relative w-full h-full">
-                    <video
-                      src={video.src}
-                      controls
-                      playsInline
-                      className="h-full w-full object-cover"
-                    />
-                    <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg">
-                      {video.name}
-                    </p>
-                    {index === 0 && <SwipeCTA />}
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Custom Navigation Buttons */}
-            <button
-              onClick={() => swiperRef.current?.slidePrev()}
-              className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
-            >
-              ↑
-            </button>
-            <button
-              onClick={() => swiperRef.current?.slideNext()}
-              className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
-            >
-              ↓
-            </button>
-          </div>
-        </div>
-      </section>
+      
 
       {/* SUBSCRIBE / CAREGIVER FORM */}
       <section className="bg-white py-16" id="subscribe">
@@ -809,12 +865,6 @@ function Home() {
                 <p className="text-gray-100 mb-4 text-sm">
                   {service.description}
                 </p>
-                <a
-                  href="#"
-                  className="text-white font-semibold hover:underline"
-                >
-                  Learn More →
-                </a>
               </div>
             </div>
           ))}
@@ -931,40 +981,52 @@ function Home() {
               </div>
             </div>
             {/* Maps */}
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold mb-2 text-center">
-                  Greater Philadelphia
-                </h4>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=..."
-                  width="100%"
-                  height="150"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-center">Allentown</h4>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=..."
-                  width="100%"
-                  height="150"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-center">Lancaster</h4>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=..."
-                  width="100%"
-                  height="150"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                ></iframe>
-              </div>
-            </div>
+<div className="space-y-6">
+  {/* Greater Philadelphia */}
+  <div>
+    <h4 className="font-semibold mb-2 text-center">
+      Greater Philadelphia
+    </h4>
+    <iframe
+      src="https://www.google.com/maps?q=Bunny+Home+Care,+1000+NORTHBROOK+DR,+STE+124,+Feasterville+Trevose,+PA+19053&output=embed"
+      width="100%"
+      height="150"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  {/* Allentown */}
+  <div>
+    <h4 className="font-semibold mb-2 text-center">Allentown</h4>
+    <iframe
+      src="https://www.google.com/maps?q=Bunny+Home+Care,+4905+Tilghman+St+%23300,+Allentown,+PA+18104&output=embed"
+      width="100%"
+      height="150"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  {/* Lancaster */}
+  <div>
+    <h4 className="font-semibold mb-2 text-center">Lancaster</h4>
+    <iframe
+      src="https://www.google.com/maps?q=Bunny+Home+Care,+Lancaster,+PA&output=embed"
+      width="100%"
+      height="150"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</div>
+
           </div>
         </div>
       </section>

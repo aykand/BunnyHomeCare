@@ -22,43 +22,43 @@ export default function Navbar() {
         <nav className="hidden md:flex space-x-6">
           <a
             href="#about"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             About Us
           </a>
           <a
             href="#benefits"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             What We Offer
           </a>
           <a
             href="#switching"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             Switching
           </a>
           <a
             href="#languages"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             Languages
           </a>
           <a
             href="#trust"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             Trust
           </a>
           <a
             href="#reviews"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             Reviews
           </a>
           <a
             href="#contact"
-            className="hover:text-blue-600 transition-colors duration-300"
+            className="transition-all duration-300 ease-in-out font-normal hover:font-bold hover:text-primary"
           >
             Contact
           </a>
@@ -72,7 +72,7 @@ export default function Navbar() {
         </a>
 
         <button
-          className="md:hidden text-blue-600 text-3xl focus:outline-none transition-colors duration-300 hover:text-blue-800"
+          className="md:hidden text-blue-600 text-3xl focus:outline-none transition-colors duration-300 hover:text-primary"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
