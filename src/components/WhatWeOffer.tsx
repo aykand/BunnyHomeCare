@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/pagination";
+
+// 🔹 HubSpot global tip tanımı (TS için güvenli)
+declare global {
+  interface Window {
+    hbspt?: {
+      forms: {
+        create: (config: any) => void;
+      };
+    };
+  }
+}
 
 const offers = [
   {
@@ -34,23 +44,67 @@ const offers = [
 ];
 
 export default function WhatWeOffer() {
-  const [activeIndex, setActiveIndex] = useState(0); // Desktop tabs
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [formLoaded, setFormLoaded] = useState(false);
+
+  // ✅ HubSpot formu yükle
+  useEffect(() => {
+    // Script zaten varsa tekrar ekleme
+    if (
+      document.querySelector(
+        'script[src="https://js.hsforms.net/forms/embed/44032932.js"]'
+      )
+    ) {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          region: "na1",
+          portalId: "44032932",
+          formId: "b20f10f2-517b-4833-a8fb-7bf6ac8f46bd",
+          target: "#hubspot-form",
+          onFormReady: () => setFormLoaded(true),
+        });
+      }
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://js.hsforms.net/forms/embed/44032932.js";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      // @ts-ignore
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          region: "na1",
+          portalId: "44032932",
+          formId: "b20f10f2-517b-4833-a8fb-7bf6ac8f46bd",
+          target: "#hubspot-form",
+          onFormReady: () => setFormLoaded(true),
+        });
+      }
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <section className="bg-gray-50 py-16" id="benefits">
       <h2 className="text-3xl font-bold text-center mb-12">What We Offer</h2>
 
-      {/* ✅ Masaüstü: Tablar */}
+      {/* ✅ Masaüstü: Tablı Görünüm */}
       <div className="hidden md:block max-w-6xl mx-auto">
-        {/* Tab Buttons */}
+        {/* Tab Başlıkları */}
         <div className="flex justify-center space-x-10 border-b mb-10">
           {offers.map((offer, i) => (
             <button
               key={i}
               className={`pb-3 px-2 text-lg font-medium transition-colors ${
                 activeIndex === i
-                  ? "border-b-4 border-blue-600 text-blue-600"
-                  : "text-gray-600 hover:text-blue-600"
+                  ? "border-b-4 border-primary text-primary"
+                  : "text-gray-600 hover:text-primary"
               }`}
               onClick={() => setActiveIndex(i)}
             >
@@ -59,7 +113,7 @@ export default function WhatWeOffer() {
           ))}
         </div>
 
-        {/* Tab Content */}
+        {/* Tab İçeriği */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-10">
           <img
             src={offers[activeIndex].img}
@@ -88,7 +142,7 @@ export default function WhatWeOffer() {
         >
           {offers.map((offer, i) => (
             <SwiperSlide key={i}>
-              <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+              <div className="bg-white rounded-xl shadow p-5 flex flex-col items-center">
                 <img
                   src={offer.img}
                   alt={offer.title}
@@ -101,39 +155,15 @@ export default function WhatWeOffer() {
           ))}
         </Swiper>
       </div>
-       {/* Form */}
-<form className="mt-10 bg-white shadow-md rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-lg mx-auto">
-  {/* Full Name */}
-  <input
-    type="text"
-    placeholder="Full Name"
-    className="px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none text-sm"
-  />
 
-  {/* Phone */}
-  <input
-    type="tel"
-    placeholder="Phone Number"
-    className="px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none text-sm"
-  />
-
-  {/* Zip Code */}
-  <input
-    type="text"
-    placeholder="Zip Code"
-    className="px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none text-sm"
-  />
-
-  {/* Button */}
-  <div className="md:col-span-3">
-    <button
-      type="submit"
-      className="w-full bg-primary text-white py-2 rounded-lg font-semibold text-sm hover:bg-teal-500 transition-colors"
-    >
-      Get Call From Us
-    </button>
-  </div>
-</form>
+      {/* ✅ HubSpot Form (shadow + rounded + animasyonlu fade-in) */}
+      <div
+        className={`mt-10 bg-white shadow-md rounded-xl p-6 max-w-lg mx-auto transition-opacity duration-700 ${
+          formLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div id="hubspot-form"></div>
+      </div>
     </section>
   );
 }

@@ -201,15 +201,20 @@ function Home() {
 
   // ✅ Languages
   const languages = [
-    { lang: "English", agent: "John Doe", phone: "+1 267-000-1111" },
-    { lang: "Español", agent: "Maria Lopez", phone: "+1 267-000-2222" },
-    { lang: "Français", agent: "Jean Dupont", phone: "+1 267-000-3333" },
-    { lang: "Türkçe", agent: "Ahmet Yılmaz", phone: "+1 267-000-4444" },
-    { lang: "हिन्दी", agent: "Raj Kumar", phone: "+1 267-000-5555" },
-    { lang: "العربية", agent: "Fatima Ali", phone: "+1 267-000-6666" },
-    { lang: "বাংলা", agent: "Hasan Rahman", phone: "+1 267-000-7777" },
-    { lang: "اردو", agent: "Ayesha Khan", phone: "+1 267-000-8888" },
-    { lang: "Shqip", agent: "Arben Gashi", phone: "+1 267-000-9999" },
+    { lang: "English", phone: "+1 267-483-9642" },//ofis
+    { lang: "Español", phone: "+1 267-328-4815" },
+    { lang: "Français", phone: "+1 267-873-2253" },
+    { lang: "Türkçe", phone: "+1 267-225-2151" },
+    { lang: "हिन्दी", phone: "+1 267-225-5032" },
+    { lang: "العربية", phone: "+1 267-209-0494" },
+    { lang: "বাংলা", phone: "+1 267-225-0003" },
+    { lang: "اردو", phone: "+1 267-225-0003" },
+    { lang: "Shqip", phone: "+1 267-225-2024" },
+    { lang: "Italiano", phone: "+1 267-509-7975" },
+    { lang: "Pilipinas", phone: "+1 267-509-7975" },
+    { lang: "नेपाली", phone: "+1 267-293-7619" },
+    { lang: "فارسی", phone: "+1 267-873-2256" },
+    { lang: "ਪੰਜਾਬੀ", phone: "+1 267-204-3733" },
   ];
 
   // ✅ Services
@@ -674,10 +679,14 @@ function Home() {
         <h2 className="text-2xl font-bold text-center mb-6">
           We Speak Your Language
         </h2>
-        <p className="mb-10 text-center max-w-2xl mx-auto">
-          Our dedicated team speaks +15 languages and knows your culture, so
-          that you can express yourself comfortably.
-        </p>
+        <p className="mb-10 text-center max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed">
+  Our dedicated team speaks <span className="font-semibold text-primary">15+ languages</span> and knows your culture, 
+  so that you can express yourself comfortably.
+  <br />
+  <span className="text-gray-800 font-medium">
+    Click on your preferred language to contact our representative or get information in your own language.
+  </span>
+</p>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-8">
           <Swiper
@@ -715,7 +724,6 @@ function Home() {
 
                     {/* Arka yüz */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-white text-gray-800 rounded-lg shadow-lg rotate-y-180 backface-hidden p-3">
-                      <p className="font-bold">{lang.agent}</p>
                       <a
                         href={`tel:${lang.phone}`}
                         className="text-[#30d5c8] font-medium underline mt-1"
@@ -774,53 +782,40 @@ function Home() {
           BBB, and partnered with major health organizations.
         </p>
         <Swiper
-          modules={[Autoplay]}
-          spaceBetween={40}
-          slidesPerView={3}
-          loop
-          autoplay={{ delay: 2000 }}
-          breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-          }}
-          className="max-w-6xl mx-auto"
-        >
-          <SwiperSlide>
-            <img src="/logos/bbb.png" alt="BBB" className="h-16 mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="/logos/amerihealth.webp"
-              alt="AmeriHealth"
-              className="h-16 mx-auto"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="/logos/keystone.webp"
-              alt="Keystone"
-              className="h-16 mx-auto"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="/logos/pahealth.webp"
-              alt="PA Health"
-              className="h-16 mx-auto"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="/logos/padepartment.webp"
-              alt="PA DOH"
-              className="h-16 mx-auto"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/logos/upmc.webp" alt="UPMC" className="h-16 mx-auto" />
-          </SwiperSlide>
-        </Swiper>
+  modules={[Autoplay]}
+  spaceBetween={40}
+  slidesPerView={3}
+  loop
+  autoplay={{ delay: 2000 }}
+  breakpoints={{
+    320: { slidesPerView: 2 },
+    640: { slidesPerView: 3 },
+    1024: { slidesPerView: 5 },
+  }}
+  className="max-w-6xl mx-auto"
+>
+  {[
+    { src: "/logos/bbb.png", alt: "BBB" },
+    { src: "/logos/amerihealth.webp", alt: "AmeriHealth" },
+    { src: "/logos/keystone.webp", alt: "Keystone" },
+    { src: "/logos/pahealth.webp", alt: "PA Health" },
+    { src: "/logos/padepartment.webp", alt: "PA Department of Health" },
+    { src: "/logos/upmc.webp", alt: "UPMC" },
+  ].map((logo, i) => (
+    <SwiperSlide
+      key={i}
+      className="flex items-center justify-center h-24" // eşit hizalama için sabit yükseklik
+    >
+      <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm p-3 hover:shadow-md transition-all duration-300">
+        <img
+          src={logo.src}
+          alt={logo.alt}
+          className="max-h-12 w-auto object-contain"
+        />
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
       </section>
 
       {/* SUBSCRIBE / CAREGIVER FORM */}
