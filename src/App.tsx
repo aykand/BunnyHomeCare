@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./pages/Privacypolicy";
 import NonDiscrimination from "./pages/NonDiscrimination";
 import TermsOfService from "./pages/TermsOfService";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
