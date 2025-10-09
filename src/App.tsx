@@ -1,27 +1,32 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import PrivacyPolicy from "./pages/Privacypolicy";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NonDiscrimination from "./pages/NonDiscrimination";
 import TermsOfService from "./pages/TermsOfService";
-import Footer from "./components/Footer";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      {/* 🌐 Global Navbar */}
       <Navbar />
 
+      {/* 📄 Route alanı */}
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/non-discrimination-policy" element={<NonDiscrimination />} />
+          <Route
+            path="/non-discrimination-policy"
+            element={<NonDiscrimination />}
+          />
           <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </div>
 
-      {/* ✅ WhatsApp widget - tüm sayfalarda görünür */}
+      {/* 💬 WhatsApp Chat (her sayfada görünür) */}
       <FloatingWhatsApp
         phoneNumber="+15557011444"
         accountName="Bunny Home Care"
@@ -30,13 +35,14 @@ export default function App() {
         statusMessage="Typically replies within 5 mins"
         placeholder="Type your message..."
         darkMode={false}
-        allowEsc={true}
-        allowClickAway={true}
-        notification={true}
-        notificationSound={true}
-        className="whatsapp-left"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        className="fixed bottom-6 left-6 z-50" // 👈 sola sabitlendi
       />
 
+      {/* ⚙️ Global Footer */}
       <Footer />
     </div>
   );
