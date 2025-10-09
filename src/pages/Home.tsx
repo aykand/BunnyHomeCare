@@ -52,146 +52,152 @@ function SwipeCTA() {
 // ✅ Reviews listesi (örnek 20, 50’ye kadar eklenebilir)
 const allReviews = [
   {
-    name: "Ali Khalifa",
-    avatar: "/avatars/ali.png",
+    name: "Fārêśhtá Ãkbárÿ",
+    avatar: "/avatars/Fārêśhtá Ãkbárÿ.png",
     stars: 5,
-    text: "We warmly welcome the distinguished and special service from Miss Nouhaila, who always provides service with a warm heart and more than wonderful treatment.",
-    time: "3 months ago",
+    text: "They are wonderful I enjoy working with them thanks to bunny home care",
+    time: "24 Sep 2025",
   },
   {
-    name: "U Won",
-    avatar: "/avatars/uwon.png",
+    name: "Dana Khatib",
+    avatar: "/avatars/Dana Khatib.png",
     stars: 5,
-    text: "Highly recommended! Miss Sabrina was above and beyond, very patient and helpful. She guided us in every step throughout the application process.",
-    time: "1 year ago",
+    text: "I am currently working with this company, and my experience has been — and continues to be — truly exceptional. I highly recommend it to anyone seeking reliable care services or a rewarding opportunity to work in this field. The company stands out for its professionalism and its genuine commitment to the well-being of both employees and clients. The team is extremely kind and supportive, always ready to assist with paperwork and processes, making everything smooth and hassle-free. From a financial perspective, their salaries are very good and align well with the nature of the work. In short, I truly believe this is the best company to work for or to turn to when seeking top-quality care services, and I wholeheartedly recommend it with full trust and confidence.",
+    time: "24 Sep 2025",
   },
   {
-    name: "Farhana Ahmed",
-    avatar: "/avatars/farhana.png",
+    name: "Genesis Acosta",
+    avatar: "/avatars/Genesis Acosta.png",
     stars: 5,
-    text: "Mrs. Sabrina and Anna performed an outstanding job. I am very happy with Bunny Home Care team.",
-    time: "1 year ago",
+    text: "Excellent experience",
+    time: "10 Sep 2025",
   },
   {
-    name: "Maria Lopez",
-    avatar: "/avatars/user1.png",
+    name: "Kara Jackson",
+    avatar: "/avatars/Kara Jackson.png",
     stars: 5,
-    text: "They always answer my calls, explain everything in Spanish and treat me with respect. Great service!",
-    time: "2 months ago",
+    text: "Bunny Home Care is great too work with and great experience with costumer service!",
+    time: "10 Sep 2025",
   },
   {
-    name: "John Smith",
-    avatar: "/avatars/user2.png",
+    name: "Selvar Tawadros",
+    avatar: "/avatars/Selvar Tawadros.png",
     stars: 5,
-    text: "Very professional and kind staff. Payments are always on time and the process was simple.",
-    time: "6 months ago",
+    text: "The experience had some hiccups but Jerry was able to help clear everything up and was on top of every situation and handled it with care",
+    time: "10 Sep 2025",
   },
   {
-    name: "Fatima Ali",
-    avatar: "/avatars/user3.png",
+    name: "colasia Blue",
+    avatar: "/avatars/colasia Blue.png",
     stars: 5,
-    text: "Amazing service! They speak Arabic and understand my culture. I feel safe with Bunny Home Care.",
-    time: "8 months ago",
+    text: "The best company you can have they are reliable dependable and very friendly. They call the check on you. Make sure you don't go day run a good service",
+    time: "27 Aug 2025",
   },
   {
-    name: "David Johnson",
-    avatar: "/avatars/user4.png",
+    name: "Cyrena Marie",
+    avatar: "/avatars/Cyrena Marie.png",
     stars: 5,
-    text: "Switching agencies was very easy, no lost hours. I should have done this sooner!",
-    time: "5 months ago",
+    text: "Best place to work. I would recommend this company to anyone they call you. They check up on you. They check up on your Client. They get your paperwork done correctly. You won’t have no issues out of this company and their pay is good. I had bad experiences with a lot of companies and this one is the one to go to when I get the cards for this company. I will be passing them out. If you’re a caregiver or a client, they will have the best treatment. I’m blessed to come to this company. I’m not gonna change companies.",
+    time: "13 Aug 2025",
   },
   {
-    name: "Sara Khan",
-    avatar: "/avatars/user5.png",
+    name: "Shadab Jacob",
+    avatar: "/avatars/Shadab Jacob.png",
     stars: 5,
-    text: "Great team! They helped me care for my mother and explained everything clearly in Urdu.",
-    time: "7 months ago",
+    text: "Working at Bunny Home Care has been a fulfilling experience. The management is supportive, the training is thorough, and the team is collaborative. They genuinely care about both clients and employees, creating a positive work environment.",
+    time: "26 Jun 2025",
   },
   {
-    name: "Jean Dupont",
-    avatar: "/avatars/user1.png",
+    name: "Stephanie Brown",
+    avatar: "/avatars/Stephanie Brown.png",
     stars: 5,
-    text: "Excellent service, they explained everything in French. Truly caring and supportive staff.",
-    time: "4 months ago",
+    text: "Great experience I loved Jerry he is the Best. He helped beyond expectations!",
+    time: "19 Jun 2025",
   },
   {
-    name: "Raj Kumar",
-    avatar: "/avatars/user2.png",
+    name: "Andreina Jerez",
+    avatar: "/avatars/Andreina Jerez.png",
     stars: 5,
-    text: "I am very happy with the service. They speak Hindi and guide me in every step with patience.",
-    time: "9 months ago",
+    text: "Yesenia is an excellent coordinator! She goes above and beyond to make sure everything runs smoothly. From the very beginning, she made us feel comfortable and confident in the care process. She’s always professional, attentive, and quick to respond to any questions or concerns.",
+    time: "05 Jun 2025",
   },
   {
-    name: "Anna Brown",
-    avatar: "/avatars/user3.png",
+    name: "shafeen akhter",
+    avatar: "/avatars/shafeen akhter.png",
     stars: 5,
-    text: "Reliable payments, respectful team, and very easy to switch. Highly recommended!",
-    time: "11 months ago",
+    text: "Bunny home care has been a great place to work with. I have never had any issues and they are very cooperative.",
+    time: "18 Jul 2024",
   },
   {
-    name: "Mohammed Saleh",
-    avatar: "/avatars/user4.png",
+    name: "Nurjahan Kamal",
+    avatar: "/avatars/Nurjahan Kamal.png",
     stars: 5,
-    text: "Bunny Home Care is the best! They really care about their caregivers and clients.",
-    time: "10 months ago",
+    text: "Bunny Home Care is one of the best in my opinion because the staff are very helpful , if I need anything they will help me immediately and they are always very friendly and they make sure that their employees are really well paid and I am very satisfied with their business , All in all this is the best Home Care in my opinion.",
+    time: "17 Jul 2024",
   },
   {
-    name: "Sophia Garcia",
-    avatar: "/avatars/user5.png",
+    name: "Rajeshri Patel",
+    avatar: "/avatars/Rajeshri Patel.png",
     stars: 5,
-    text: "I always feel supported. The staff is kind and speaks my language. Thank you Bunny!",
-    time: "3 weeks ago",
+    text: "Home care agency with an excellent service.",
+    time: "17 Jul 2024",
   },
   {
-    name: "Timothy Miller",
-    avatar: "/avatars/user1.png",
+    name: "Marwa Jawad",
+    avatar: "/avatars/Marwa Jawad.png",
     stars: 5,
-    text: "Great experience overall. The application process was smooth and transparent.",
-    time: "1 month ago",
+    text: "Amazing home care agency, they're so helpful, response quickly, and careful about clients. Highly recommended",
+    time: "17 Jul 2024",
   },
   {
-    name: "Aisha Noor",
-    avatar: "/avatars/user2.png",
+    name: "Karoline Nader",
+    avatar: "/avatars/Karoline Nader.png",
     stars: 5,
-    text: "They helped me understand everything step by step. Very patient and caring team.",
-    time: "2 months ago",
+    text: "Great company to work for, very helpful staff. I highly recommend it",
+    time: "17 Jul 2024",
   },
   {
-    name: "Carlos Fernandez",
-    avatar: "/avatars/user3.png",
+    name: "omer khilwat",
+    avatar: "/avatars/omer khilwat.png",
     stars: 5,
-    text: "Very professional, payments are always on Fridays, and no delays at all!",
-    time: "5 months ago",
+    text: "I highly recommend Bunny Homecare for anyone seeking reliable and compassionate in-home care. 5 stars and a big thank you to their wonderful team!",
+    time: "17 Jul 2024",
   },
   {
-    name: "Emily Davis",
-    avatar: "/avatars/user4.png",
+    name: "Daniel Hernandez",
+    avatar: "/avatars/Daniel Hernandez.png",
     stars: 5,
-    text: "I am very satisfied. They explained everything clearly and treat me like family.",
-    time: "7 months ago",
+    text: "Bunny Home care was exceptional in assisting me to become a caregiver for my father who is recovering from lung cancer chemotherapy and radiation. I am grateful for their professionalism, understanding, training and support.",
+    time: "17 Jul 2024",
   },
   {
-    name: "Hasan Rahman",
-    avatar: "/avatars/user5.png",
+    name: "Sandi Satouf",
+    avatar: "/avatars/Sandi Satouf.png",
     stars: 5,
-    text: "Great service in Bengali. They are always helpful and answer my questions quickly.",
-    time: "8 months ago",
+    text: "Great customer service! Amazing people to work with, fast respond, very happy to work with bunny home care. I highly recommend!",
+    time: "17 Jul 2024",
   },
   {
-    name: "Michael Green",
-    avatar: "/avatars/user1.png",
+    name: "Lena Nassar",
+    avatar: "/avatars/Lena Nassar.png",
     stars: 5,
-    text: "Easy switching process, no lost hours. Definitely recommend Bunny Home Care.",
-    time: "6 months ago",
+    text: "Work for this place! Amazing internal and external customer service",
+    time: "17 Jul 2024",
   },
   {
-    name: "Olga Petrova",
-    avatar: "/avatars/user2.png",
+    name: "Marilda Beqiri",
+    avatar: "/avatars/Marilda Beqiri.png",
     stars: 5,
-    text: "I am very happy with their service. They respect my culture and support me always.",
-    time: "4 months ago",
+    text: "Fantastic home care agency. Staff is very knowledgeable and friendly.",
+    time: "17 Jul 2024",
   },
-  // 👉 Buradan 50 review olacak şekilde doldurabilirsin
+  {
+    name: "samira prithibi",
+    avatar: "/avatars/samira prithibi.png",
+    stars: 5,
+    text: "I’m extremely happy to be a part of this Bunny Home Care. My experience with them has been awesome. Their Customer Service are extremely nice. All the ladies I’ve spoken to they are all very helpful and nice human being.",
+    time: "05 Aug 2024",
+  },
 ];
 
 function Home() {
@@ -290,13 +296,15 @@ function Home() {
             {/* Buttons row */}
             <div className="flex items-center gap-4 mt-3 md:mt-4">
               <a
-                href="#switch"
+                href="#switching"
                 className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
               >
                 Switch Now
               </a>
               <a
-                href="#offer"
+                href="https://meetings.hubspot.com/emeto/greet?uuid=ff1348cf-c6bd-432c-bf7c-13aca4ca3922"
+                target="_blank" 
+                rel="noopener noreferrer" 
                 className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
               >
                 Get Your Offer
@@ -523,7 +531,7 @@ function Home() {
 
         {/* TikTok Style Video Slider */}
         <div className="mx-auto w-full flex justify-center">
-          <div className="relative w-full max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
+          <div  className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
             <Swiper
               modules={[Navigation, Pagination, Mousewheel]}
               direction="vertical"
@@ -672,6 +680,29 @@ function Home() {
             </div>
           ))}
         </div>
+        <div className="flex justify-center mt-10">
+  <a
+    href="tel:+12674839642"
+    className="flex items-center gap-2 bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
+  >
+    {/* Phone Icon */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+      />
+    </svg>
+    Call Us Now
+  </a>
+</div>
       </section>
 
       {/* LANGUAGES */}
@@ -684,7 +715,7 @@ function Home() {
   so that you can express yourself comfortably.
   <br />
   <span className="text-gray-800 font-medium">
-    Click on your preferred language to contact our representative or get information in your own language.
+    Click on your preferred card to get more information in your language.
   </span>
 </p>
 

@@ -29,6 +29,13 @@ export default function Navbar() {
             About Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
+           <a
+            href="#reviews"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
+          >
+            Reviews
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
           <a
             href="#benefits"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
@@ -58,13 +65,6 @@ export default function Navbar() {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
-            href="#reviews"
-            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
-          >
-            Reviews
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a
             href="#contact"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
@@ -74,7 +74,7 @@ export default function Navbar() {
         </nav>
 
         <a
-          href="#contact"
+          href="#switching"
           className="hidden lg:block bg-gradient-to-r from-primary to-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
         >
           Switch Now

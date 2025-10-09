@@ -61,3 +61,11 @@
 .swiper-button-next::after {
   font-size: 24px; /* ok ikon büyüklüğü */
 }
+
+/* WhatsApp widget solda gözüksün */
+.floating-whatsapp-button,
+.floating-whatsapp-chatbox {
+  right: auto !important;
+  left: 20px !important;
+  bottom: 20px !important;
+}

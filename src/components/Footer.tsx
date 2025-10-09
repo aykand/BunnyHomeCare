@@ -29,21 +29,24 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-4">
-            {[
-              { Icon: FaFacebook, href: "#" },
-              { Icon: FaInstagram, href: "#" },
-              { Icon: FaLinkedin, href: "#" },
-              { Icon: FaTiktok, href: "#" },
-            ].map(({ Icon, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-all duration-300"
-              >
-                <Icon className="w-5 h-5 text-white" />
-              </a>
-            ))}
-          </div>
+  {[
+    { Icon: FaFacebook, href: "https://www.facebook.com/BunnyHomeCare/" },
+    { Icon: FaInstagram, href: "https://www.instagram.com/bunny.homecare/" },
+    { Icon: FaLinkedin, href: "https://www.linkedin.com/company/bunnyhomecare/" },
+    { Icon: FaTiktok, href: "https://www.tiktok.com/@bunny.home.care" }, // ✅ "#" kaldırıldı
+  ].map(({ Icon, href }, i) => (
+    <a
+      key={i}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer" // ✅ güvenli yeni sekme açılışı
+      className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+    >
+      <Icon className="w-5 h-5 text-white" />
+    </a>
+  ))}
+</div>
+
         </div>
 
         {/* 2️⃣ Quick Links */}
@@ -52,9 +55,9 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             {[
               { name: "About Us", href: "#about" },
+              { name: "Reviews", href: "#reviews" },
               { name: "Switching", href: "#switching" },
               { name: "Languages", href: "#languages" },
-              { name: "Reviews", href: "#reviews" },
               { name: "Contact", href: "#contact" },
             ].map((item, i) => (
               <li key={i}>
@@ -74,8 +77,8 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-6">Legal</h3>
           <ul className="space-y-3 text-sm">
             {[
-              { name: "Non Discrimination Policy", Icon: FaShieldAlt },
-              { name: "Terms of Service", Icon: FaFileAlt },
+              { name: "Non Discrimination Policy", Icon: FaShieldAlt, to: "/non-discrimination-policy" },
+              { name: "Terms of Service", Icon: FaFileAlt, to: "/terms-of-service" },
               { name: "Privacy Policy", Icon: FaLock, to: "/privacy-policy" },
             ].map(({ name, Icon, to }, i) => (
               <li key={i}>

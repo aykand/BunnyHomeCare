@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-
-// 🔹 HubSpot global tip tanımı (TS için güvenli)
-declare global {
-  interface Window {
-    hbspt?: {
-      forms: {
-        create: (config: any) => void;
-      };
-    };
-  }
-}
 
 const offers = [
   {
@@ -45,50 +34,6 @@ const offers = [
 
 export default function WhatWeOffer() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [formLoaded, setFormLoaded] = useState(false);
-
-  // ✅ HubSpot formu yükle
-  useEffect(() => {
-    // Script zaten varsa tekrar ekleme
-    if (
-      document.querySelector(
-        'script[src="https://js.hsforms.net/forms/embed/44032932.js"]'
-      )
-    ) {
-      if (window.hbspt) {
-        window.hbspt.forms.create({
-          region: "na1",
-          portalId: "44032932",
-          formId: "b20f10f2-517b-4833-a8fb-7bf6ac8f46bd",
-          target: "#hubspot-form",
-          onFormReady: () => setFormLoaded(true),
-        });
-      }
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = "https://js.hsforms.net/forms/embed/44032932.js";
-    script.defer = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      // @ts-ignore
-      if (window.hbspt) {
-        window.hbspt.forms.create({
-          region: "na1",
-          portalId: "44032932",
-          formId: "b20f10f2-517b-4833-a8fb-7bf6ac8f46bd",
-          target: "#hubspot-form",
-          onFormReady: () => setFormLoaded(true),
-        });
-      }
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   return (
     <section className="bg-gray-50 py-16" id="benefits">
@@ -156,14 +101,47 @@ export default function WhatWeOffer() {
         </Swiper>
       </div>
 
-      {/* ✅ HubSpot Form (shadow + rounded + animasyonlu fade-in) */}
-      <div
-        className={`mt-10 bg-white shadow-md rounded-xl p-6 max-w-lg mx-auto transition-opacity duration-700 ${
-          formLoaded ? "opacity-100" : "opacity-0"
-        }`}
+     {/* ✅ Modern Form - What We Offer ile aynı stile sahip */}
+          <div className="mt-20 max-w-3xl mx-auto text-center px-4 sm:px-6">
+  <p className="text-gray-700 text-lg mb-6">
+    Fill out the form below and our team will reach out to you with next steps.
+  </p>
+
+  <form className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+    {/* Full Name */}
+    <input
+      type="text"
+      placeholder="Full Name"
+      className="px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/60 focus:border-primary/60 outline-none transition-all duration-300 bg-white shadow-sm hover:shadow-md"
+    />
+
+    {/* Phone */}
+    <input
+      type="tel"
+      placeholder="Phone Number"
+      className="px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/60 focus:border-primary/60 outline-none transition-all duration-300 bg-white shadow-sm hover:shadow-md"
+    />
+
+    {/* Zip Code */}
+    <input
+      type="text"
+      placeholder="Zip Code"
+      className="px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/60 focus:border-primary/60 outline-none transition-all duration-300 bg-white shadow-sm hover:shadow-md"
+    />
+
+    {/* Button */}
+    <div className="md:col-span-3">
+      <button
+        type="submit"
+        className="w-full bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white py-3 rounded-lg font-semibold tracking-wide hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
       >
-        <div id="hubspot-form"></div>
-      </div>
+        Learn More
+      </button>
+    </div>
+  </form>
+</div>
+
+
     </section>
   );
 }
