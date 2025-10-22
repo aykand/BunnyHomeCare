@@ -12,12 +12,12 @@ const offers = [
   },
   {
     title: "Easy Switching",
-    description: "No Lost Hours, No Gaps.",
+    description: "Fast, Easy, and Your Service Won’t Stop.",
     img: "/images/easy_switching.png",
   },
   {
     title: "5★ Customer Service",
-    description: "We Speak Your Language.",
+    description: "At Bunny Home Care, We Speak Your Language and Share Your Culture",
     img: "/images/customer_service.png",
   },
   {
@@ -26,10 +26,22 @@ const offers = [
     img: "/images/trust.png",
   },
   {
-    title: "Health Insurance",
-    description: "Medical, Dental, Vision & RX.",
-    img: "/images/health_insurance.png",
-  },
+  title: "Health Insurance",
+  description: (
+    <>
+      Medical, Dental, Vision & RX. <br />
+      <a
+        href="https://home.bunnyhomecare.com/health-plan"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary font-medium hover:underline transition-colors"
+      >
+        Learn more
+      </a>
+    </>
+  ),
+  img: "/images/health_insurance.png",
+},
 ];
 
 export default function WhatWeOffer() {
@@ -104,7 +116,7 @@ export default function WhatWeOffer() {
      {/* ✅ Modern Form - What We Offer ile aynı stile sahip */}
           <div className="mt-20 max-w-3xl mx-auto text-center px-4 sm:px-6">
   <p className="text-gray-700 text-lg mb-6">
-    Fill out the form below and our team will reach out to you with next steps.
+    Contact one of our Team Representatives.
   </p>
 
   <form className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
@@ -135,7 +147,7 @@ export default function WhatWeOffer() {
         type="submit"
         className="w-full bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white py-3 rounded-lg font-semibold tracking-wide hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
       >
-        Learn More
+        Submit Now
       </button>
     </div>
   </form>

@@ -270,81 +270,84 @@ function Home() {
     <div className="font-sans text-gray-800 text-center">
       {/* HERO */}
       <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
-        <div className="container mx-auto flex flex-col md:flex-row items-center px-8">
-          {/* Left Content */}
-          <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              You Deserve Better Care
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+  <div className="container mx-auto flex flex-col md:flex-row items-center px-8">
+    {/* Left Content */}
+    <div className="md:w-1/2 text-center md:text-left flex flex-col justify-center space-y-6">
+      {/* Başlık */}
+      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+        You Deserve Better Care
+      </h1>
+
+      {/* Açıklama */}
+      <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Earn{" "}
               <span className="font-semibold text-primary">
                 $10,000 more in 5 years
               </span>
               , with the best rate in the area.*
             </p>
-            {/* Footnote */}
+             {/* Footnote */}
             <p className="mt-2 text-xs text-left text-slate-500 italic">
               *Results may vary by case.
             </p>
-            {/* Buttons row */}
-            <div className="flex items-center gap-4 mt-3 md:mt-4">
-              <a
-                href="#switching"
-                className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
-              >
-                Switch Now
-              </a>
-              <a
-                href="https://meetings.hubspot.com/emeto/greet?uuid=ff1348cf-c6bd-432c-bf7c-13aca4ca3922"
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
-              >
-                Get Your Offer
-              </a>
-            </div>
-            {/* Stats Row under buttons */}
-            <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:justify-start">
-              {/* +20 Years Experience */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                <span className="text-2xl font-bold text-gray-900">+20</span>
-                <span className="text-gray-600 text-sm">
-                  Years of Combined Experience
-                </span>
-              </div>
 
-              {/* Google Rating */}
-              <a
-                href="https://share.google/7TGMFrT77hWjpaoti"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/logos/Google_logo.png"
-                    alt="Google"
-                    className="h-6"
-                  />
-                  <span className="text-lg font-bold text-gray-900">5.0</span>
-                  <div className="flex text-yellow-400 text-sm">★★★★★</div>
-                </div>
-                <span className="text-sm text-gray-600">Customer Reviews</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-            <img
-              src="/images/bhc_hero.png"
-              alt="Happy seniors with Bunny mascot"
-              className="rounded-xl shadow-xl w-[550px] md:w-[650px] transition-transform duration-300 hover:scale-105"
-            />
-          </div>
+       {/* Stats Row */}
+      <div className="flex flex-row justify-center md:justify-start items-center gap-10 pt-2 flex-wrap order-1 md:order-none">
+        {/* +20 Years Experience */}
+        <div className="text-center">
+          <span className="text-2xl font-bold text-gray-900">+20</span>
+          <p className="text-gray-600 text-sm">
+            Years of Combined Experience
+          </p>
         </div>
-      </section>
+
+        {/* Google Rating */}
+        <a
+          href="https://share.google/7TGMFrT77hWjpaoti"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center"
+        >
+          <div className="flex items-center justify-center gap-2">
+            <img src="/logos/Google_logo.png" alt="Google" className="h-6" />
+            <span className="text-lg font-bold text-gray-900">5.0</span>
+            <div className="flex text-yellow-400 text-sm">★★★★★</div>
+          </div>
+          <p className="text-sm text-gray-600">Customer Reviews</p>
+        </a>
+      </div>
+
+      {/* Buttons row */}
+      <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
+        <a
+          href="#switching"
+          className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+        >
+          Switch Now
+        </a>
+        <a
+          href="https://meetings.hubspot.com/emeto/greet?uuid=ff1348cf-c6bd-432c-bf7c-13aca4ca3922"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
+        >
+          Get Your Offer
+        </a>
+      </div>
+    </div>
+
+    {/* Right Image */}
+    <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+      <img
+        src="/images/bhc_hero.png"
+        alt="Happy seniors with Bunny mascot"
+        className="rounded-xl shadow-xl w-[550px] md:w-[650px] transition-transform duration-300 hover:scale-105"
+      />
+    </div>
+  </div>
+</section>
+
+
       {/* ABOUT US */}
       <section
         id="about"
@@ -456,10 +459,13 @@ function Home() {
         </div>
       </section>
 
+      {/* WHAT WE OFFER */}
+      <WhatWeOffer />
+
       {/* TESTIMONIALS */}
       <section className="px-6 py-16 bg-white" id="reviews">
         <h2 className="text-3xl font-bold mb-10 text-center">
-          Testimonials & Reviews
+          What People Say About Us
         </h2>
 
         {/* Reviews List */}
@@ -549,7 +555,7 @@ function Home() {
                 { src: "/videos/shareen.mp4", name: "Shareen C." },
                 { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
                 { src: "/videos/nuhash.mp4", name: "Nuash M." },
-                { src: "/videos/timothy.mp4", name: "Timothy M." },
+                { src: "/videos/wyatt.mp4", name: "Wyatt M." },
                 { src: "/videos/azer.mp4", name: "Azer G." },
               ].map((video, index) => (
                 <SwiperSlide
@@ -590,15 +596,69 @@ function Home() {
         </div>
       </section>
 
-      {/* WHAT WE OFFER */}
-      <WhatWeOffer />
+      <section className="bg-[rgb(239_246_255_/_var(--tw-bg-opacity,1))] py-20 px-6">
+  {/* Başlıklar */}
+  <div className="text-center mb-10">
+    <h3 className="text-3xl font-semibold mb-4">
+      How does Bunny Home Care do it?
+    </h3>
+    <h4 className="text-lg text-gray-600 font-medium">
+      It’s not magic, but hard work on our customer service:
+    </h4>
+  </div>
+
+  {/* Kartlar Grid */}
+  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-10">
+    {[
+      {
+        title: "Get Paid Every Friday",
+        text: "Reliable weekly payments on time, every week.",
+        img: "/images/friday.png",
+      },
+      {
+        title: "Best Rates",
+        text: "The highest pay rates in Pennsylvania.",
+        img: "/images/best_rate.png",
+      },
+      {
+        title: "No Lost Hours",
+        text: "Keep every hour you’ve worked without gaps.",
+        img: "/images/hha.png",
+      },
+      {
+        title: "We Speak Your Language",
+        text: "Support and service in 15+ languages.",
+        img: "/images/wsyl.png",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
+      >
+        <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-primary">
+          {item.title}
+        </h3>
+        <p className="text-base text-gray-700 leading-relaxed mb-4">
+          {item.text}
+        </p>
+
+        <img
+          src={item.img}
+          alt={item.title}
+          className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* SWITCHING */}
       <section className="px-6 py-20 bg-white" id="switching">
         {/* Başlık */}
-        <h2 className="text-4xl font-extrabold text-center mb-4">Switching</h2>
+        <h2 className="text-4xl font-extrabold text-center mb-4">Easy Switching</h2>
         <p className="text-center text-xl text-gray-700 mb-14">
-          Spoiler alert! No reapply, no lost hours, no gaps.
+          Switching to Bunny Home Care is very easy: it takes you just one call.
         </p>
 
         {/* Bunny + Chat Görseli */}
@@ -620,59 +680,6 @@ function Home() {
               className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
             />
           </div>
-        </div>
-
-        {/* Alt başlık */}
-        <h3 className="text-3xl font-semibold text-center mb-10">
-          How does Bunny Home Care do it?
-        </h3>
-        <h4 className="text-lg text-gray-600 font-medium mb-8">
-          It’s not magic, but hard work on our customer service:
-        </h4>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-10">
-          {[
-            {
-              title: "Get Paid Every Friday",
-              text: "Reliable weekly payments on time, every week.",
-              img: "/images/friday.png",
-            },
-            {
-              title: "Best Rates",
-              text: "The highest pay rates in Pennsylvania.",
-              img: "/images/best_rate.png",
-            },
-            {
-              title: "No Lost Hours",
-              text: "Keep every hour you’ve worked without gaps.",
-              img: "/images/hha.png",
-            },
-            {
-              title: "We Speak Your Language",
-              text: "Support and service in 15+ languages.",
-              img: "/images/wsyl.png",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
-            >
-              {/* Title + Text üstte */}
-              <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-primary">
-                {item.title}
-              </h3>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                {item.text}
-              </p>
-
-              {/* Görsel altta */}
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
-              />
-            </div>
-          ))}
         </div>
         <div className="flex justify-center mt-10">
   <a
@@ -801,7 +808,7 @@ function Home() {
 
       {/* TRUST */}
       <section className="px-8 py-16" id="trust">
-        <h2 className="text-2xl font-bold mb-6">Trust & Accreditations</h2>
+        <h2 className="text-2xl font-bold mb-6">Accreditations</h2>
         <p className="mb-6 max-w-3xl mx-auto">
           Licensed by the Pennsylvania Department of Health, A+ Accredited by
           BBB, and partnered with major health organizations.
@@ -851,8 +858,7 @@ function Home() {
             Become a Caregiver with Bunny Home Care
           </h2>
           <p className="text-gray-600 mb-8">
-            Fill out the form below and our team will reach out to you with next
-            steps.
+            Fill out the form below and our team will reach out to you.
           </p>
 
           {/* Form */}

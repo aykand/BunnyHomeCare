@@ -29,18 +29,18 @@ export default function Navbar() {
             About Us
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
-           <a
-            href="#reviews"
-            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
-          >
-            Reviews
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
-          </a>
           <a
             href="#benefits"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             What We Offer
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+           <a
+            href="#reviews"
+            className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
+          >
+            Reviews
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
@@ -61,7 +61,7 @@ export default function Navbar() {
             href="#trust"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
-            Trust
+            Accreditations
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
@@ -140,7 +140,7 @@ export default function Navbar() {
               className="px-6 py-4 text-gray-700 font-medium bg-gray-50/80 border border-gray-200/60 hover:text-primary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 rounded-xl mx-4 group backdrop-blur-sm"
             >
               <span className="flex items-center justify-between">
-                Trust
+                Accreditations
                 <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </span>
             </a>
