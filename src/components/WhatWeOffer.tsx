@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import HubspotForm from "react-hubspot-form"; // Buraya eklendi
 
 const offers = [
   {
@@ -26,22 +27,22 @@ const offers = [
     img: "/images/trust.png",
   },
   {
-  title: "Health Insurance",
-  description: (
-    <>
-      Medical, Dental, Vision & RX. <br />
-      <a
-        href="https://home.bunnyhomecare.com/health-plan"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-primary font-medium hover:underline transition-colors"
-      >
-        Learn more
-      </a>
-    </>
-  ),
-  img: "/images/health_insurance.png",
-},
+    title: "Health Insurance",
+    description: (
+      <>
+        Medical, Dental, Vision & RX. <br />
+        <a
+          href="https://home.bunnyhomecare.com/health-plan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary font-medium hover:underline transition-colors"
+        >
+          Learn more
+        </a>
+      </>
+    ),
+    img: "/images/health_insurance.png",
+  },
 ];
 
 export default function WhatWeOffer() {
@@ -113,47 +114,25 @@ export default function WhatWeOffer() {
         </Swiper>
       </div>
 
-     {/* ✅ Modern Form - What We Offer ile aynı stile sahip */}
-          <div className="mt-20 max-w-3xl mx-auto text-center px-4 sm:px-6">
-  <p className="text-gray-700 text-lg mb-6">
-    Contact one of our Team Representatives.
-  </p>
+      <div className="mt-20 max-w-3xl mx-auto text-center px-4 sm:px-6">
+        <p className="text-gray-700 text-lg mb-6">
+          Contact one of our Team Representatives.
+        </p>
 
-  <form className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-    {/* Full Name */}
-    <input
-      type="text"
-      placeholder="Full Name"
-      className="px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/60 focus:border-primary/60 outline-none transition-all duration-300 bg-white shadow-sm hover:shadow-md"
-    />
-
-    {/* Phone */}
-    <input
-      type="tel"
-      placeholder="Phone Number"
-      className="px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/60 focus:border-primary/60 outline-none transition-all duration-300 bg-white shadow-sm hover:shadow-md"
-    />
-
-    {/* Zip Code */}
-    <input
-      type="text"
-      placeholder="Zip Code"
-      className="px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/60 focus:border-primary/60 outline-none transition-all duration-300 bg-white shadow-sm hover:shadow-md"
-    />
-
-    {/* Button */}
-    <div className="md:col-span-3">
-      <button
-        type="submit"
-        className="w-full bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white py-3 rounded-lg font-semibold tracking-wide hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-      >
-        Submit Now
-      </button>
-    </div>
-  </form>
-</div>
-
-
+        {/* --- DÜZELTME: Beyaz kart ve gölge kaldırıldı --- */}
+        <div className="mx-auto w-full max-w-[700px]">
+          <HubspotForm
+            portalId="44032932"
+            formId="192b5f4b-65e7-4b1e-bde1-96a320cfad06"
+            region="na1"
+            loading={
+              <div className="text-gray-500 text-lg">Loading form...</div>
+            }
+            onSubmit={() => console.log("✅ What We Offer form submitted!")}
+          />
+        </div>
+        {/* --- DÜZELTME SONU --- */}
+      </div>
     </section>
   );
 }

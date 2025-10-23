@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, Mousewheel } from "swiper/modules";
 import WhatWeOffer from "../components/WhatWeOffer";
 import ReactPlayer from "react-player";
+import HubspotForm from "react-hubspot-form";
 
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
@@ -201,7 +202,7 @@ function Home() {
 
   // ✅ Languages
   const languages = [
-    { lang: "English", phone: "+1 267-483-9642" },//ofis
+    { lang: "English", phone: "+1 267-483-9642" }, //ofis
     { lang: "Español", phone: "+1 267-328-4815" },
     { lang: "Français", phone: "+1 267-873-2253" },
     { lang: "Türkçe", phone: "+1 267-225-2151" },
@@ -270,83 +271,86 @@ function Home() {
     <div className="font-sans text-gray-800 text-center">
       {/* HERO */}
       <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
-  <div className="container mx-auto flex flex-col md:flex-row items-center px-8">
-    {/* Left Content */}
-    <div className="md:w-1/2 text-center md:text-left flex flex-col justify-center space-y-6">
-      {/* Başlık */}
-      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-        You Deserve Better Care
-      </h1>
+        <div className="container mx-auto flex flex-col md:flex-row items-center px-8">
+          {/* Left Content */}
+          <div className="md:w-1/2 text-center md:text-left flex flex-col justify-center space-y-6">
+            {/* Başlık */}
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+              You Deserve Better Care
+            </h1>
 
-      {/* Açıklama */}
-      <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            {/* Açıklama */}
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Earn{" "}
               <span className="font-semibold text-primary">
                 $10,000 more in 5 years
               </span>
               , with the best rate in the area.*
             </p>
-             {/* Footnote */}
+            {/* Footnote */}
             <p className="mt-2 text-xs text-left text-slate-500 italic">
               *Results may vary by case.
             </p>
 
-       {/* Stats Row */}
-      <div className="flex flex-row justify-center md:justify-start items-center gap-10 pt-2 flex-wrap order-1 md:order-none">
-        {/* +20 Years Experience */}
-        <div className="text-center">
-          <span className="text-2xl font-bold text-gray-900">+20</span>
-          <p className="text-gray-600 text-sm">
-            Years of Combined Experience
-          </p>
-        </div>
+            {/* Stats Row */}
+            <div className="flex flex-row justify-center md:justify-start items-center gap-10 pt-2 flex-wrap order-1 md:order-none">
+              {/* +20 Years Experience */}
+              <div className="text-center">
+                <span className="text-2xl font-bold text-gray-900">+20</span>
+                <p className="text-gray-600 text-sm">
+                  Years of Combined Experience
+                </p>
+              </div>
 
-        {/* Google Rating */}
-        <a
-          href="https://share.google/7TGMFrT77hWjpaoti"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-center"
-        >
-          <div className="flex items-center justify-center gap-2">
-            <img src="/logos/Google_logo.png" alt="Google" className="h-6" />
-            <span className="text-lg font-bold text-gray-900">5.0</span>
-            <div className="flex text-yellow-400 text-sm">★★★★★</div>
+              {/* Google Rating */}
+              <a
+                href="https://share.google/7TGMFrT77hWjpaoti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <img
+                    src="/logos/Google_logo.png"
+                    alt="Google"
+                    className="h-6"
+                  />
+                  <span className="text-lg font-bold text-gray-900">5.0</span>
+                  <div className="flex text-yellow-400 text-sm">★★★★★</div>
+                </div>
+                <p className="text-sm text-gray-600">Customer Reviews</p>
+              </a>
+            </div>
+
+            {/* Buttons row */}
+            <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
+              <a
+                href="#switching"
+                className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+              >
+                Switch Now
+              </a>
+              <a
+                href="https://meetings.hubspot.com/emeto/greet?uuid=ff1348cf-c6bd-432c-bf7c-13aca4ca3922"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
+              >
+                Get Your Offer
+              </a>
+            </div>
           </div>
-          <p className="text-sm text-gray-600">Customer Reviews</p>
-        </a>
-      </div>
 
-      {/* Buttons row */}
-      <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
-        <a
-          href="#switching"
-          className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
-        >
-          Switch Now
-        </a>
-        <a
-          href="https://meetings.hubspot.com/emeto/greet?uuid=ff1348cf-c6bd-432c-bf7c-13aca4ca3922"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
-        >
-          Get Your Offer
-        </a>
-      </div>
-    </div>
-
-    {/* Right Image */}
-    <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-      <img
-        src="/images/bhc_hero.png"
-        alt="Happy seniors with Bunny mascot"
-        className="rounded-xl shadow-xl w-[550px] md:w-[650px] transition-transform duration-300 hover:scale-105"
-      />
-    </div>
-  </div>
-</section>
-
+          {/* Right Image */}
+          <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+            <img
+              src="/images/bhc_hero.png"
+              alt="Happy seniors with Bunny mascot"
+              className="rounded-xl shadow-xl w-[550px] md:w-[650px] transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* ABOUT US */}
       <section
@@ -531,7 +535,7 @@ function Home() {
 
         {/* TikTok Style Video Slider */}
         <div className="mx-auto w-full flex justify-center">
-          <div  className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
             <Swiper
               modules={[Navigation, Pagination, Mousewheel]}
               direction="vertical"
@@ -597,66 +601,67 @@ function Home() {
       </section>
 
       <section className="bg-[rgb(239_246_255_/_var(--tw-bg-opacity,1))] py-20 px-6">
-  {/* Başlıklar */}
-  <div className="text-center mb-10">
-    <h3 className="text-3xl font-semibold mb-4">
-      How does Bunny Home Care do it?
-    </h3>
-    <h4 className="text-lg text-gray-600 font-medium">
-      It’s not magic, but hard work on our customer service:
-    </h4>
-  </div>
+        {/* Başlıklar */}
+        <div className="text-center mb-10">
+          <h3 className="text-3xl font-semibold mb-4">
+            How does Bunny Home Care do it?
+          </h3>
+          <h4 className="text-lg text-gray-600 font-medium">
+            It’s not magic, but hard work on our customer service:
+          </h4>
+        </div>
 
-  {/* Kartlar Grid */}
-  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-10">
-    {[
-      {
-        title: "Get Paid Every Friday",
-        text: "Reliable weekly payments on time, every week.",
-        img: "/images/friday.png",
-      },
-      {
-        title: "Best Rates",
-        text: "The highest pay rates in Pennsylvania.",
-        img: "/images/best_rate.png",
-      },
-      {
-        title: "No Lost Hours",
-        text: "Keep every hour you’ve worked without gaps.",
-        img: "/images/hha.png",
-      },
-      {
-        title: "We Speak Your Language",
-        text: "Support and service in 15+ languages.",
-        img: "/images/wsyl.png",
-      },
-    ].map((item, i) => (
-      <div
-        key={i}
-        className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
-      >
-        <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-primary">
-          {item.title}
-        </h3>
-        <p className="text-base text-gray-700 leading-relaxed mb-4">
-          {item.text}
-        </p>
+        {/* Kartlar Grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-10">
+          {[
+            {
+              title: "Get Paid Every Friday",
+              text: "Reliable weekly payments on time, every week.",
+              img: "/images/friday.png",
+            },
+            {
+              title: "Best Rates",
+              text: "The highest pay rates in Pennsylvania.",
+              img: "/images/best_rate.png",
+            },
+            {
+              title: "No Lost Hours",
+              text: "Keep every hour you’ve worked without gaps.",
+              img: "/images/hha.png",
+            },
+            {
+              title: "We Speak Your Language",
+              text: "Support and service in 15+ languages.",
+              img: "/images/wsyl.png",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-primary">
+                {item.title}
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                {item.text}
+              </p>
 
-        <img
-          src={item.img}
-          alt={item.title}
-          className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
-        />
-      </div>
-    ))}
-  </div>
-</section>
-
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* SWITCHING */}
       <section className="px-6 py-20 bg-white" id="switching">
         {/* Başlık */}
-        <h2 className="text-4xl font-extrabold text-center mb-4">Easy Switching</h2>
+        <h2 className="text-4xl font-extrabold text-center mb-4">
+          Easy Switching
+        </h2>
         <p className="text-center text-xl text-gray-700 mb-14">
           Switching to Bunny Home Care is very easy: it takes you just one call.
         </p>
@@ -682,28 +687,28 @@ function Home() {
           </div>
         </div>
         <div className="flex justify-center mt-10">
-  <a
-    href="tel:+12674839642"
-    className="flex items-center gap-2 bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
-  >
-    {/* Phone Icon */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-      />
-    </svg>
-    Call Us Now
-  </a>
-</div>
+          <a
+            href="tel:+12674839642"
+            className="flex items-center gap-2 bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
+          >
+            {/* Phone Icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            Call Us Now
+          </a>
+        </div>
       </section>
 
       {/* LANGUAGES */}
@@ -712,13 +717,15 @@ function Home() {
           We Speak Your Language
         </h2>
         <p className="mb-10 text-center max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed">
-  Our dedicated team speaks <span className="font-semibold text-primary">15+ languages</span> and knows your culture, 
-  so that you can express yourself comfortably.
-  <br />
-  <span className="text-gray-800 font-medium">
-    Click on your preferred card to get more information in your language.
-  </span>
-</p>
+          Our dedicated team speaks{" "}
+          <span className="font-semibold text-primary">15+ languages</span> and
+          knows your culture, so that you can express yourself comfortably.
+          <br />
+          <span className="text-gray-800 font-medium">
+            Click on your preferred card to get more information in your
+            language.
+          </span>
+        </p>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-8">
           <Swiper
@@ -814,44 +821,44 @@ function Home() {
           BBB, and partnered with major health organizations.
         </p>
         <Swiper
-  modules={[Autoplay]}
-  spaceBetween={40}
-  slidesPerView={3}
-  loop
-  autoplay={{ delay: 2000 }}
-  breakpoints={{
-    320: { slidesPerView: 2 },
-    640: { slidesPerView: 3 },
-    1024: { slidesPerView: 5 },
-  }}
-  className="max-w-6xl mx-auto"
->
-  {[
-    { src: "/logos/bbb.png", alt: "BBB" },
-    { src: "/logos/amerihealth.webp", alt: "AmeriHealth" },
-    { src: "/logos/keystone.webp", alt: "Keystone" },
-    { src: "/logos/pahealth.webp", alt: "PA Health" },
-    { src: "/logos/padepartment.webp", alt: "PA Department of Health" },
-    { src: "/logos/upmc.webp", alt: "UPMC" },
-  ].map((logo, i) => (
-    <SwiperSlide
-      key={i}
-      className="flex items-center justify-center h-24" // eşit hizalama için sabit yükseklik
-    >
-      <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm p-3 hover:shadow-md transition-all duration-300">
-        <img
-          src={logo.src}
-          alt={logo.alt}
-          className="max-h-12 w-auto object-contain"
-        />
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper>
+          modules={[Autoplay]}
+          spaceBetween={40}
+          slidesPerView={3}
+          loop
+          autoplay={{ delay: 2000 }}
+          breakpoints={{
+            320: { slidesPerView: 2 },
+            640: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 },
+          }}
+          className="max-w-6xl mx-auto"
+        >
+          {[
+            { src: "/logos/bbb.png", alt: "BBB" },
+            { src: "/logos/amerihealth.webp", alt: "AmeriHealth" },
+            { src: "/logos/keystone.webp", alt: "Keystone" },
+            { src: "/logos/pahealth.webp", alt: "PA Health" },
+            { src: "/logos/padepartment.webp", alt: "PA Department of Health" },
+            { src: "/logos/upmc.webp", alt: "UPMC" },
+          ].map((logo, i) => (
+            <SwiperSlide
+              key={i}
+              className="flex items-center justify-center h-24" // eşit hizalama için sabit yükseklik
+            >
+              <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm p-3 hover:shadow-md transition-all duration-300">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-12 w-auto object-contain"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
       {/* SUBSCRIBE / CAREGIVER FORM */}
-      <section className="bg-white py-16" id="subscribe">
+      <section className="py-16 bg-[#f9fafb]" id="subscribe">
         <div className="max-w-3xl mx-auto px-6 text-center">
           {/* Başlık */}
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
@@ -861,39 +868,25 @@ function Home() {
             Fill out the form below and our team will reach out to you.
           </p>
 
-          {/* Form */}
-          <form className="bg-gray-50 shadow-md rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Full Name */}
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
-            />
-
-            {/* Phone */}
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
-            />
-
-            {/* Zip Code */}
-            <input
-              type="text"
-              placeholder="Zip Code"
-              className="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-300 hover:border-primary/50"
-            />
-
-            {/* Button */}
-            <div className="md:col-span-3">
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-teal-500 transition-all duration-300 transform hover:scale-105"
-              >
-                Subscribe Now
-              </button>
+          {/* Form Container */}
+          <div
+            id="custom-hubspot-form"
+            className="bg-white/95 shadow-xl rounded-2xl p-8 md:p-10 border border-gray-100 mx-auto w-full max-w-[700px]"
+          >
+            <div className="flex justify-center">
+              <div className="w-full">
+                <HubspotForm
+                  portalId="44032932"
+                  formId="b20f10f2-517b-4833-a8fb-7bf6ac8f46bd"
+                  region="na1"
+                  loading={
+                    <div className="text-gray-500 text-lg">Loading form...</div>
+                  }
+                  onSubmit={() => console.log("✅ HubSpot form submitted!")}
+                />
+              </div>
             </div>
-          </form>
+          </div>
         </div>
       </section>
 
@@ -967,7 +960,6 @@ function Home() {
       </section>
 
       {/* CONTACT */}
-      {/* CONTACT */}
       <section
         id="contact"
         className="relative bg-gradient-to-br from-blue-50 via-white to-teal-50 py-20"
@@ -985,62 +977,21 @@ function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            {/* Left Side - Contact Form */}
+            {/* ✅ Left Side - HubSpot Form Embed */}
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-300 hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Send us a Message
               </h3>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="John Doe"
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="john.doe@example.com"
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+1 (555) 123-4567"
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Message (Optional)
-                  </label>
-                  <textarea
-                    rows={5}
-                    placeholder="Tell us how we can help..."
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent focus:outline-none transition-all duration-300 hover:border-primary/50 resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-teal-500 text-white py-4 rounded-lg font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Send Message
-                </button>
-              </form>
+              {/* HubSpot Form Container */}
+              <HubspotForm
+                portalId="44032932"
+                formId="5156a776-4e3b-4010-8b3c-5714b2c42332"
+                region="na1"
+                loading={
+                  <div className="text-gray-500 text-lg">Loading form...</div>
+                }
+                onSubmit={() => console.log("✅ Contact form submitted!")}
+              />
             </div>
 
             {/* Right Side - Contact Info & Quick Actions */}
@@ -1143,7 +1094,7 @@ function Home() {
             </div>
           </div>
 
-          {/* Office Locations */}
+          {/* Office Locations (Aynı kalıyor) */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
               Our Office Locations
