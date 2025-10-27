@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <div>
       {/* HEADER */}
-      <header className="flex justify-between items-center px-6 py-4 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 fixed w-full top-0 z-20 transition-all duration-300">
+      <header className="flex justify-between items-center px-6 py-4 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 fixed w-full top-0 z-[99999] transition-all duration-300">
         <div className="flex items-center">
           <Link to="/" className="group">
             <img

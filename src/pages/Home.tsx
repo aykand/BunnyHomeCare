@@ -962,7 +962,7 @@ function Home() {
       {/* CONTACT */}
       <section
         id="contact"
-        className="relative bg-primary py-20"
+        className="relative  bg-blue-50 py-20"
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
@@ -1002,60 +1002,31 @@ function Home() {
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <a
-                    href="tel:+12674839642"
-                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                      <svg
-                        className="w-6 h-6 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-500 font-medium">Phone</p>
-                      <p className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
-                        +1 267-483-9642
-                      </p>
-                    </div>
-                  </a>
+  <a
+    href="tel:+12674839642"
+    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+  >
+    <div className="flex-1">
+      <p className="text-sm text-white font-medium">Phone</p>
+      <p className="text-lg font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+        +1 267-483-9642
+      </p>
+    </div>
+  </a>
 
-                  <a
-                    href="mailto:help@bunnyhomecare.com"
-                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                      <svg
-                        className="w-6 h-6 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-500 font-medium">Email</p>
-                      <p className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
-                        help@bunnyhomecare.com
-                      </p>
-                    </div>
-                  </a>
-                </div>
+  <a
+    href="mailto:help@bunnyhomecare.com"
+    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+  >
+    <div className="flex-1">
+      <p className="text-sm text-white font-medium">Email</p>
+      <p className="text-lg font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+        help@bunnyhomecare.com
+      </p>
+    </div>
+  </a>
+</div>
+
               </div>
 
               {/* Counties We Serve */}
