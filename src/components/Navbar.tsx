@@ -27,55 +27,55 @@ export default function Navbar() {
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             About Us
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#benefits"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             What We Offer
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
            <a
             href="#reviews"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Reviews
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#switching"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Switching
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#languages"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Languages
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#trust"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Accreditations
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#contact"
             className="relative text-gray-700 font-medium transition-all duration-300 hover:text-primary group px-3 py-2"
           >
             Contact
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-400 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
         </nav>
 
         <a
           href="#switching"
-          className="hidden lg:block bg-gradient-to-r from-primary to-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          className="hidden lg:block bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
         >
           Switch Now
         </a>
@@ -170,7 +170,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full bg-gradient-to-r from-primary to-teal-500 text-white px-6 py-4 rounded-xl font-semibold text-center hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="block w-full bg-primary text-white px-6 py-4 rounded-xl font-semibold text-center hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Switch Now
               </a>

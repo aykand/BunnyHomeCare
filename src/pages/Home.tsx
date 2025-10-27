@@ -378,7 +378,7 @@ function Home() {
 
             {/* 📱 Mobile version - Modern Card Design */}
             <div className="md:hidden">
-              <div className="bg-gradient-to-br from-white to-blue-50/50 rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
+              <div className="bg-primary rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
                 <button
                   type="button"
                   className="w-full flex justify-between items-center p-5 text-gray-900 font-bold text-xl group"
@@ -390,7 +390,7 @@ function Home() {
                   }}
                 >
                   <span className="flex items-center gap-3">
-                    <span className="w-10 h-10 bg-gradient-to-r from-primary to-teal-400 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
                       <svg
                         className="w-5 h-5 text-white"
                         fill="none"
@@ -689,7 +689,7 @@ function Home() {
         <div className="flex justify-center mt-10">
           <a
             href="tel:+12674839642"
-            className="flex items-center gap-2 bg-gradient-to-r from-[#30d5c8] to-[#2dd4bf] text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
+            className="flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
           >
             {/* Phone Icon */}
             <svg
@@ -757,7 +757,7 @@ function Home() {
                     } relative w-full h-full`}
                   >
                     {/* Ön yüz */}
-                    <div className="absolute inset-0 flex items-center justify-center rounded-lg shadow-lg text-white font-bold text-lg backface-hidden bg-gradient-to-r from-teal-400 to-blue-500">
+                    <div className="absolute inset-0 flex items-center justify-center rounded-lg shadow-lg text-white font-bold text-lg backface-hidden bg-primary">
                       {lang.lang}
                     </div>
 
@@ -962,7 +962,7 @@ function Home() {
       {/* CONTACT */}
       <section
         id="contact"
-        className="relative bg-gradient-to-br from-blue-50 via-white to-teal-50 py-20"
+        className="relative bg-primary py-20"
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
@@ -1004,7 +1004,7 @@ function Home() {
                 <div className="space-y-4">
                   <a
                     href="tel:+12674839642"
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                       <svg
@@ -1031,7 +1031,7 @@ function Home() {
 
                   <a
                     href="mailto:help@bunnyhomecare.com"
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                       <svg
@@ -1084,7 +1084,7 @@ function Home() {
                   ].map((county, index) => (
                     <div
                       key={index}
-                      className="px-4 py-2 bg-gradient-to-r from-blue-50 to-teal-50 rounded-lg text-center font-medium text-gray-700 hover:from-primary/10 hover:to-teal-100 transition-all duration-300 hover:scale-105"
+                      className="px-4 py-2 bg-primary rounded-lg text-center font-medium text-gray-700 hover:from-primary/10 hover:to-teal-100 transition-all duration-300 hover:scale-105"
                     >
                       {county}
                     </div>
