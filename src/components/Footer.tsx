@@ -28,8 +28,7 @@ export default function Footer() {
           {/* "Bunny Home Care™" metin başlığı buradan kaldırıldı */}
 
           <p className="text-lg leading-relaxed text-white/90 max-w-[260px]">
-            Compassionate, multilingual home care for your family. We care like
-            family — because you are family.
+            Compassionate, multilingual home care for your family. You Deserve Better Care.
           </p>
 
           <div className="flex items-center gap-4 pt-2">

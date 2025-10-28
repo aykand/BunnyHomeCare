@@ -13,12 +13,12 @@ const offers = [
   },
   {
     title: "Easy Switching",
-    description: "Fast, Easy, and Your Service Won’t Stop.",
+    description: "Transparent payroll process, get paid every Friday.",
     img: "/images/easy_switching.png",
   },
   {
     title: "5★ Customer Service",
-    description: "At Bunny Home Care, We Speak Your Language and Share Your Culture",
+    description: "At Bunny Home Care, We Speak Your Language and Share Your Culture.",
     img: "/images/customer_service.png",
   },
   {

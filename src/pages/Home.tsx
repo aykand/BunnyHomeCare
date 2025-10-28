@@ -364,15 +364,15 @@ function Home() {
             {/* 💻 Desktop version */}
             <div className="hidden md:block">
               <h2 className="text-3xl font-bold mb-6">About Us</h2>
-              <p className="text-lg leading-relaxed text-gray-700 mb-4">
-                With +20 years of combined experience and caring multicultural
-                professionals, Bunny Home Care is a BBB A+ Certified Trusted
-                Company focused on 5★ customer service in your language.
-              </p>
               <p className="text-lg leading-relaxed text-gray-700">
                 We hire family members or friends to take care of their seniors
                 and they get paid for their help, or we find the best fit for
                 their companionship and support on their daily basis activities.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700 mb-4">
+                With +20 years of combined experience and caring multicultural
+                professionals, Bunny Home Care is a BBB A+ Certified Trusted
+                Company focused on 5★ customer service in your language.
               </p>
             </div>
 
@@ -409,7 +409,7 @@ function Home() {
                   </span>
                   <span
                     id="arrow2"
-                    className="text-2xl text-primary transform transition-transform duration-300 group-hover:scale-110"
+                    className="text-2xl text-white transform transition-transform duration-300 group-hover:scale-110"
                   >
                     ▼
                   </span>
@@ -419,6 +419,18 @@ function Home() {
                   id="about2"
                   className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
                 >
+
+                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl mt-1">💙</span>
+                      <p>
+                        We hire family members or friends to take care of their
+                        seniors and they get paid for their help, or we find the
+                        best fit for their companionship and support on their
+                        daily activities.
+                      </p>
+                    </div>
+                  </div>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
                     <div className="flex items-start gap-3">
                       <span className="text-2xl mt-1">🏆</span>
@@ -432,18 +444,6 @@ function Home() {
                         <span className="font-semibold">BBB A+ Certified</span>{" "}
                         Trusted Company focused on 5★ customer service in your
                         language.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
-                    <div className="flex items-start gap-3">
-                      <span className="text-2xl mt-1">💙</span>
-                      <p>
-                        We hire family members or friends to take care of their
-                        seniors and they get paid for their help, or we find the
-                        best fit for their companionship and support on their
-                        daily activities.
                       </p>
                     </div>
                   </div>
@@ -971,8 +971,7 @@ function Home() {
               Get In Touch
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions? We're here to help you with compassionate care
-              solutions.
+              Have questions? We're here to help you with caring solutions.
             </p>
           </div>
 
@@ -1008,7 +1007,7 @@ function Home() {
   >
     <div className="flex-1">
       <p className="text-sm text-white font-medium">Phone</p>
-      <p className="text-lg font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+      <p className="text-lg font-semibold text-white">
         +1 267-483-9642
       </p>
     </div>
@@ -1020,7 +1019,7 @@ function Home() {
   >
     <div className="flex-1">
       <p className="text-sm text-white font-medium">Email</p>
-      <p className="text-lg font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+      <p className="text-lg font-semibold text-white">
         help@bunnyhomecare.com
       </p>
     </div>
