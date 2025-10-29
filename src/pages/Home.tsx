@@ -616,7 +616,7 @@ function Home() {
           {[
             {
               title: "Get Paid Every Friday",
-              text: "Reliable weekly payments on time, every week.",
+              text: "Transparent payroll process, get paid every Friday",
               img: "/images/friday.png",
             },
             {

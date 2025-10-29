@@ -13,7 +13,7 @@ const offers = [
   },
   {
     title: "Easy Switching",
-    description: "Transparent payroll process, get paid every Friday.",
+    description: "Fast, Easy, and Your Service Won’t Stop.",
     img: "/images/easy_switching.png",
   },
   {
