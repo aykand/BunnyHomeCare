@@ -605,7 +605,7 @@ function Home() {
               {[
                 { src: "/videos/shareen.mp4", name: "Shareen C." },
                 { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
-                { src: "/videos/nuhash.mp4", name: "Nuash M." },
+                { src: "/videos/mahadi.mp4", name: "Mahadi N." },
                 { src: "/videos/wyatt.mp4", name: "Wyatt M." },
                 { src: "/videos/azer.mp4", name: "Azer G." },
               ].map((video, index) => (
