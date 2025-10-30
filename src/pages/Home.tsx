@@ -9,12 +9,29 @@ import { Autoplay, Navigation, Pagination, Mousewheel } from "swiper/modules";
 import WhatWeOffer from "../components/WhatWeOffer";
 import ReactPlayer from "react-player";
 import HubspotForm from "react-hubspot-form";
+import { useLocation } from "react-router-dom";
 
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
   const [visible, setVisible] = useState(true);
   const [inView, setInView] = useState(false);
   const ctaRef = useRef<HTMLDivElement>(null);
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    // DOM render sonrası güvenli kaydırma
+    const t = window.setTimeout(() => {
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 50);
+    return () => window.clearTimeout(t);
+  }, [hash]);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -196,6 +213,10 @@ const allReviews = [
 ];
 
 function Home() {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+   const baseFrame =
+    "rounded-xl shadow-xl w-[550px] md:w-[650px] h-[360px] md:h-[420px]";
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
   const swiperRef = useRef<any>(null);
@@ -267,6 +288,7 @@ function Home() {
     },
   ];
 
+  
   return (
     <div className="font-sans text-gray-800 text-center">
       {/* HERO */}
@@ -343,12 +365,37 @@ function Home() {
 
           {/* Right Image */}
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-            <img
-              src="/images/bhc_hero.png"
-              alt="Happy seniors with Bunny mascot"
-              className="rounded-xl shadow-xl w-[550px] md:w-[650px] transition-transform duration-300 hover:scale-105"
-            />
-          </div>
+      {/* Skeleton frame (resim yüklenene kadar) */}
+      {!loaded && !error && (
+        <div
+          className={`${baseFrame} animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200`}
+          aria-hidden
+        />
+      )}
+
+      {/* Asıl görsel */}
+      <img
+        src="/images/bhc_hero.png"
+        alt="Happy seniors with Bunny mascot"
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onError={() => setError(true)}
+        className={`${baseFrame} transition-all duration-500 ${
+          loaded ? "opacity-100 hover:scale-105" : "opacity-0"
+        }`}
+        style={{ objectFit: "cover" }}
+      />
+
+      {/* Hata durumunda fallback (opsiyonel) */}
+      {error && (
+        <div
+          className={`${baseFrame} flex items-center justify-center bg-gray-100 text-gray-500`}
+        >
+          Image failed to load
+        </div>
+      )}
+    </div>
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -6,8 +6,26 @@ import PrivacyPolicy from "./pages/Privacypolicy";
 import NonDiscrimination from "./pages/NonDiscrimination";
 import TermsOfService from "./pages/TermsOfService";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
+import { useEffect } from "react";
+
 
 export default function App() {
+  const { pathname, search, hash, key } = useLocation();
+
+  // Tarayıcının otomatik scroll restore davranışını kapat
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  // URL değiştiğinde (hash YOKSA) sayfanın en üstüne çık
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [pathname, search, key]);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* 🌐 Global Navbar */}
