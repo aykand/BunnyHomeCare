@@ -15,9 +15,9 @@ export default function Navbar() {
         <div className="flex items-center">
           <Link to="/" className="group" onClick={closeMenu}>
             <img
-              src="/logos/BunnyHomeCare_Logo.png"
+              src="/logos/BunnyHomeCare_Logo.webp"
               alt="Bunny Home Care"
-              className="h-12 xl:w-auto cursor-pointer transition-all duration-300 group-hover:scale-110 group-hover:brightness-110 object-contain drop-shadow-sm"
+              className="h-8 xl:w-auto cursor-pointer transition-all duration-300 group-hover:scale-110 group-hover:brightness-110 object-contain drop-shadow-sm"
             />
           </Link>
         </div>

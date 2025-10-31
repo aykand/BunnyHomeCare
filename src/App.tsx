@@ -48,7 +48,7 @@ export default function App() {
       <FloatingWhatsApp
         phoneNumber="+15557011444"
         accountName="Bunny Home Care"
-        avatar="/logos/BunnyHomeCare.png"
+        avatar="/logos/BunnyHomeCare.webp"
         chatMessage="Hello 👋 How can we help you today?"
         statusMessage="Typically replies within 5 mins"
         placeholder="Type your message..."
@@ -57,7 +57,7 @@ export default function App() {
         allowClickAway
         notification
         notificationSound
-        className="fixed bottom-6 left-6 z-50" // 👈 sola sabitlendi
+        className="fixed bottom-6 right-6 z-50" // 👈 sola sabitlendi
       />
 
       {/* ⚙️ Global Footer */}

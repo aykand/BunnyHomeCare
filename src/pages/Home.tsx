@@ -32,7 +32,6 @@ function SwipeCTA() {
     return () => window.clearTimeout(t);
   }, [hash]);
 
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -71,140 +70,140 @@ function SwipeCTA() {
 const allReviews = [
   {
     name: "Ali Khalifa",
-    avatar: "/avatars/ali.png",
+    avatar: "/avatars/ali.webp",
     stars: 5,
     text: "We warmly welcome the distinguished and special service from Miss Nouhaila, who always provides service with a warm heart and more than wonderful treatment.",
     time: "3 months ago",
   },
   {
     name: "U Won",
-    avatar: "/avatars/uwon.png",
+    avatar: "/avatars/uwon.webp",
     stars: 5,
     text: "Highly recommended! Miss Sabrina was above and beyond, very patient and helpful. She guided us in every step throughout the application process.",
     time: "1 year ago",
   },
   {
     name: "Farhana Ahmed",
-    avatar: "/avatars/farhana.png",
+    avatar: "/avatars/farhana.webp",
     stars: 5,
     text: "Mrs. Sabrina and Anna performed an outstanding job. I am very happy with Bunny Home Care team.",
     time: "1 year ago",
   },
   {
     name: "Maria Lopez",
-    avatar: "/avatars/user1.png",
+    avatar: "/avatars/user1.webp",
     stars: 5,
     text: "They always answer my calls, explain everything in Spanish and treat me with respect. Great service!",
     time: "2 months ago",
   },
   {
     name: "John Smith",
-    avatar: "/avatars/user2.png",
+    avatar: "/avatars/user2.webp",
     stars: 5,
     text: "Very professional and kind staff. Payments are always on time and the process was simple.",
     time: "6 months ago",
   },
   {
     name: "Fatima Ali",
-    avatar: "/avatars/user3.png",
+    avatar: "/avatars/user3.webp",
     stars: 5,
     text: "Amazing service! They speak Arabic and understand my culture. I feel safe with Bunny Home Care.",
     time: "8 months ago",
   },
   {
     name: "David Johnson",
-    avatar: "/avatars/user4.png",
+    avatar: "/avatars/user4.webp",
     stars: 5,
     text: "Switching agencies was very easy, no lost hours. I should have done this sooner!",
     time: "5 months ago",
   },
   {
     name: "Sara Khan",
-    avatar: "/avatars/user5.png",
+    avatar: "/avatars/user5.webp",
     stars: 5,
     text: "Great team! They helped me care for my mother and explained everything clearly in Urdu.",
     time: "7 months ago",
   },
   {
     name: "Jean Dupont",
-    avatar: "/avatars/user1.png",
+    avatar: "/avatars/user1.webp",
     stars: 5,
     text: "Excellent service, they explained everything in French. Truly caring and supportive staff.",
     time: "4 months ago",
   },
   {
     name: "Raj Kumar",
-    avatar: "/avatars/user2.png",
+    avatar: "/avatars/user2.webp",
     stars: 5,
     text: "I am very happy with the service. They speak Hindi and guide me in every step with patience.",
     time: "9 months ago",
   },
   {
     name: "Anna Brown",
-    avatar: "/avatars/user3.png",
+    avatar: "/avatars/user3.webp",
     stars: 5,
     text: "Reliable payments, respectful team, and very easy to switch. Highly recommended!",
     time: "11 months ago",
   },
   {
     name: "Mohammed Saleh",
-    avatar: "/avatars/user4.png",
+    avatar: "/avatars/user4.webp",
     stars: 5,
     text: "Bunny Home Care is the best! They really care about their caregivers and clients.",
     time: "10 months ago",
   },
   {
     name: "Sophia Garcia",
-    avatar: "/avatars/user5.png",
+    avatar: "/avatars/user5.webp",
     stars: 5,
     text: "I always feel supported. The staff is kind and speaks my language. Thank you Bunny!",
     time: "3 weeks ago",
   },
   {
     name: "Timothy Miller",
-    avatar: "/avatars/user1.png",
+    avatar: "/avatars/user1.webp",
     stars: 5,
     text: "Great experience overall. The application process was smooth and transparent.",
     time: "1 month ago",
   },
   {
     name: "Aisha Noor",
-    avatar: "/avatars/user2.png",
+    avatar: "/avatars/user2.webp",
     stars: 5,
     text: "They helped me understand everything step by step. Very patient and caring team.",
     time: "2 months ago",
   },
   {
     name: "Carlos Fernandez",
-    avatar: "/avatars/user3.png",
+    avatar: "/avatars/user3.webp",
     stars: 5,
     text: "Very professional, payments are always on Fridays, and no delays at all!",
     time: "5 months ago",
   },
   {
     name: "Emily Davis",
-    avatar: "/avatars/user4.png",
+    avatar: "/avatars/user4.webp",
     stars: 5,
     text: "I am very satisfied. They explained everything clearly and treat me like family.",
     time: "7 months ago",
   },
   {
     name: "Hasan Rahman",
-    avatar: "/avatars/user5.png",
+    avatar: "/avatars/user5.webp",
     stars: 5,
     text: "Great service in Bengali. They are always helpful and answer my questions quickly.",
     time: "8 months ago",
   },
   {
     name: "Michael Green",
-    avatar: "/avatars/user1.png",
+    avatar: "/avatars/user1.webp",
     stars: 5,
     text: "Easy switching process, no lost hours. Definitely recommend Bunny Home Care.",
     time: "6 months ago",
   },
   {
     name: "Olga Petrova",
-    avatar: "/avatars/user2.png",
+    avatar: "/avatars/user2.webp",
     stars: 5,
     text: "I am very happy with their service. They respect my culture and support me always.",
     time: "4 months ago",
@@ -215,28 +214,38 @@ const allReviews = [
 function Home() {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-   const baseFrame =
+  const baseFrame =
     "rounded-xl shadow-xl w-[550px] md:w-[650px] h-[360px] md:h-[420px]";
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [loadVideos, setLoadVideos] = useState(false); // ✅ YENİ STATE (Videoları gecikmeli yüklemek için)
   const swiperRef = useRef<any>(null);
+
+  // ✅ YENİ EFFECT - Sayfa yüklendikten 4 saniye sonra videoları yükle
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadVideos(true);
+    }, 4000); // 4 saniye gecikme (istediğiniz gibi ayarlayabilirsiniz)
+
+    return () => clearTimeout(timer); // Component unmount olursa timer'ı temizle
+  }, []); // Boş dependency array, sadece mount'ta çalışır
 
   // ✅ Languages
   const languages = [
     { lang: "English", phone: "+1 267-483-9642" }, //ofis
-    { lang: "Español", phone: "+1 267-328-4815" },
-    { lang: "Français", phone: "+1 267-873-2253" },
-    { lang: "Türkçe", phone: "+1 267-225-2151" },
-    { lang: "हिन्दी", phone: "+1 267-225-5032" },
-    { lang: "العربية", phone: "+1 267-209-0494" },
-    { lang: "বাংলা", phone: "+1 267-225-0003" },
-    { lang: "اردو", phone: "+1 267-225-0003" },
-    { lang: "Shqip", phone: "+1 267-225-2024" },
-    { lang: "Italiano", phone: "+1 267-509-7975" },
-    { lang: "Pilipinas", phone: "+1 267-509-7975" },
-    { lang: "नेपाली", phone: "+1 267-293-7619" },
-    { lang: "فارسی", phone: "+1 267-873-2256" },
-    { lang: "ਪੰਜਾਬੀ", phone: "+1 267-204-3733" },
+    { lang: "Español", phone: "+1 267-483-9642" },
+    { lang: "Français", phone: "+1 267-483-9642" },
+    { lang: "Türkçe", phone: "+1 267-483-9642" },
+    { lang: "हिन्दी", phone: "+1 267-483-9642" },
+    { lang: "العربية", phone: "+1 267-483-9642" },
+    { lang: "বাংলা", phone: "+1 267-483-9642" },
+    { lang: "اردو", phone: "+1 267-483-9642" },
+    { lang: "Shqip", phone: "+1 267-483-9642" },
+    { lang: "Italiano", phone: "+1 267-483-9642" },
+    { lang: "Pilipino", phone: "+1 267-483-9642" },
+    { lang: "नेपाली", phone: "+1 267-483-9642" },
+    { lang: "فارسی", phone: "+1 267-483-9642" },
+    { lang: "ਪੰਜਾਬੀ", phone: "+1 267-483-9642" },
   ];
 
   // ✅ Services
@@ -244,51 +253,50 @@ function Home() {
     {
       title: "Bathing",
       description: "Helping with safe and dignified bathing routines.",
-      img: "/images/bathing.png",
+      img: "/images/bathing.webp",
     },
     {
       title: "Dressing",
       description: "Assistance with clothing choices and dressing comfortably.",
-      img: "/images/dressing.png",
+      img: "/images/dressing.webp",
     },
     {
       title: "Light Housekeeping",
       description: "Keeping the home safe and tidy with light chores.",
-      img: "/images/housekeeping.png",
+      img: "/images/housekeeping.webp",
     },
     {
       title: "Laundry",
       description: "Assistance with washing, drying, and folding clothes.",
-      img: "/images/laundry.png",
+      img: "/images/laundry.webp",
     },
     {
       title: "Meal Preparation",
       description: "Preparing nutritious meals and assisting with feeding.",
-      img: "/images/meal.png",
+      img: "/images/meal.webp",
     },
     {
       title: "Companionship",
       description: "Providing friendly and supportive interaction.",
-      img: "/images/companionship.png",
+      img: "/images/companionship.webp",
     },
     {
       title: "Grocery",
       description: "Providing friendly and supportive interaction.",
-      img: "/images/grocery.png",
+      img: "/images/grocery.webp",
     },
     {
       title: "Socializing",
       description: "Providing friendly and supportive interaction.",
-      img: "/images/social.png",
+      img: "/images/social.webp",
     },
     {
       title: "Mobility Assistance",
       description: "Providing friendly and supportive interaction.",
-      img: "/images/mobility.png",
+      img: "/images/mobility.webp",
     },
   ];
 
-  
   return (
     <div className="font-sans text-gray-800 text-center">
       {/* HERO */}
@@ -333,7 +341,7 @@ function Home() {
               >
                 <div className="flex items-center justify-center gap-2">
                   <img
-                    src="/logos/Google_logo.png"
+                    src="/logos/Google_logo.webp"
                     alt="Google"
                     className="h-6"
                   />
@@ -365,37 +373,37 @@ function Home() {
 
           {/* Right Image */}
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-      {/* Skeleton frame (resim yüklenene kadar) */}
-      {!loaded && !error && (
-        <div
-          className={`${baseFrame} animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200`}
-          aria-hidden
-        />
-      )}
+            {/* Skeleton frame (resim yüklenene kadar) */}
+            {!loaded && !error && (
+              <div
+                className={`${baseFrame} animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200`}
+                aria-hidden
+              />
+            )}
 
-      {/* Asıl görsel */}
-      <img
-        src="/images/bhc_hero.png"
-        alt="Happy seniors with Bunny mascot"
-        loading="lazy"
-        decoding="async"
-        onLoad={() => setLoaded(true)}
-        onError={() => setError(true)}
-        className={`${baseFrame} transition-all duration-500 ${
-          loaded ? "opacity-100 hover:scale-105" : "opacity-0"
-        }`}
-        style={{ objectFit: "cover" }}
-      />
+            {/* Asıl görsel */}
+            <img
+              src="/images/bhc_hero.webp"
+              alt="Happy seniors with Bunny mascot"
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setLoaded(true)}
+              onError={() => setError(true)}
+              className={`${baseFrame} transition-all duration-500 ${
+                loaded ? "opacity-100 hover:scale-105" : "opacity-0"
+              }`}
+              style={{ objectFit: "cover" }}
+            />
 
-      {/* Hata durumunda fallback (opsiyonel) */}
-      {error && (
-        <div
-          className={`${baseFrame} flex items-center justify-center bg-gray-100 text-gray-500`}
-        >
-          Image failed to load
-        </div>
-      )}
-    </div>
+            {/* Hata durumunda fallback (opsiyonel) */}
+            {error && (
+              <div
+                className={`${baseFrame} flex items-center justify-center bg-gray-100 text-gray-500`}
+              >
+                Image failed to load
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
@@ -466,8 +474,7 @@ function Home() {
                   id="about2"
                   className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
                 >
-
-                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
                     <div className="flex items-start gap-3">
                       <span className="text-2xl mt-1">💙</span>
                       <p>
@@ -502,7 +509,7 @@ function Home() {
           {/* Image Section */}
           <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
             <img
-              src="/images/bunny-flag.png"
+              src="/images/bunny-flag.webp"
               alt="Bunny Mascot"
               className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
             />
@@ -538,7 +545,7 @@ function Home() {
                   <p className="text-xs text-gray-500">{review.time}</p>
                 </div>
                 <img
-                  src="/images/g_google.png"
+                  src="/images/g_google.webp"
                   alt="Google Logo"
                   className="ml-auto w-6 h-6"
                 />
@@ -582,67 +589,80 @@ function Home() {
 
         {/* TikTok Style Video Slider */}
         <div className="mx-auto w-full flex justify-center">
-          <div className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
-            <Swiper
-              modules={[Navigation, Pagination, Mousewheel]}
-              direction="vertical"
-              slidesPerView={1}
-              mousewheel
-              pagination={{ clickable: true }}
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
-              onSlideChange={(swiper) => {
-                const videos =
-                  document.querySelectorAll<HTMLVideoElement>("video");
-                videos.forEach((video, i) => {
-                  if (i !== swiper.activeIndex) {
-                    video.pause();
-                    video.currentTime = 0;
-                  }
-                });
-              }}
-              className="h-full w-full"
-            >
-              {[
-                { src: "/videos/shareen.mp4", name: "Shareen C." },
-                { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
-                { src: "/videos/mahadi.mp4", name: "Mahadi N." },
-                { src: "/videos/wyatt.mp4", name: "Wyatt M." },
-                { src: "/videos/azer.mp4", name: "Azer G." },
-              ].map((video, index) => (
-                <SwiperSlide
-                  key={index}
-                  className="flex items-center justify-center bg-black"
+          {/* ✅ Değişiklik: Yükseklik ve genişlik sabit, içerik gecikmeli geliyor. CLS (Layout Shift) önlenir. */}
+          <div className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg bg-gray-900 text-white">
+            {/* ✅ Videoları yüklemek için state'i kontrol et */}
+            {loadVideos ? (
+              <>
+                <Swiper
+                  modules={[Navigation, Pagination, Mousewheel]}
+                  direction="vertical"
+                  slidesPerView={1}
+                  mousewheel
+                  pagination={{ clickable: true }}
+                  onSwiper={(swiper) => (swiperRef.current = swiper)}
+                  onSlideChange={(swiper) => {
+                    const videos =
+                      document.querySelectorAll<HTMLVideoElement>("video");
+                    videos.forEach((video, i) => {
+                      if (i !== swiper.activeIndex) {
+                        video.pause();
+                        video.currentTime = 0;
+                      }
+                    });
+                  }}
+                  className="h-full w-full"
                 >
-                  <div className="relative w-full h-full">
-                    <ReactPlayer
-                      src={video.src}
-                      controls={true}
-                      playing={false}
-                      width="100%"
-                      height="100%"
-                    />
-                    <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg z-10">
-                      {video.name}
-                    </p>
-                    {index === 0 && <SwipeCTA />}
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  {[
+                    { src: "/videos/shareen.mp4", name: "Shareen C." },
+                    { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
+                    { src: "/videos/mahadi.mp4", name: "Mahadi N." },
+                    { src: "/videos/wyatt.mp4", name: "Wyatt M." },
+                    { src: "/videos/azer.mp4", name: "Azer G." },
+                  ].map((video, index) => (
+                    <SwiperSlide
+                      key={index}
+                      className="flex items-center justify-center bg-black"
+                    >
+                      <div className="relative w-full h-full">
+                        <ReactPlayer
+                          src={video.src} // ✅ src gecikmeli olarak yüklendi
+                          controls={true}
+                          playing={false}
+                          width="100%"
+                          height="100%"
+                        />
+                        <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg z-10">
+                          {video.name}
+                        </p>
+                        {index === 0 && <SwipeCTA />}
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
-            {/* Custom Navigation Buttons */}
-            <button
-              onClick={() => swiperRef.current?.slidePrev()}
-              className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
-            >
-              ↑
-            </button>
-            <button
-              onClick={() => swiperRef.current?.slideNext()}
-              className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
-            >
-              ↓
-            </button>
+                {/* Custom Navigation Buttons */}
+                <button
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
+                >
+                  ↑
+                </button>
+                <button
+                  onClick={() => swiperRef.current?.slideNext()}
+                  className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
+                >
+                  ↓
+                </button>
+              </>
+            ) : (
+              // ✅ Placeholder (İçerik yüklenene kadar)
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-gray-400 animate-pulse">
+                  Loading Videos...
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -664,22 +684,22 @@ function Home() {
             {
               title: "Get Paid Every Friday",
               text: "Transparent payroll process, get paid every Friday",
-              img: "/images/friday.png",
+              img: "/images/friday.webp",
             },
             {
               title: "Best Rates",
               text: "The highest pay rates in Pennsylvania.",
-              img: "/images/best_rate.png",
+              img: "/images/best_rate.webp",
             },
             {
               title: "No Lost Hours",
               text: "Keep every hour you’ve worked without gaps.",
-              img: "/images/hha.png",
+              img: "/images/hha.webp",
             },
             {
               title: "We Speak Your Language",
               text: "Support and service in 15+ languages.",
-              img: "/images/wsyl.png",
+              img: "/images/wsyl.webp",
             },
           ].map((item, i) => (
             <div
@@ -718,7 +738,7 @@ function Home() {
           {/* Bunny */}
           <div className="flex-shrink-0">
             <img
-              src="/images/Bunny_question.png"
+              src="/images/Bunny_question.webp"
               alt="Do these sound familiar?"
               className="w-[130px] sm:w-[180px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
             />
@@ -727,7 +747,7 @@ function Home() {
           {/* Chat */}
           <div className="flex-shrink-0">
             <img
-              src="/images/chat_bubbles.png"
+              src="/images/chat_bubbles.webp"
               alt="Complaints"
               className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
             />
@@ -881,7 +901,7 @@ function Home() {
           className="max-w-6xl mx-auto"
         >
           {[
-            { src: "/logos/bbb.png", alt: "BBB" },
+            { src: "/logos/bbb.webp", alt: "BBB" },
             { src: "/logos/amerihealth.webp", alt: "AmeriHealth" },
             { src: "/logos/keystone.webp", alt: "Keystone" },
             { src: "/logos/pahealth.webp", alt: "PA Health" },
@@ -1007,10 +1027,7 @@ function Home() {
       </section>
 
       {/* CONTACT */}
-      <section
-        id="contact"
-        className="relative  bg-blue-50 py-20"
-      >
+      <section id="contact" className="relative  bg-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
@@ -1048,31 +1065,30 @@ function Home() {
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-  <a
-    href="tel:+12674839642"
-    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-  >
-    <div className="flex-1">
-      <p className="text-sm text-white font-medium">Phone</p>
-      <p className="text-lg font-semibold text-white">
-        +1 267-483-9642
-      </p>
-    </div>
-  </a>
+                  <a
+                    href="tel:+12674839642"
+                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                  >
+                    <div className="flex-1">
+                      <p className="text-sm text-white font-medium">Phone</p>
+                      <p className="text-lg font-semibold text-white">
+                        +1 267-483-9642
+                      </p>
+                    </div>
+                  </a>
 
-  <a
-    href="mailto:help@bunnyhomecare.com"
-    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-  >
-    <div className="flex-1">
-      <p className="text-sm text-white font-medium">Email</p>
-      <p className="text-lg font-semibold text-white">
-        help@bunnyhomecare.com
-      </p>
-    </div>
-  </a>
-</div>
-
+                  <a
+                    href="mailto:help@bunnyhomecare.com"
+                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                  >
+                    <div className="flex-1">
+                      <p className="text-sm text-white font-medium">Email</p>
+                      <p className="text-lg font-semibold text-white">
+                        help@bunnyhomecare.com
+                      </p>
+                    </div>
+                  </a>
+                </div>
               </div>
 
               {/* Counties We Serve */}

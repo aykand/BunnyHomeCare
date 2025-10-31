@@ -66,6 +66,6 @@
 .floating-whatsapp-button,
 .floating-whatsapp-chatbox {
   right: auto !important;
-  left: 20px !important;
+  right: 20px !important;
   bottom: 20px !important;
 }

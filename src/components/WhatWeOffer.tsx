@@ -9,22 +9,22 @@ const offers = [
   {
     title: "Best Rate",
     description: "Highest Hourly Rate in Area.",
-    img: "/images/best_rate.png",
+    img: "/images/best_rate.webp",
   },
   {
     title: "Easy Switching",
     description: "Fast, Easy, and Your Service Won’t Stop.",
-    img: "/images/easy_switching.png",
+    img: "/images/easy_switching.webp",
   },
   {
     title: "5★ Customer Service",
     description: "At Bunny Home Care, We Speak Your Language and Share Your Culture.",
-    img: "/images/customer_service.png",
+    img: "/images/customer_service.webp",
   },
   {
     title: "Trust",
     description: "BBB A+ Accredited, Licensed in PA.",
-    img: "/images/trust.png",
+    img: "/images/trust.webp",
   },
   {
     title: "Health Insurance",
@@ -41,7 +41,7 @@ const offers = [
         </a>
       </>
     ),
-    img: "/images/health_insurance.png",
+    img: "/images/health_insurance.webp",
   },
 ];
 

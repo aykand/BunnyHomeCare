@@ -16,16 +16,13 @@ export default function Footer() {
     <footer className="bg-primary text-white text-[17px] md:text-[18px] leading-relaxed">
       {/* Main Container */}
       <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-14 place-items-start">
-        
         {/* 1️⃣ Logo & About */}
         <div className="flex flex-col justify-start space-y-6">
-          {/* DÜZELTME: Logo görseli geri eklendi */}
           <img
-            src="/logos/BunnyHomeCare_w_logo.png" // Logo görselinin yolu
+            src="/logos/BunnyHomeCare_w_logo.webp"
             alt="Bunny Home Care"
-            className="h-16 w-auto object-contain mb-4 transition-transform duration-300 hover:scale-105 ml-[-4px]" // Orijinal stil korunarak görsel eklendi
+            className="h-16 w-auto object-contain mb-4 transition-transform duration-300 hover:scale-105 ml-[-4px]"
           />
-          {/* "Bunny Home Care™" metin başlığı buradan kaldırıldı */}
 
           <p className="text-lg leading-relaxed text-white/90 max-w-[260px]">
             Compassionate, multilingual home care for your family. You Deserve Better Care.
@@ -101,19 +98,13 @@ export default function Footer() {
           <ul className="space-y-3 text-lg">
             <li className="flex items-center gap-4">
               <FaPhone className="w-5 h-5 text-white" />
-              <a
-                href="tel:+12674839642"
-                className="hover:text-white/80 transition-colors"
-              >
+              <a href="tel:+12674839642" className="hover:text-white/80 transition-colors">
                 +1 (267) 483-9642
               </a>
             </li>
             <li className="flex items-center gap-4">
               <FaEnvelope className="w-5 h-5 text-white" />
-              <a
-                href="mailto:help@bunnyhomecare.com"
-                className="hover:text-white/80 transition-colors"
-              >
+              <a href="mailto:help@bunnyhomecare.com" className="hover:text-white/80 transition-colors">
                 help@bunnyhomecare.com
               </a>
             </li>
@@ -124,6 +115,20 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="bg-[#28bcb0] py-6 text-center text-sm md:text-base text-white/90 border-t border-white/30">
         <p>© {new Date().getFullYear()} Bunny Home Care. All Rights Reserved.</p>
+
+        {/* 🔎 Microsoft Clarity Notice (küçük ve dikkat dağıtmayacak şekilde) */}
+        <p className="mt-2 max-w-4xl mx-auto px-6 text-xs md:text-[13px] leading-snug text-white/70">
+          We improve our products and advertising by using Microsoft Clarity to see how you use our website.
+          By using our site, you agree that we and Microsoft can collect and use this data.
+          Our{" "}
+          <Link
+            to="/privacy-policy"
+            className="underline underline-offset-2 hover:text-white transition-colors"
+          >
+            privacy statement
+          </Link>{" "}
+          has more details.
+        </p>
       </div>
     </footer>
   );
