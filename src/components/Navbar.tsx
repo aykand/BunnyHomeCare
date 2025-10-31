@@ -88,13 +88,13 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <Link
-          to="/#switching"
+        <a
+          href="tel:+12674839642"
           className="hidden lg:block bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           onClick={closeMenu}
-        >
+          aria-label="Call Bunny Home Care at +1 267-483-9642">
           Switch Now
-        </Link>
+        </a>
 
         {/* Mobile toggle */}
         <button
@@ -138,13 +138,14 @@ export default function Navbar() {
 
             {/* Mobile CTA */}
             <div className="px-4 pt-4">
-              <Link
-                to="/#contact"
-                onClick={closeMenu}
-                className="block w-full bg-primary text-white px-6 py-4 rounded-xl font-semibold text-center hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Switch Now
-              </Link>
+  <a
+    href="tel:+12674839642"
+    onClick={closeMenu}
+    className="block w-full bg-primary text-white px-6 py-4 rounded-xl font-semibold text-center hover:from-teal-500 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
+    aria-label="Call Bunny Home Care at +1 267-483-9642"
+  >
+    Switch Now
+  </a>
             </div>
           </nav>
         </div>
