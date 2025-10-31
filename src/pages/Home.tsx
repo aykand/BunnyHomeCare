@@ -11,6 +11,7 @@ import ReactPlayer from "react-player";
 import HubspotForm from "react-hubspot-form";
 import { useLocation } from "react-router-dom";
 
+
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
   const [visible, setVisible] = useState(true);
@@ -31,6 +32,7 @@ function SwipeCTA() {
     }, 50);
     return () => window.clearTimeout(t);
   }, [hash]);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -214,21 +216,11 @@ const allReviews = [
 function Home() {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-  const baseFrame =
+   const baseFrame =
     "rounded-xl shadow-xl w-[550px] md:w-[650px] h-[360px] md:h-[420px]";
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
-  const [loadVideos, setLoadVideos] = useState(false); // ✅ YENİ STATE (Videoları gecikmeli yüklemek için)
   const swiperRef = useRef<any>(null);
-
-  // ✅ YENİ EFFECT - Sayfa yüklendikten 4 saniye sonra videoları yükle
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadVideos(true);
-    }, 4000); // 4 saniye gecikme (istediğiniz gibi ayarlayabilirsiniz)
-
-    return () => clearTimeout(timer); // Component unmount olursa timer'ı temizle
-  }, []); // Boş dependency array, sadece mount'ta çalışır
 
   // ✅ Languages
   const languages = [
@@ -297,6 +289,7 @@ function Home() {
     },
   ];
 
+  
   return (
     <div className="font-sans text-gray-800 text-center">
       {/* HERO */}
@@ -373,37 +366,37 @@ function Home() {
 
           {/* Right Image */}
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-            {/* Skeleton frame (resim yüklenene kadar) */}
-            {!loaded && !error && (
-              <div
-                className={`${baseFrame} animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200`}
-                aria-hidden
-              />
-            )}
+      {/* Skeleton frame (resim yüklenene kadar) */}
+      {!loaded && !error && (
+        <div
+          className={`${baseFrame} animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200`}
+          aria-hidden
+        />
+      )}
 
-            {/* Asıl görsel */}
-            <img
-              src="/images/bhc_hero.webp"
-              alt="Happy seniors with Bunny mascot"
-              loading="lazy"
-              decoding="async"
-              onLoad={() => setLoaded(true)}
-              onError={() => setError(true)}
-              className={`${baseFrame} transition-all duration-500 ${
-                loaded ? "opacity-100 hover:scale-105" : "opacity-0"
-              }`}
-              style={{ objectFit: "cover" }}
-            />
+      {/* Asıl görsel */}
+      <img
+        src="/images/bhc_hero.webp"
+        alt="Happy seniors with Bunny mascot"
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onError={() => setError(true)}
+        className={`${baseFrame} transition-all duration-500 ${
+          loaded ? "opacity-100 hover:scale-105" : "opacity-0"
+        }`}
+        style={{ objectFit: "cover" }}
+      />
 
-            {/* Hata durumunda fallback (opsiyonel) */}
-            {error && (
-              <div
-                className={`${baseFrame} flex items-center justify-center bg-gray-100 text-gray-500`}
-              >
-                Image failed to load
-              </div>
-            )}
-          </div>
+      {/* Hata durumunda fallback (opsiyonel) */}
+      {error && (
+        <div
+          className={`${baseFrame} flex items-center justify-center bg-gray-100 text-gray-500`}
+        >
+          Image failed to load
+        </div>
+      )}
+    </div>
         </div>
       </section>
 
@@ -474,7 +467,8 @@ function Home() {
                   id="about2"
                   className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
                 >
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+
+                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
                     <div className="flex items-start gap-3">
                       <span className="text-2xl mt-1">💙</span>
                       <p>
@@ -589,80 +583,67 @@ function Home() {
 
         {/* TikTok Style Video Slider */}
         <div className="mx-auto w-full flex justify-center">
-          {/* ✅ Değişiklik: Yükseklik ve genişlik sabit, içerik gecikmeli geliyor. CLS (Layout Shift) önlenir. */}
-          <div className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg bg-gray-900 text-white">
-            {/* ✅ Videoları yüklemek için state'i kontrol et */}
-            {loadVideos ? (
-              <>
-                <Swiper
-                  modules={[Navigation, Pagination, Mousewheel]}
-                  direction="vertical"
-                  slidesPerView={1}
-                  mousewheel
-                  pagination={{ clickable: true }}
-                  onSwiper={(swiper) => (swiperRef.current = swiper)}
-                  onSlideChange={(swiper) => {
-                    const videos =
-                      document.querySelectorAll<HTMLVideoElement>("video");
-                    videos.forEach((video, i) => {
-                      if (i !== swiper.activeIndex) {
-                        video.pause();
-                        video.currentTime = 0;
-                      }
-                    });
-                  }}
-                  className="h-full w-full"
+          <div className="relative w-full max-w-[280px] sm:max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
+            <Swiper
+              modules={[Navigation, Pagination, Mousewheel]}
+              direction="vertical"
+              slidesPerView={1}
+              mousewheel
+              pagination={{ clickable: true }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={(swiper) => {
+                const videos =
+                  document.querySelectorAll<HTMLVideoElement>("video");
+                videos.forEach((video, i) => {
+                  if (i !== swiper.activeIndex) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                });
+              }}
+              className="h-full w-full"
+            >
+              {[
+                { src: "/videos/shareen.mp4", name: "Shareen C." },
+                { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
+                { src: "/videos/mahadi.mp4", name: "Mahadi N." },
+                { src: "/videos/wyatt.mp4", name: "Wyatt M." },
+                { src: "/videos/azer.mp4", name: "Azer G." },
+              ].map((video, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="flex items-center justify-center bg-black"
                 >
-                  {[
-                    { src: "/videos/shareen.mp4", name: "Shareen C." },
-                    { src: "/videos/gulbahar.mp4", name: "Gulbahar O." },
-                    { src: "/videos/mahadi.mp4", name: "Mahadi N." },
-                    { src: "/videos/wyatt.mp4", name: "Wyatt M." },
-                    { src: "/videos/azer.mp4", name: "Azer G." },
-                  ].map((video, index) => (
-                    <SwiperSlide
-                      key={index}
-                      className="flex items-center justify-center bg-black"
-                    >
-                      <div className="relative w-full h-full">
-                        <ReactPlayer
-                          src={video.src} // ✅ src gecikmeli olarak yüklendi
-                          controls={true}
-                          playing={false}
-                          width="100%"
-                          height="100%"
-                        />
-                        <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg z-10">
-                          {video.name}
-                        </p>
-                        {index === 0 && <SwipeCTA />}
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                  <div className="relative w-full h-full">
+                    <ReactPlayer
+                      src={video.src}
+                      controls={true}
+                      playing={false}
+                      width="100%"
+                      height="100%"
+                    />
+                    <p className="absolute bottom-14 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded-lg z-10">
+                      {video.name}
+                    </p>
+                    {index === 0 && <SwipeCTA />}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-                {/* Custom Navigation Buttons */}
-                <button
-                  onClick={() => swiperRef.current?.slidePrev()}
-                  className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
-                >
-                  ↑
-                </button>
-                <button
-                  onClick={() => swiperRef.current?.slideNext()}
-                  className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
-                >
-                  ↓
-                </button>
-              </>
-            ) : (
-              // ✅ Placeholder (İçerik yüklenene kadar)
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-gray-400 animate-pulse">
-                  Loading Videos...
-                </span>
-              </div>
-            )}
+            {/* Custom Navigation Buttons */}
+            <button
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="absolute top-1/2 left-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
+            >
+              ↑
+            </button>
+            <button
+              onClick={() => swiperRef.current?.slideNext()}
+              className="absolute top-1/2 right-2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70 transition-all duration-300 transform hover:scale-110"
+            >
+              ↓
+            </button>
           </div>
         </div>
       </section>
@@ -1027,7 +1008,10 @@ function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="relative  bg-blue-50 py-20">
+      <section
+        id="contact"
+        className="relative  bg-blue-50 py-20"
+      >
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
@@ -1065,30 +1049,31 @@ function Home() {
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <a
-                    href="tel:+12674839642"
-                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-                  >
-                    <div className="flex-1">
-                      <p className="text-sm text-white font-medium">Phone</p>
-                      <p className="text-lg font-semibold text-white">
-                        +1 267-483-9642
-                      </p>
-                    </div>
-                  </a>
+  <a
+    href="tel:+12674839642"
+    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+  >
+    <div className="flex-1">
+      <p className="text-sm text-white font-medium">Phone</p>
+      <p className="text-lg font-semibold text-white">
+        +1 267-483-9642
+      </p>
+    </div>
+  </a>
 
-                  <a
-                    href="mailto:help@bunnyhomecare.com"
-                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-                  >
-                    <div className="flex-1">
-                      <p className="text-sm text-white font-medium">Email</p>
-                      <p className="text-lg font-semibold text-white">
-                        help@bunnyhomecare.com
-                      </p>
-                    </div>
-                  </a>
-                </div>
+  <a
+    href="mailto:help@bunnyhomecare.com"
+    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+  >
+    <div className="flex-1">
+      <p className="text-sm text-white font-medium">Email</p>
+      <p className="text-lg font-semibold text-white">
+        help@bunnyhomecare.com
+      </p>
+    </div>
+  </a>
+</div>
+
               </div>
 
               {/* Counties We Serve */}
