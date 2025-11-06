@@ -23,7 +23,7 @@ const offers = [
   },
   {
     title: "Trust",
-    description: "BBB A+ Accredited, Licensed in PA.",
+    description: "Licensed by the Pennsylvania Department of Health, A+ Trusted Company by BBB.",
     img: "/images/trust.webp",
   },
   {

@@ -9,6 +9,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTiktok,
+  FaYoutube
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -21,28 +22,30 @@ export default function Footer() {
           <img
             src="/logos/BunnyHomeCare_w_logo.webp"
             alt="Bunny Home Care"
-            className="h-16 w-auto object-contain mb-4 transition-transform duration-300 hover:scale-105 ml-[-4px]"
+            className="h-16 w-auto object-contain mb-4 transition-transform duration-300 hover:scale-105" // ml-[-4px] kaldırıldı
           />
 
           <p className="text-lg leading-relaxed text-white/90 max-w-[260px]">
             Compassionate, multilingual home care for your family. You Deserve Better Care.
           </p>
 
-          <div className="flex items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-2 pt-2"> {/* gap-4 yerine gap-2, flex-wrap eklendi */}
             {[
-              { Icon: FaFacebook, href: "https://www.facebook.com/BunnyHomeCare/" },
-              { Icon: FaInstagram, href: "https://www.instagram.com/bunny.homecare/" },
-              { Icon: FaLinkedin, href: "https://www.linkedin.com/company/bunnyhomecare/" },
-              { Icon: FaTiktok, href: "https://www.tiktok.com/@bunny.home.care" },
-            ].map(({ Icon, href }, i) => (
+              { Icon: FaFacebook, href: "https://www.facebook.com/BunnyHomeCare/", label: "Facebook" },
+              { Icon: FaInstagram, href: "https://www.instagram.com/bunny.homecare/", label: "Instagram" },
+              { Icon: FaLinkedin, href: "https://www.linkedin.com/company/bunnyhomecare/", label: "LinkedIn" },
+              { Icon: FaTiktok, href: "https://www.tiktok.com/@bunnyhomecare", label: "TikTok" },
+              { Icon: FaYoutube, href: "https://www.youtube.com/@bunnyhomecare", label: "YouTube" },
+            ].map(({ Icon, href, label }, i) => (
               <a
                 key={i}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                aria-label={`Bunny Home Care ${label} profili`}
+                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-all duration-300 transform hover:scale-110" // p-3 yerine p-2 (padding küçültüldü)
               >
-                <Icon className="w-6 h-6 text-white" />
+                <Icon className="w-5 h-5 text-white" /> {/* w-6 h-6 yerine w-5 h-5 (ikon boyutu küçültüldü) */}
               </a>
             ))}
           </div>
