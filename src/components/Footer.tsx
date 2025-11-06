@@ -26,7 +26,7 @@ export default function Footer() {
           />
 
           <p className="text-lg leading-relaxed text-white/90 max-w-[260px]">
-            Compassionate, multilingual home care for your family. You Deserve Better Care.
+            Compassionate, multilingual home care services for your family. You Deserve Better Care.
           </p>
 
           <div className="flex flex-wrap items-center gap-2 pt-2"> {/* gap-4 yerine gap-2, flex-wrap eklendi */}
