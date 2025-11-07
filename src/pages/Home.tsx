@@ -102,7 +102,7 @@ const allReviews = [
   },
   {
     name: "Fārêśhtá Ãkbárÿ",
-    avatar: "/avatars/F.webp",
+    avatar: "/avatars/f.webp",
     stars: 5,
     text: "They are wonderful I enjoy working with them thanks to Bunny Home Care.",
   },
@@ -168,7 +168,7 @@ const allReviews = [
   },
   {
     name: "Aisha Noor",
-    avatar: "/avatars/user2.webp",
+    avatar: "/avatars/a.webp",
     stars: 5,
     text: "They helped me understand everything step by step. Very patient and caring team.",
   },
@@ -306,7 +306,7 @@ const allReviews = [
   },
   {
     name: "Raj Kumar",
-    avatar: "/avatars/user2.webp",
+    avatar: "/avatars/R.webp",
     stars: 5,
     text: "I am very happy with the service. They speak Hindi and guide me in every step with patience.",
   },
