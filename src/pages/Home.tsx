@@ -77,12 +77,6 @@ const allReviews = [
     text: "Best home care reliable. Great customer service. They support employees and clients. I recommend for every one.",
   },
   {
-    name: "Babu Saganti",
-    avatar: "/avatars/b.webp",
-    stars: 5,
-    text: "Best home care reliable. Great customer service. They support employees and clients. I recommend for every one.",
-  },
-  {
     name: "Raj Mittal",
     avatar: "/avatars/R.webp",
     stars: 5,
