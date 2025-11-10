@@ -44,7 +44,7 @@ export default function App() {
         </Routes>
       </div>
 
-      {/* 💬 WhatsApp Chat (her sayfada görünür) 
+      {/* 💬 WhatsApp Chat (her sayfada görünür) */}
       <FloatingWhatsApp
         phoneNumber="+15557011444"
         accountName="Bunny Home Care"
@@ -58,7 +58,7 @@ export default function App() {
         notification
         notificationSound
         className="fixed bottom-6 right-6 z-50" // 👈 sola sabitlendi
-      /> */}
+      /> 
 
       {/* ⚙️ Global Footer */}
       <Footer />
