@@ -725,7 +725,6 @@ function Home() {
                 />
                 <div>
                   <h3 className="font-semibold text-gray-900">{review.name}</h3>
-                  <p className="text-xs text-gray-500">{review.time}</p>
                 </div>
                 <img
                   src="/images/g_google.webp"
