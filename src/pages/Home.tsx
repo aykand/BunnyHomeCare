@@ -487,7 +487,7 @@ function Home() {
           {/* Left Content */}
           <div className="md:w-1/2 text-center md:text-left flex flex-col justify-center space-y-6">
             {/* Başlık */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-[#37575f] leading-tight">
               You Deserve Better Care.
             </h1>
 
@@ -600,7 +600,7 @@ function Home() {
           <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
             {/* 💻 Desktop version */}
             <div className="hidden md:block">
-              <h2 className="text-3xl font-bold mb-6">About Us</h2>
+              <h2 className="text-3xl font-bold text-[#37575f] mb-6">About Us</h2>
               <p className="text-lg leading-relaxed text-gray-700">
                 We hire family members or friends to take care of their seniors
                 and they get paid for their help, or we find the best fit for
@@ -708,7 +708,7 @@ function Home() {
 
       {/* TESTIMONIALS */}
       <section className="px-6 py-16 bg-white" id="reviews">
-        <h2 className="text-3xl font-bold mb-10 text-center">
+        <h2 className="text-3xl font-bold text-[#37575f] mb-10 text-center">
           What People Say About Us
         </h2>
 
@@ -842,7 +842,7 @@ function Home() {
       <section className="bg-[rgb(239_246_255_/_var(--tw-bg-opacity,1))] py-20 px-6">
         {/* Başlıklar */}
         <div className="text-center mb-10">
-          <h3 className="text-3xl font-semibold mb-4">
+          <h3 className="text-3xl font-semibold text-[#37575f] mb-4">
             How does Bunny Home Care do it?
           </h3>
           <h4 className="text-lg text-gray-600 font-medium">
@@ -878,7 +878,7 @@ function Home() {
               key={i}
               className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-primary">
+              <h3 className="text-xl font-bold text-[#37575f] mb-2 transition-colors duration-300 group-hover:text-primary">
                 {item.title}
               </h3>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
@@ -898,7 +898,7 @@ function Home() {
       {/* SWITCHING */}
       <section className="px-6 py-20 bg-white" id="switching">
         {/* Başlık */}
-        <h2 className="text-4xl font-extrabold text-center mb-4">
+        <h2 className="text-4xl font-extrabold text-center text-[#37575f] mb-4">
           Easy Switching
         </h2>
         <p className="text-center text-xl text-gray-700 mb-14">
@@ -952,7 +952,7 @@ function Home() {
 
       {/* LANGUAGES */}
       <section className="px-8 py-16 bg-blue-50" id="languages">
-        <h2 className="text-2xl font-bold text-center mb-6">
+        <h2 className="text-2xl font-bold text-center text-[#37575f] mb-6">
           We Speak Your Language
         </h2>
         <p className="mb-10 text-center max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed">
@@ -1054,7 +1054,7 @@ function Home() {
 
       {/* TRUST */}
       <section className="px-8 py-16" id="trust">
-        <h2 className="text-2xl font-bold mb-6">Accreditations</h2>
+        <h2 className="text-2xl font-bold text-[#37575f] mb-6">Accreditations</h2>
         <p className="mb-6 max-w-3xl mx-auto">
           Licensed by the Pennsylvania Department of Health, A+ Accredited by
           BBB, and partnered with major health organizations.
@@ -1100,7 +1100,7 @@ function Home() {
       <section className="py-16 bg-[#f9fafb]" id="subscribe">
         <div className="max-w-3xl mx-auto px-6 text-center">
           {/* Başlık */}
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
+          <h2 className="text-3xl font-bold mb-4 text-[#37575f]">
             Become a Caregiver with Bunny Home Care
           </h2>
           <p className="text-gray-600 mb-8">
@@ -1131,7 +1131,7 @@ function Home() {
 
       {/* CAREGIVER’S ROLE */}
       <section className="px-8 py-16 bg-white" id="services">
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-3xl font-bold text-center mb-10 text-[#37575f]">
           Caregiver's Role
         </h2>
 
@@ -1206,7 +1206,7 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#37575f] mb-4">
               Get In Touch
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -1217,7 +1217,7 @@ function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* ✅ Left Side - HubSpot Form Embed */}
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-300 hover:shadow-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-[#37575f] mb-6">
                 Send us a Message
               </h3>
               {/* HubSpot Form Container */}
@@ -1236,7 +1236,7 @@ function Home() {
             <div className="space-y-6">
               {/* Contact Methods */}
               <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-2xl font-bold text-[#37575f] mb-6">
                   Contact Information
                 </h3>
                 <div className="space-y-4">
@@ -1269,7 +1269,7 @@ function Home() {
 
               {/* Counties We Serve */}
               <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-2xl font-bold text-[#37575f] mb-6">
                   Counties We Serve
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
@@ -1305,13 +1305,13 @@ function Home() {
 
           {/* Office Locations (Aynı kalıyor) */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#37575f] mb-8 text-center">
               Our Office Locations
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="group">
                 <div className="mb-4">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-xl font-bold text-[#37575f] mb-2 group-hover:text-primary transition-colors duration-300">
                     Greater Philadelphia
                   </h4>
                   <p className="text-sm text-gray-600">Main Office</p>
@@ -1330,7 +1330,7 @@ function Home() {
 
               <div className="group">
                 <div className="mb-4">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-xl font-bold text-[#37575f] mb-2 group-hover:text-primary transition-colors duration-300">
                     Allentown
                   </h4>
                   <p className="text-sm text-gray-600">Regional Office</p>
@@ -1349,7 +1349,7 @@ function Home() {
 
               <div className="group">
                 <div className="mb-4">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-xl font-bold text-[#37575f] mb-2 group-hover:text-primary transition-colors duration-300">
                     Lancaster
                   </h4>
                   <p className="text-sm text-gray-600">Regional Office</p>

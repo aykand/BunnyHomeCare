@@ -50,7 +50,7 @@ export default function WhatWeOffer() {
 
   return (
     <section className="bg-gray-50 py-16" id="benefits">
-      <h2 className="text-3xl font-bold text-center mb-12">What We Offer</h2>
+      <h2 className="text-3xl font-bold text-center text-[#37575f] mb-12">What We Offer</h2>
 
       {/* ✅ Masaüstü: Tablı Görünüm */}
       <div className="hidden md:block max-w-6xl mx-auto">
@@ -62,7 +62,7 @@ export default function WhatWeOffer() {
               className={`pb-3 px-2 text-lg font-medium transition-colors ${
                 activeIndex === i
                   ? "border-b-4 border-primary text-primary"
-                  : "text-gray-600 hover:text-primary"
+                  : "text-[#37575f] hover:text-primary"
               }`}
               onClick={() => setActiveIndex(i)}
             >
@@ -79,10 +79,10 @@ export default function WhatWeOffer() {
             className="w-[300px] h-[200px] object-cover rounded-xl shadow"
           />
           <div className="max-w-md text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-3">
+            <h3 className="text-2xl font-bold mb-3 text-[#37575f]">
               {offers[activeIndex].title}
             </h3>
-            <p className="text-gray-600 text-lg">
+            <p className="text-[#37575f] text-lg">
               {offers[activeIndex].description}
             </p>
           </div>
