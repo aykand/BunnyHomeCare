@@ -463,17 +463,17 @@ function Home() {
     },
     {
       title: "Grocery",
-      description: "Providing friendly and supportive interaction.",
+      description: "Helping pick groceries and making sure essentials are always stocked.",
       img: "/images/grocery.webp",
     },
     {
       title: "Socializing",
-      description: "Providing friendly and supportive interaction.",
+      description: "Encouraging activities that keep the mind and heart active.",
       img: "/images/social.webp",
     },
     {
       title: "Mobility Assistance",
-      description: "Providing friendly and supportive interaction.",
+      description: "Providing safe support while walking or moving around.",
       img: "/images/mobility.webp",
     },
   ];
@@ -488,7 +488,7 @@ function Home() {
           <div className="md:w-1/2 text-center md:text-left flex flex-col justify-center space-y-6">
             {/* Başlık */}
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              You Deserve Better Care
+              You Deserve Better Care.
             </h1>
 
             {/* Açıklama */}
@@ -618,14 +618,14 @@ function Home() {
               <div className="bg-primary rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
                 <button
                   type="button"
-                  className="w-full flex justify-between items-center p-5 text-gray-900 font-bold text-xl group"
+                  className="w-full flex justify-between items-center p-5 text-white md:text-gray-900 font-bold text-xl group"
                   onClick={() => {
                     const c = document.getElementById("about2");
                     const a = document.getElementById("arrow2");
                     c?.classList.toggle("hidden");
                     a?.classList.toggle("rotate-180");
                   }}
-                >
+                    >
                   <span className="flex items-center gap-3">
                     <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
                       <svg
@@ -642,8 +642,10 @@ function Home() {
                         />
                       </svg>
                     </span>
-                    <span>About Us</span>
+
+                    <span className="text-white md:text-gray-900">About Us</span>
                   </span>
+
                   <span
                     id="arrow2"
                     className="text-2xl text-white transform transition-transform duration-300 group-hover:scale-110"
@@ -651,6 +653,7 @@ function Home() {
                     ▼
                   </span>
                 </button>
+
 
                 <div
                   id="about2"
@@ -1270,32 +1273,32 @@ function Home() {
                   Counties We Serve
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
-                  {[
-                    "Berks",
-                    "Bucks",
-                    "Carbon",
-                    "Chester",
-                    "Dauphin",
-                    "Delaware",
-                    "Lancaster",
-                    "Lebanon",
-                    "Lehigh",
-                    "Luzerne",
-                    "Monroe",
-                    "Montgomery",
-                    "Northampton",
-                    "Philadelphia",
-                    "Schuylkill",
-                    "York",
-                  ].map((county, index) => (
-                    <div
-                      key={index}
-                      className="px-4 py-2 bg-primary rounded-lg text-center font-medium text-gray-700 hover:from-primary/10 hover:to-teal-100 transition-all duration-300 hover:scale-105"
-                    >
-                      {county}
-                    </div>
-                  ))}
-                </div>
+                {[
+                  "Berks",
+                  "Bucks",
+                  "Carbon",
+                  "Chester",
+                  "Dauphin",
+                  "Delaware",
+                  "Lancaster",
+                  "Lebanon",
+                  "Lehigh",
+                  "Luzerne",
+                  "Monroe",
+                  "Montgomery",
+                  "Northampton",
+                  "Philadelphia",
+                  "Schuylkill",
+                  "York",
+                ].map((county, index) => (
+                  <div
+                    key={index}
+                    className="px-4 py-2 bg-primary rounded-lg text-center font-medium text-white transition-all duration-300 hover:scale-105"
+                  >
+                    {county}
+                  </div>
+                ))}
+              </div>
               </div>
             </div>
           </div>
