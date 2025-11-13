@@ -481,6 +481,12 @@ function Home() {
   
   return (
     <div className="font-sans text-gray-800 text-center">
+      <title>Bunny Home Care | Compassionate Multilingual Home Care</title>
+      <meta 
+        name="description" 
+        content="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones." 
+      />
+
       {/* HERO */}
       <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-8">

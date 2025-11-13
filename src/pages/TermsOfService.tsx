@@ -1,6 +1,11 @@
 export default function TermsOfService() {
   return (
     <section className="bg-gray-50 py-16 px-6">
+      <title>Terms of Service | Bunny Home Care</title>
+      <meta
+        name="description"
+        content="Read the official Terms of Service for using the Bunny Home Care LLC website and our services. Understand your rights and responsibilities."
+      />
       <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-10">
           Terms of Service
