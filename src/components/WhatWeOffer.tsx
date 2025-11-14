@@ -18,12 +18,40 @@ const offers = [
   },
   {
     title: "5★ Customer Service",
-    description: "At Bunny Home Care, We Speak Your Language and Share Your Culture.",
+    description:
+      "At Bunny Home Care, We Speak Your Language and Share Your Culture.",
     img: "/images/customer_service.webp",
   },
   {
     title: "Trust",
-    description: "Licensed by the Pennsylvania Department of Health, A+ Trusted Company by BBB.",
+    description: (
+      <>
+        {/* 'style' yerine 'className' ile alt boşluk verildi */}
+        <p className="mb-4">
+          Licensed by the Pennsylvania Department of Health, A+ Trusted Company
+          by BBB.
+        </p>
+
+        {/* Tailwind Sınıfları Eklendi:
+            - text-center: Mobilde (varsayılan) ortalar.
+            - md:text-left: "md" breakpoint'inden (768px+) sonra sola dayalı yapar.
+          */}
+        <div className="text-center md:text-left">
+          <a
+            href="https://www.bbb.org/us/pa/feasterville-trevose/profile/home-health-care/bunny-home-care-llc-0241-236076009/#sealclick"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            {/* 'style' yerine 'className' ile logo boyutları ve kenarlık ayarlandı */}
+            <img
+              src="https://seal-dc-easternpa.bbb.org/seals/blue-seal-187-130-bbb-236076009.png"
+              className="border-0 w-[100px] h-auto"
+              alt="Bunny Home Care LLC BBB Business Review"
+            />
+          </a>
+        </div>
+      </>
+    ),
     img: "/images/trust.webp",
   },
   {
@@ -50,7 +78,9 @@ export default function WhatWeOffer() {
 
   return (
     <section className="bg-gray-50 py-16" id="benefits">
-      <h2 className="text-3xl font-bold text-center text-[#37575f] mb-12">What We Offer</h2>
+      <h2 className="text-3xl font-bold text-center text-[#37575f] mb-12">
+        What We Offer
+      </h2>
 
       {/* ✅ Masaüstü: Tablı Görünüm */}
       <div className="hidden md:block max-w-6xl mx-auto">
@@ -82,9 +112,10 @@ export default function WhatWeOffer() {
             <h3 className="text-2xl font-bold mb-3 text-[#37575f]">
               {offers[activeIndex].title}
             </h3>
-            <p className="text-[#37575f] text-lg">
+            {/* HATA DÜZELTMESİ (1/2): <p> <div> olarak değiştirildi */}
+            <div className="text-[#37575f] text-lg">
               {offers[activeIndex].description}
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -107,7 +138,10 @@ export default function WhatWeOffer() {
                   className="w-[300px] h-[200px] object-cover rounded-xl mb-4"
                 />
                 <h3 className="text-lg font-bold mb-2">{offer.title}</h3>
-                <p className="text-gray-600 text-center">{offer.description}</p>
+                {/* HATA DÜZELTMESİ (2/2): <p> <div> olarak değiştirildi */}
+                <div className="text-gray-600 text-center">
+                  {offer.description}
+                </div>
               </div>
             </SwiperSlide>
           ))}

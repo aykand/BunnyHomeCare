@@ -510,35 +510,51 @@ function Home() {
               *Results may vary by case.
             </p>
 
-            {/* Stats Row */}
-            <div className="flex flex-row justify-center md:justify-start items-center gap-10 pt-2 flex-wrap order-1 md:order-none">
-              {/* +20 Years Experience */}
-              <div className="text-center">
-                <span className="text-2xl font-bold text-gray-900">+20</span>
-                <p className="text-gray-600 text-sm">
-                  Years of Combined Experience
-                </p>
-              </div>
+{/* Stats Row - Tüm öğeler yatay (flex-row) ve alta dayalı (items-end) */}
+<div className="flex flex-row justify-center md:justify-start items-end gap-10 pt-2 order-1 md:order-none">
 
-              {/* Google Rating */}
-              <a
-                href="https://share.google/7TGMFrT77hWjpaoti"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-center"
-              >
-                <div className="flex items-center justify-center gap-2">
-                  <img
-                    src="/logos/Google_logo.webp"
-                    alt="Google"
-                    className="h-6"
-                  />
-                  <span className="text-lg font-bold text-gray-900">5.0</span>
-                  <div className="flex text-yellow-400 text-sm">★★★★★</div>
-                </div>
-                <p className="text-sm text-gray-600">Customer Reviews</p>
-              </a>
-            </div>
+  {/* 1. +20 Years Experience */}
+  <div className="text-center">
+    <span className="text-2xl font-bold text-gray-900">+20</span>
+    <p className="text-gray-600 text-sm">
+      Years of Combined Experience
+    </p>
+  </div>
+
+  {/* 2. Google Rating */}
+  <a
+    href="https://share.google/7TGMFrT77hWjpaoti"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-center"
+  >
+    <div className="flex items-center justify-center gap-2">
+      <img
+        src="/logos/Google_logo.webp"
+        alt="Google"
+        className="h-6"
+      />
+      <span className="text-lg font-bold text-gray-900">5.0</span>
+      <div className="flex text-yellow-400 text-sm">★★★★★</div>
+    </div>
+    <p className="text-sm text-gray-600">Customer Reviews</p>
+  </a>
+
+  {/* 3. BBB Logosu */}
+  <a
+    href="https://www.bbb.org/us/pa/feasterville-trevose/profile/home-health-care/bunny-home-care-llc-0241-236076009/#sealclick"
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    className="text-center"
+  >
+    <img
+      src="https://seal-dc-easternpa.bbb.org/seals/blue-seal-187-130-bbb-236076009.png"
+      alt="Bunny Home Care LLC BBB Business Review"
+      className="border-0 w-28 h-auto"
+    />
+  </a>
+  
+</div>
 
             {/* Buttons row */}
             <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
