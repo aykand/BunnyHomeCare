@@ -1118,8 +1118,8 @@ function Home() {
         </Swiper>
       </section>
 
-      {/* SUBSCRIBE / CAREGIVER FORM */}
-      <section className="py-16 bg-[#f9fafb]" id="subscribe">
+      {/* CAREGIVER FORM */}
+      <section className="py-16 bg-[#f9fafb]" id="become-a-caregiver">
         <div className="max-w-3xl mx-auto px-6 text-center">
           {/* Başlık */}
           <h2 className="text-3xl font-bold mb-4 text-[#37575f]">
