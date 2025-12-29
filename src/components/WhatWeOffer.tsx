@@ -64,13 +64,16 @@ const offers = [
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary font-medium hover:underline transition-colors"
+          // SEO İyileştirmesi: Linkin nereye gittiğini açıkça belirten metin kullanıldı.
+          // İsterseniz 'aria-label' da ekleyerek erişilebilirliği daha da artırabilirsiniz.
+          aria-label="Learn more about Bunny Home Care Health Plan"
         >
-          Learn more
+          View Health Plan Details
         </a>
       </>
     ),
     img: "/images/health_insurance.webp",
-  },
+},
 ];
 
 export default function WhatWeOffer() {
