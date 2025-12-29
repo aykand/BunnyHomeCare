@@ -581,38 +581,23 @@ function Home() {
 
           {/* Right Image */}
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-      {/* Skeleton frame (resim yüklenene kadar) */}
-      {!loaded && !error && (
-        <div
-          className={`${baseFrame} animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200`}
-          aria-hidden
-        />
-      )}
-
-      {/* Asıl görsel */}
-      <img
-        src="/images/bhc_hero.webp"
-        alt="Happy seniors with Bunny mascot"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        onLoad={() => setLoaded(true)}
-        onError={() => setError(true)}
-        className={`${baseFrame} transition-all duration-500 ${
-          loaded ? "opacity-100 hover:scale-105" : "opacity-0"
-        }`}
-        style={{ objectFit: "cover" }}
-      />
-
-      {/* Hata durumunda fallback (opsiyonel) */}
-      {error && (
-        <div
-          className={`${baseFrame} flex items-center justify-center bg-gray-100 text-gray-500`}
-        >
-          Image failed to load
-        </div>
-      )}
-    </div>
+            {!loaded && !error && (
+              <div className={`${baseFrame} animate-pulse ...`} aria-hidden="true" />
+            )}
+            <img
+              src="/images/bhc_hero.webp"
+              alt="Happy seniors with Bunny mascot"
+              width="650" // Add actual dimensions
+              height="420" // Add actual dimensions
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              onLoad={() => setLoaded(true)}
+              onError={() => setError(true)}
+              className={`${baseFrame} ...`}
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
       </section>
 
