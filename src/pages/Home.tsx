@@ -484,7 +484,7 @@ function Home() {
     <Seo
       title="Bunny Home Care | Compassionate Multilingual Home Care in PA"
       description="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones."
-      canonical="https://bunnyhomecare.com/"
+      canonical="https://www.bunnyhomecare.com/"
     />
 
       {/* HERO */}
@@ -532,6 +532,8 @@ function Home() {
       <img
         src="/logos/Google_logo.webp"
         alt="Google"
+        loading="lazy"
+        decoding="async"
         className="h-6"
       />
       <span className="text-lg font-bold text-gray-900">5.0</span>
@@ -550,8 +552,10 @@ function Home() {
     <img
       src="https://seal-dc-easternpa.bbb.org/seals/blue-seal-187-130-bbb-236076009.png"
       alt="Bunny Home Care LLC BBB Business Review"
+      loading="lazy"
+      decoding="async"
       className="border-0 w-28 h-auto"
-    />
+      />
   </a>
   
 </div>
@@ -589,7 +593,8 @@ function Home() {
       <img
         src="/images/bhc_hero.webp"
         alt="Happy seniors with Bunny mascot"
-        loading="lazy"
+        loading="eager"
+        fetchPriority="high"
         decoding="async"
         onLoad={() => setLoaded(true)}
         onError={() => setError(true)}
@@ -719,8 +724,10 @@ function Home() {
             <img
               src="/images/bunny-flag.webp"
               alt="Bunny Mascot"
+              loading="lazy"
+              decoding="async"
               className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
-            />
+      />
           </div>
         </div>
       </section>
@@ -746,16 +753,20 @@ function Home() {
                 <img
                   src={review.avatar}
                   alt={review.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-10 h-10 rounded-full mr-3"
-                />
+      />
                 <div>
                   <h3 className="font-semibold text-gray-900">{review.name}</h3>
                 </div>
                 <img
                   src="/images/g_google.webp"
                   alt="Google Logo"
+                  loading="lazy"
+                  decoding="async"
                   className="ml-auto w-6 h-6"
-                />
+      />
               </div>
 
               {/* Stars */}
@@ -910,8 +921,10 @@ function Home() {
               <img
                 src={item.img}
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
-              />
+      />
             </div>
           ))}
         </div>
@@ -934,8 +947,10 @@ function Home() {
             <img
               src="/images/Bunny_question.webp"
               alt="Do these sound familiar?"
+              loading="lazy"
+              decoding="async"
               className="w-[130px] sm:w-[180px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
-            />
+      />
           </div>
 
           {/* Chat */}
@@ -943,8 +958,10 @@ function Home() {
             <img
               src="/images/chat_bubbles.webp"
               alt="Complaints"
+              loading="lazy"
+              decoding="async"
               className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
-            />
+      />
           </div>
         </div>
         <div className="flex justify-center mt-10">
@@ -1110,8 +1127,10 @@ function Home() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-12 w-auto object-contain"
-                />
+      />
               </div>
             </SwiperSlide>
           ))}
@@ -1167,8 +1186,10 @@ function Home() {
               <img
                 src={service.img}
                 alt={service.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+      />
               <div className="absolute inset-0 bg-black bg-opacity-20 p-6 flex flex-col justify-end text-left">
                 <h3 className="text-xl font-bold text-white mb-2">
                   {service.title}
@@ -1196,8 +1217,10 @@ function Home() {
                   <img
                     src={service.img}
                     alt={service.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-80 object-cover"
-                  />
+      />
                   {/* Opacity: bg-opacity-40 */}
                   <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
                     <h3 className="text-2xl font-bold text-white mb-2">
