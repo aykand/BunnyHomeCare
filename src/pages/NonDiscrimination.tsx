@@ -1,12 +1,15 @@
+import Seo from "../components/Seo";
+
 export default function NonDiscrimination() {
   return (
     <section className="bg-gray-50 py-16 px-6">
-      <title>Non-Discrimination Policy | Bunny Home Care</title>
-      <meta
-        name="description"
-        content="Read Bunny Home Care's Equal Opportunity and Non-Discrimination Policy. We are committed to fairness and equal opportunity for all."
+      <Seo
+        title="Non-Discrimination Policy | Bunny Home Care"
+        description="Read Bunny Home Care's Equal Opportunity and Non-Discrimination Policy and our commitment to fairness and equal opportunity."
+        canonical="https://www.bunnyhomecare.com/non-discrimination-policy"
       />
-      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
+
+<div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-8">
           Equal Opportunity and Non-Discrimination Policy
         </h1>

@@ -1,12 +1,15 @@
+import Seo from "../components/Seo";
+
 export default function PrivacyPolicy() {
   return (
     <section className="bg-gray-50 py-16 px-6">
-      <title>Privacy Policy | Bunny Home Care</title>
-      <meta
-        name="description"
-        content="Learn how Bunny Home Care LLC collects, uses, and protects your personal information when you visit our website or use our services."
+      <Seo
+        title="Privacy Policy | Bunny Home Care"
+        description="Learn how Bunny Home Care collects, uses, and protects your information when you visit our website or use our services."
+        canonical="https://www.bunnyhomecare.com/privacy-policy"
       />
-      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
+
+<div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-6">
           Privacy Policy
         </h1>
