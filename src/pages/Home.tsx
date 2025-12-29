@@ -10,7 +10,7 @@ import WhatWeOffer from "../components/WhatWeOffer";
 import ReactPlayer from "react-player";
 import HubspotForm from "react-hubspot-form";
 import { useLocation } from "react-router-dom";
-
+import Seo from "../components/Seo";
 
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
@@ -481,11 +481,11 @@ function Home() {
   
   return (
     <div className="font-sans text-gray-800 text-center">
-      <title>Bunny Home Care | Compassionate Multilingual Home Care</title>
-      <meta 
-        name="description" 
-        content="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones." 
-      />
+    <Seo
+      title="Bunny Home Care | Compassionate Multilingual Home Care in PA"
+      description="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones."
+      canonical="https://bunnyhomecare.com/"
+    />
 
       {/* HERO */}
       <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
