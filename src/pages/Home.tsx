@@ -873,7 +873,7 @@ function Home() {
           {[
             {
               title: "Get Paid Every Friday",
-              text: "Transparent payroll process, get paid every Friday",
+              text: "Transparent payroll process, get paid every Friday.",
               img: "/images/friday.webp",
             },
             {
