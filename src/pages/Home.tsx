@@ -494,7 +494,7 @@ function Home() {
           <div className="md:w-1/2 text-center md:text-left flex flex-col justify-center space-y-6">
             {/* Başlık */}
             <h1 className="text-4xl md:text-6xl font-bold text-[#37575f] leading-tight">
-              You Deserve Better Care.
+              5-Star Home Care Services for Seniors in Pennsylvania.
             </h1>
 
             {/* Açıklama */}
