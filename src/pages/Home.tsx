@@ -603,119 +603,131 @@ function Home() {
 
       {/* ABOUT US */}
       <section
-        id="about"
-        className="py-16 px-6 bg-blue-50"
-        style={{ backgroundColor: "#eff6ff" }}
-      >
-        <div className="container mx-auto flex flex-col md:flex-row items-center">
-          {/* Text Section */}
-          <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
-            {/* 💻 Desktop version */}
-            <div className="hidden md:block">
-              <h2 className="text-3xl font-bold text-[#37575f] mb-6">About Us</h2>
-              <p className="text-lg leading-relaxed text-gray-700">
-                We hire family members or friends to take care of their seniors
-                and they get paid for their help, or we find the best fit for
-                their companionship and support on their daily basis activities.
-              </p>
-              <p className="text-lg leading-relaxed text-gray-700 mb-4">
-                With +20 years of combined experience and caring multicultural
-                professionals, Bunny Home Care is a BBB A+ Certified Trusted
-                Company focused on 5★ customer service in your language.
-              </p>
-            </div>
+  id="about"
+  className="py-16 px-6 bg-blue-50"
+  style={{ backgroundColor: "#eff6ff" }}
+>
+  <div className="container mx-auto flex flex-col md:flex-row items-center">
+    {/* Text Section (Left Side) */}
+    <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
+      {/* 💻 Desktop version */}
+      <div className="hidden md:block">
+        <h2 className="text-3xl font-bold text-[#37575f] mb-6">About Us</h2>
+        <p className="text-lg leading-relaxed text-gray-700">
+          We provide in-home care services that allow loved ones to be paid for supporting their seniors with daily living activities and companionship.
+        </p>
+        <br />
+        <p className="text-lg leading-relaxed text-gray-700 mb-4">
+          With +20 years of combined experience and caring multicultural
+          professionals, Bunny Home Care is a BBB A+ Certified Trusted Company
+          focused on 5★ customer service in your language.
+        </p>
 
-            {/* 📱 Mobile version - Modern Card Design */}
-            <div className="md:hidden">
-              <div className="bg-primary rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
-                <button
-                  type="button"
-                  className="w-full flex justify-between items-center p-5 text-white md:text-gray-900 font-bold text-xl group"
-                  onClick={() => {
-                    const c = document.getElementById("about2");
-                    const a = document.getElementById("arrow2");
-                    c?.classList.toggle("hidden");
-                    a?.classList.toggle("rotate-180");
-                  }}
-                    >
-                  <span className="flex items-center gap-3">
-                    <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </span>
+        {/* 👇 DESKTOP BUTTON (Your requested snippet) */}
+        <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
+          <a
+            href="#become-a-caregiver"
+            className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
 
-                    <span className="text-white md:text-gray-900">About Us</span>
-                  </span>
-
-                  <span
-                    id="arrow2"
-                    className="text-2xl text-white transform transition-transform duration-300 group-hover:scale-110"
-                  >
-                    ▼
-                  </span>
-                </button>
-
-
-                <div
-                  id="about2"
-                  className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
+      {/* 📱 Mobile version - Accordion Card */}
+      <div className="md:hidden">
+        <div className="bg-primary rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
+          <button
+            type="button"
+            className="w-full flex justify-between items-center p-5 text-white md:text-gray-900 font-bold text-xl group"
+            onClick={() => {
+              const c = document.getElementById("about2");
+              const a = document.getElementById("arrow2");
+              c?.classList.toggle("hidden");
+              a?.classList.toggle("rotate-180");
+            }}
+          >
+            <span className="flex items-center gap-3">
+              <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </span>
+              <span className="text-white md:text-gray-900">About Us</span>
+            </span>
+            <span
+              id="arrow2"
+              className="text-2xl text-white transform transition-transform duration-300 group-hover:scale-110"
+            >
+              ▼
+            </span>
+          </button>
 
-                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
-                    <div className="flex items-start gap-3">
-                      <span className="text-2xl mt-1">💙</span>
-                      <p>
-                        We hire family members or friends to take care of their
-                        seniors and they get paid for their help, or we find the
-                        best fit for their companionship and support on their
-                        daily activities.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
-                    <div className="flex items-start gap-3">
-                      <span className="text-2xl mt-1">🏆</span>
-                      <p>
-                        With{" "}
-                        <span className="font-semibold text-primary">
-                          +20 years
-                        </span>{" "}
-                        of combined experience and caring multicultural
-                        professionals, Bunny Home Care is a{" "}
-                        <span className="font-semibold">BBB A+ Certified</span>{" "}
-                        Trusted Company focused on 5★ customer service in your
-                        language.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+          <div
+            id="about2"
+            className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl mt-1">💙</span>
+                <p>
+                 We provide in-home care services that allow loved ones to be paid for supporting their seniors with daily living activities and companionship.
+                </p>
+              </div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl mt-1">🏆</span>
+                <p>
+                  With{" "}
+                  <span className="font-semibold text-primary">+20 years</span>{" "}
+                  of combined experience and caring multicultural professionals,
+                  Bunny Home Care is a{" "}
+                  <span className="font-semibold">BBB A+ Certified</span>{" "}
+                  Trusted Company focused on 5★ customer service in your
+                  language.
+                </p>
               </div>
             </div>
           </div>
-
-          {/* Image Section */}
-          <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <img
-              src="/images/bunny-flag.webp"
-              alt="Bunny Mascot"
-              loading="lazy"
-              decoding="async"
-              className="max-w-sm w-full transition-transform duration-300 hover:scale-105"
-      />
-          </div>
         </div>
-      </section>
+      </div>
+    </div>
+
+    {/* Image Section (Right Side) */}
+    <div className="md:w-1/2 mt-8 md:mt-0 flex flex-col items-center justify-center">
+      <img
+        src="/images/About Us-Bunny Mascot.png"
+        alt="Bunny Mascot"
+        loading="lazy"
+        decoding="async"
+        className="max-w-[250px] md:max-w-[280px] w-full transition-transform duration-300 hover:scale-105"
+      />
+
+      {/* 📱 Mobile Button (Visible only on Mobile, below image) */}
+      <div className="md:hidden w-full">
+        <div className="flex justify-center gap-4 pt-6 order-2">
+          <a
+            href="#become-a-caregiver"
+            className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* WHAT WE OFFER */}
       <WhatWeOffer />
@@ -1127,7 +1139,7 @@ function Home() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           {/* Başlık */}
           <h2 className="text-3xl font-bold mb-4 text-[#37575f]">
-            Become a Caregiver with Bunny Home Care
+            Get Started Now
           </h2>
           <p className="text-gray-600 mb-8">
             Fill out the form below and our team will reach out to you.
