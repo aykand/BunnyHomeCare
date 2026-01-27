@@ -579,24 +579,22 @@ function Home() {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-            {!loaded && !error && (
-              <div className={`${baseFrame} animate-pulse ...`} aria-hidden="true" />
-            )}
-            <img
-              src="/images/bhc_hero.webp"
-              alt="Happy seniors with Bunny mascot"
-              width="650" // Add actual dimensions
-              height="420" // Add actual dimensions
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              onLoad={() => setLoaded(true)}
-              onError={() => setError(true)}
-              className={`${baseFrame} ...`}
-              style={{ objectFit: "cover" }}
-            />
+          {/* Right Image - Video */}
+          <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
+            <video
+              className="rounded-2xl shadow-xl w-full h-auto max-w-[650px] object-cover"
+              width="650"
+              height="420"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/images/bhc_hero.webp" // Video yüklenene kadar görünecek resim
+            >
+              
+              <source src="/videos/Bunny Home Care - Hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
