@@ -614,7 +614,7 @@ function Home() {
       <div className="hidden md:block">
         <h2 className="text-3xl font-bold text-[#37575f] mb-6">About Us</h2>
         <p className="text-lg leading-relaxed text-gray-700">
-          We provide in-home care services that allow loved ones to be paid for supporting their seniors with daily living activities and companionship.
+          We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
         </p>
         <br />
         <p className="text-lg leading-relaxed text-gray-700 mb-4">
@@ -681,7 +681,7 @@ function Home() {
               <div className="flex items-start gap-3">
                 <span className="text-2xl mt-1">💙</span>
                 <p>
-                 We provide in-home care services that allow loved ones to be paid for supporting their seniors with daily living activities and companionship.
+                 We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
                 </p>
               </div>
             </div>
