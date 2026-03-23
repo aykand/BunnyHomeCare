@@ -48,9 +48,9 @@ export default function App() {
       <FloatingWhatsApp
         phoneNumber="+15557011444"
         accountName="Bunny Home Care"
-        avatar="\favicon-96x96.png"
+        avatar="\logos\bunny support.png"
         chatMessage="👋 How can we help?
-While a specialist replies, please share full name and email to better assist you."
+While a specialist replies, please share your full name and email to better assist you."
         statusMessage="Typically replies within 5 mins"
         placeholder="Type your message..."
         darkMode={false}
