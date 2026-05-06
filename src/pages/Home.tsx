@@ -592,7 +592,7 @@ function Home() {
               poster="/images/bhc_hero.webp" // Video yüklenene kadar görünecek resim
             >
               
-              <source src="/videos/Bunny Home Care - Hero.mp4" type="video/mp4" />
+              <source src="/videos/Bunny Home Care - Mother's Day.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
