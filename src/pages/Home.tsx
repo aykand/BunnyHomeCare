@@ -592,7 +592,7 @@ function Home() {
               poster="/images/bhc_hero.webp" // Video yüklenene kadar görünecek resim
             >
               
-              <source src="/videos/Bunny Home Care - Mother's Day.mp4" type="video/mp4" />
+              <source src="/videos/Bunny Home Care - Hero.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1111,8 +1111,8 @@ function Home() {
             { src: "/logos/amerihealth.webp", alt: "AmeriHealth" },
             { src: "/logos/keystone.webp", alt: "Keystone" },
             { src: "/logos/pahealth.webp", alt: "PA Health" },
-            { src: "/logos/padepartment.webp", alt: "PA Department of Health" },
             { src: "/logos/upmc.webp", alt: "UPMC" },
+            { src: "/logos/padepartment.webp", alt: "PA Department of Health" },
           ].map((logo, i) => (
             <SwiperSlide
               key={i}
