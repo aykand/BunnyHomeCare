@@ -12,6 +12,9 @@ import HubspotForm from "react-hubspot-form";
 import { useLocation } from "react-router-dom";
 import Seo from "../components/Seo";
 
+
+const sectionTitleClass =
+  "text-2xl sm:text-3xl md:text-[34px] font-extrabold text-[#37575f] leading-snug";
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
   const [visible, setVisible] = useState(true);
@@ -410,6 +413,9 @@ function Home() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
   const swiperRef = useRef<any>(null);
+  const [flippedServiceIndex, setFlippedServiceIndex] = useState<number | null>(
+  null
+);
 
   // ✅ Languages
   const languages = [
@@ -434,46 +440,55 @@ function Home() {
     {
       title: "Bathing",
       description: "Helping with safe and dignified bathing routines.",
+      details: "As a dedicated family caregiver, providing safe and dignified bathing support is essential for your loved one's health.",
       img: "/images/bathing.webp",
     },
     {
       title: "Dressing",
       description: "Assistance with clothing choices and dressing comfortably.",
+      details: "Helping your loved one maintain their personal style and start their morning with confidence demands time, patience, and effort.",
       img: "/images/dressing.webp",
     },
     {
       title: "Light Housekeeping",
       description: "Keeping the home safe and tidy with light chores.",
+      details: "Keeping a home clean, hygienic, and free of physical hazards is fundamental to a vulnerable adult's health. If you are already managing home cleaning, daily chores, and organization, Bunny Home Care helps you turn these Instrumental Activities of Daily Living into paid working hours",
       img: "/images/housekeeping.webp",
     },
     {
       title: "Laundry",
       description: "Assistance with washing, drying, and folding clothes.",
+      details: "Maintaining a constant supply of fresh laundry and clean linens requires significant physical effort. From washing and drying to meticulous organization, we recognize these essential homemaker tasks as part of your compensated caregiving responsibilities, helping to ease the daily demands on your family.",
       img: "/images/laundry.webp",
     },
     {
       title: "Meal Preparation",
       description: "Preparing nutritious meals and assisting with feeding.",
+      details: "Cooking balanced, fresh meals tailored to your loved one's specific dietary needs is the cornerstone of healthy independent living. Managing nutrition, meal planning, and offering patient support during mealtimes. Earn a reliable income while managing your loved one’s dietary wellness. ",
       img: "/images/meal.webp",
     },
     {
       title: "Companionship",
       description: "Providing friendly and supportive interaction.",
+      details: "Your presence and emotional interaction are the strongest defenses against isolation and loneliness. Because mental stimulation has clear health benefits. Receive financial compensation for fostering your loved one’s emotional wellness through shared activities, reading, or any other everyday support you provide.",
       img: "/images/companionship.webp",
     },
     {
       title: "Grocery",
       description: "Helping pick groceries and making sure essentials are always stocked.",
+      details: "Keeping the pantry stocked with fresh ingredients and household essentials is critical for long term health management. As an employed caregiver, the time you spend mapping out shopping lists, selecting nutritious items, and transporting groceries home is fully eligible for financial compensation under state care guidelines.",
       img: "/images/grocery.webp",
     },
     {
       title: "Socializing",
       description: "Encouraging activities that keep the mind and heart active.",
+      details: "An active social life keeps your loved one’s mind sharp and their spirits high. Whether you are encouraging their hobbies, playing games, going on walks, or assisting them with community events.",
       img: "/images/social.webp",
     },
     {
       title: "Mobility Assistance",
       description: "Providing safe support while walking or moving around.",
+      details: "Your careful eyes prevent dangerous falls and keep your loved one moving safely inside and outside their home.",
       img: "/images/mobility.webp",
     },
   ];
@@ -610,7 +625,7 @@ function Home() {
     <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
       {/* 💻 Desktop version */}
       <div className="hidden md:block">
-        <h2 className="text-3xl font-bold text-[#37575f] mb-6">About Us</h2>
+          <h2 className={`${sectionTitleClass} mb-6`}>About Us</h2>
         <p className="text-lg leading-relaxed text-gray-700">
           We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
         </p>
@@ -732,9 +747,7 @@ function Home() {
 
       {/* TESTIMONIALS */}
       <section className="px-6 py-16 bg-white" id="reviews">
-        <h2 className="text-3xl font-bold text-[#37575f] mb-10 text-center">
-          What People Say About Us
-        </h2>
+        <h2 className={`${sectionTitleClass} mb-10 text-center`}>What People Say About Us</h2>
 
         {/* Reviews List */}
         <div className="max-w-3xl mx-auto space-y-8">
@@ -867,136 +880,15 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-[rgb(239_246_255_/_var(--tw-bg-opacity,1))] py-20 px-6">
-        {/* Başlıklar */}
-        <div className="text-center mb-10">
-          <h3 className="text-3xl font-semibold text-[#37575f] mb-4">
-            How does Bunny Home Care do it?
-          </h3>
-          <h4 className="text-lg text-gray-600 font-medium">
-            It’s not magic, but hard work on our customer service:
-          </h4>
-        </div>
-
-        {/* Kartlar Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-10">
-          {[
-            {
-              title: "Get Paid Every Friday",
-              text: "Transparent payroll process, get paid every Friday.",
-              img: "/images/friday.webp",
-            },
-            {
-              title: "Best Rates",
-              text: "The highest pay rates in Pennsylvania.",
-              img: "/images/best_rate.webp",
-            },
-            {
-              title: "No Lost Hours",
-              text: "Keep every hour you’ve worked without gaps.",
-              img: "/images/hha.webp",
-            },
-            {
-              title: "We Speak Your Language",
-              text: "Support and service in 15+ languages.",
-              img: "/images/wsyl.webp",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center text-center group transition-all duration-300 hover:transform hover:scale-105"
-            >
-              <h3 className="text-xl font-bold text-[#37575f] mb-2 transition-colors duration-300 group-hover:text-primary">
-                {item.title}
-              </h3>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                {item.text}
-              </p>
-
-              <img
-                src={item.img}
-                alt={item.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-40 object-cover rounded-xl shadow transition-all duration-300 group-hover:shadow-lg"
-      />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SWITCHING */}
-      <section className="px-6 py-20 bg-white" id="switching">
-        {/* Başlık */}
-        <h2 className="text-4xl font-extrabold text-center text-[#37575f] mb-4">
-          Easy Switching
-        </h2>
-        <p className="text-center text-xl text-gray-700 mb-14">
-          Switching to Bunny Home Care is very easy: it takes you just one call.
-        </p>
-
-        {/* Bunny + Chat Görseli */}
-        <div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-24 md:mb-32 flex-nowrap">
-          {/* Bunny */}
-          <div className="flex-shrink-0">
-            <img
-              src="/images/Bunny_question.webp"
-              alt="Do these sound familiar?"
-              loading="lazy"
-              decoding="async"
-              className="w-[130px] sm:w-[180px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
-      />
-          </div>
-
-          {/* Chat */}
-          <div className="flex-shrink-0">
-            <img
-              src="/images/chat_bubbles.webp"
-              alt="Complaints"
-              loading="lazy"
-              decoding="async"
-              className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
-      />
-          </div>
-        </div>
-        <div className="flex justify-center mt-10">
-          <a
-            href="tel:+12674839642"
-            className="flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
-          >
-            {/* Phone Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            Call Us Now
-          </a>
-        </div>
-      </section>
-
       {/* LANGUAGES */}
       <section className="px-8 py-16 bg-blue-50" id="languages">
-        <h2 className="text-2xl font-bold text-center text-[#37575f] mb-6">
+        <h2 className={`${sectionTitleClass} text-center mb-6`}>
           We Speak Your Language
         </h2>
         <p className="mb-10 text-center max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed">
-          Our dedicated team speaks{" "}
-          <span className="font-semibold text-primary">15+ languages</span> and
-          knows your culture, so that you can express yourself comfortably.
-          <br />
+          Our dedicated team provides home care support in 15+ languages so you and your family can communicate comfortably.  <br />Together, we’ll ensure every step of your journey is clear, trusted, and understood. <br />
           <span className="text-gray-800 font-medium">
-            Click on your preferred card to get more information in your
-            language.
+            Click on your preferred card to get more information in your language. 
           </span>
         </p>
 
@@ -1086,57 +978,262 @@ function Home() {
         </div>
       </section>
 
-      {/* TRUST */}
-      <section className="px-8 py-16" id="trust">
-        <h2 className="text-2xl font-bold text-[#37575f] mb-6">Accreditations</h2>
-        <p className="mb-6 max-w-3xl mx-auto">
-          Licensed by the Pennsylvania Department of Health, A+ Accredited by
-          BBB, and partnered with major health organizations.
-        </p>
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={40}
-          slidesPerView={3}
-          loop
-          autoplay={{ delay: 2000 }}
-          breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-          }}
-          className="max-w-6xl mx-auto"
-        >
-          {[
-            { src: "/logos/bbb.webp", alt: "BBB" },
-            { src: "/logos/amerihealth.webp", alt: "AmeriHealth" },
-            { src: "/logos/keystone.webp", alt: "Keystone" },
-            { src: "/logos/pahealth.webp", alt: "PA Health" },
-            { src: "/logos/upmc.webp", alt: "UPMC" },
-            { src: "/logos/padepartment.webp", alt: "PA Department of Health" },
-          ].map((logo, i) => (
-            <SwiperSlide
-              key={i}
-              className="flex items-center justify-center h-24" // eşit hizalama için sabit yükseklik
+      
+    {/* SWITCHING */}
+    <section className="px-6 py-16 md:py-20 bg-white" id="switching">
+      <div className="max-w-5xl mx-auto">
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h2 className={`${sectionTitleClass} text-center mb-3`}>
+            Switching to Us Is Very Easy
+          </h2>
+
+          <p className="text-base sm:text-lg md:text-xl text-gray-700">
+            And your service won’t stop.
+          </p>
+        </div>
+
+        {/* Images */}
+        <div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-12 flex-nowrap">
+          {/* Bunny */}
+          <div className="flex-shrink-0">
+            <img
+              src="/images/Bunny_question.webp"
+              alt="Do these sound familiar?"
+              loading="lazy"
+              decoding="async"
+              className="w-[120px] sm:w-[170px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+
+          {/* Chat */}
+          <div className="flex-shrink-0">
+            <img
+              src="/images/chat_bubbles.webp"
+              alt="Common caregiver complaints"
+              loading="lazy"
+              decoding="async"
+              className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="max-w-4xl mx-auto mb-10">
+          <div className="bg-[#f7fbfb] border border-gray-100 rounded-3xl p-5 sm:p-8 md:p-10 shadow-sm">
+            {/* First Text */}
+            <div className="max-w-3xl mx-auto text-center mb-6">
+              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
+                Frustrated by your current agency? Switch to Bunny Home Care. We will
+                make sure you receive the attention and support you deserve.
+              </p>
+            </div>
+
+            {/* Mobile Compact List */}
+            <div className="md:hidden space-y-3 mb-6">
+              {[
+                "Clear schedules and a transparent payment process",
+                "Support in your language",
+                "5-star customer service",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
+                >
+                  <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-4 h-4 text-primary"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+
+                  <p className="text-sm font-semibold text-[#37575f] leading-5 text-left">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Cards */}
+            <div className="hidden md:grid md:grid-cols-3 gap-4 mb-7">
+              {[
+                "Clear schedules and transparent payment process",
+                "Support in your language",
+                "5-star customer service",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm text-center hover:shadow-md transition duration-300"
+                >
+                  <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5 text-primary"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+
+                  <p className="text-sm sm:text-base font-semibold text-[#37575f] leading-6">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Second Text */}
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
+                Your current service won’t stop during the switch. We manage the
+                transfer paperwork to help prevent gaps in your care.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="flex justify-center">
+          <a
+            href="tel:+12674839642"
+            className="flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm p-3 hover:shadow-md transition-all duration-300">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-12 w-auto object-contain"
-      />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            Call Us Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+      {/* TRUST */}
+      <section className="px-5 md:px-8 py-14 md:py-16 bg-blue-50" id="trust">
+  <div className="max-w-6xl mx-auto">
+    {/* Header */}
+    <div className="max-w-4xl mx-auto text-center mb-10">
+
+      <h2 className={`${sectionTitleClass} text-center mb-4`}>
+        Licensed & Accredited
+      </h2>
+
+      <div className="w-16 h-1 bg-primary rounded-full mx-auto mb-6" />
+
+      <div className="relative overflow-hidden bg-[#f7fbfb] border border-gray-100 rounded-3xl px-5 py-6 sm:px-8 sm:py-7 shadow-sm">
+        <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full" />
+        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-primary/5 rounded-full" />
+
+        <p className="relative max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
+          We are licensed by the{" "}
+          <strong className="font-bold text-[#37575f]">
+            Pennsylvania Department of Health
+          </strong>
+          , we hold an{" "}
+          <strong className="font-bold text-[#37575f]">
+            A+ Accreditation from the Better Business Bureau (BBB)
+          </strong>
+          , and have a{" "}
+          <strong className="font-bold text-[#37575f]">
+            5-star recommendation on Google Reviews
+          </strong>
+          . Our credentials and care partnerships reflect the professional
+          standards behind our service.
+        </p>
+      </div>
+    </div>
+
+    {/* Logos */}
+    <Swiper
+      modules={[Autoplay]}
+      spaceBetween={24}
+      slidesPerView={2}
+      loop
+      autoplay={{ delay: 2000 }}
+      breakpoints={{
+        320: { slidesPerView: 2, spaceBetween: 16 },
+        640: { slidesPerView: 3, spaceBetween: 24 },
+        1024: { slidesPerView: 5, spaceBetween: 40 },
+      }}
+      className="max-w-6xl mx-auto"
+    >
+      {[
+        {
+          src: "/logos/padepartment.webp",
+          alt: "Pennsylvania Department of Health",
+        },
+        {
+          src: "/logos/bbb.webp",
+          alt: "Better Business Bureau A+ Accreditation",
+        },
+        {
+          src: "/logos/upmc.webp",
+          alt: "UPMC Community HealthChoices",
+        },
+        {
+          src: "/logos/amerihealth.webp",
+          alt: "AmeriHealth Caritas",
+        },
+        {
+          src: "/logos/keystone.webp",
+          alt: "Keystone First",
+        },
+        {
+          src: "/logos/pahealth.webp",
+          alt: "PA Health & Wellness",
+        },
+      ].map((logo, i) => (
+        <SwiperSlide
+          key={i}
+          className="flex items-center justify-center h-24"
+        >
+          <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm border border-gray-100 p-3 hover:shadow-md transition-all duration-300">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              loading="lazy"
+              decoding="async"
+              className="max-h-12 w-auto object-contain"
+            />
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
 
       {/* CAREGIVER FORM */}
       <section className="py-16 bg-[#f9fafb]" id="become-a-caregiver">
         <div className="max-w-3xl mx-auto px-6 text-center">
           {/* Başlık */}
-          <h2 className="text-3xl font-bold mb-4 text-[#37575f]">
+          <h2 className={`${sectionTitleClass} text-center mb-4`}>
             Get Started Now
           </h2>
           <p className="text-gray-600 mb-8">
@@ -1166,77 +1263,166 @@ function Home() {
       </section>
 
       {/* CAREGIVER’S ROLE */}
-      <section className="px-8 py-16 bg-white" id="services">
-        <h2 className="text-3xl font-bold text-center mb-10 text-[#37575f]">
-          Caregiver's Role
-        </h2>
+<section className="px-8 py-16 bg-white" id="services">
+  <h2 className={`${sectionTitleClass} text-center mb-4`}>
+    Caregiver's Role
+  </h2>
 
-        {/* Desktop Grid (GÜNCELLENDİ: Tüm 6 hizmeti göstermek için artık döngü kullanıyor) */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {caregiverServices.map((service, index) => (
-            <div
-              key={index}
-              className="relative rounded-lg overflow-hidden shadow-lg group"
-            >
+  <p className="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed mb-10">
+    Caregivers support seniors with daily living activities, comfort, and
+    companionship at home.
+  </p>
+
+  {/* Desktop Grid */}
+  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    {caregiverServices.map((service, index) => {
+      const isFlipped = flippedServiceIndex === index;
+
+      return (
+        <div
+          key={index}
+          className="relative h-72 rounded-xl shadow-lg cursor-pointer perspective group"
+          onClick={() =>
+            setFlippedServiceIndex(isFlipped ? null : index)
+          }
+        >
+          <div
+            className={`relative w-full h-full transition-transform duration-700 transform preserve-3d ${
+              isFlipped ? "rotate-y-180" : ""
+            }`}
+          >
+            {/* Front Side */}
+            <div className="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
               <img
                 src={service.img}
                 alt={service.title}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-              <div className="absolute inset-0 bg-black bg-opacity-20 p-6 flex flex-col justify-end text-left">
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+
+              <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
                 <h3 className="text-xl font-bold text-white mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-100 mb-4 text-sm">
+
+                <p className="text-gray-100 mb-4 text-sm leading-relaxed">
                   {service.description}
                 </p>
+
+                <span className="inline-flex items-center text-white font-semibold text-sm">
+                  Click to learn more →
+                </span>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Mobile Slider (Zaten tüm 6 hizmeti gösteriyor ve opacity ayarı yapılmıştı) */}
-        <div className="md:hidden max-w-md mx-auto">
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={20}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            className="pb-10"
-          >
-            {caregiverServices.map((service, index) => (
-              <SwiperSlide key={index}>
-                <div className="relative rounded-xl overflow-hidden shadow-xl">
+            {/* Back Side */}
+            <div className="absolute inset-0 rounded-xl overflow-hidden rotate-y-180 backface-hidden bg-[#37575f] p-6 flex flex-col text-left">
+              <h3 className="text-2xl font-bold text-white mb-4 flex-shrink-0">
+                {service.title}
+              </h3>
+
+              <div className="flex-1 min-h-0 overflow-y-auto pr-2">
+                <p className="text-white/90 text-sm leading-relaxed">
+                  {service.details}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                className="mt-5 inline-flex items-center justify-center bg-[#30d5c8] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#28c5b9] transition-colors flex-shrink-0"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setFlippedServiceIndex(null);
+                }}
+              >
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  {/* Mobile Slider */}
+  <div className="md:hidden max-w-md mx-auto">
+    <Swiper
+      modules={[Pagination]}
+      spaceBetween={20}
+      slidesPerView={1}
+      pagination={{ clickable: true }}
+      className="pb-10"
+      onSlideChange={() => setFlippedServiceIndex(null)}
+    >
+      {caregiverServices.map((service, index) => {
+        const isFlipped = flippedServiceIndex === index;
+
+        return (
+          <SwiperSlide key={index}>
+            <div className="relative h-[390px] rounded-xl shadow-xl perspective">
+              <div
+                className={`relative w-full h-full transition-transform duration-700 transform preserve-3d ${
+                  isFlipped ? "rotate-y-180" : ""
+                }`}
+              >
+                {/* Front Side */}
+                <div className="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
                   <img
                     src={service.img}
                     alt={service.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-80 object-cover"
-      />
-                  {/* Opacity: bg-opacity-40 */}
+                    className="w-full h-full object-cover"
+                  />
+
                   <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
                     <h3 className="text-2xl font-bold text-white mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-gray-100 mb-4 text-base">
+
+                    <p className="text-gray-100 mb-4 text-base leading-relaxed">
                       {service.description}
                     </p>
-                    <a
-                      href="#contact"
-                      className="text-white font-semibold hover:underline text-sm"
+
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center bg-[#30d5c8] text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-md hover:bg-[#28c5b9] transition-colors w-fit"
+                      onClick={() => setFlippedServiceIndex(index)}
                     >
                       Learn More →
-                    </a>
+                    </button>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
+
+                {/*Mobile Back Side */}
+                  <div className="absolute inset-0 rounded-xl overflow-hidden rotate-y-180 backface-hidden bg-[#37575f] p-6 flex flex-col text-left">
+                    <h3 className="text-2xl font-bold text-white mb-4 flex-shrink-0">
+                      {service.title}
+                    </h3>
+
+                    <div className="flex-1 min-h-0 overflow-y-auto pr-2">
+                      <p className="text-white/90 text-sm leading-relaxed">
+                        {service.details}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="mt-5 inline-flex items-center justify-center bg-[#30d5c8] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#28c5b9] transition-colors flex-shrink-0"
+                      onClick={() => setFlippedServiceIndex(null)}
+                    >
+                      Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        );
+      })}
+    </Swiper>
+  </div>
+</section>
 
       {/* CONTACT */}
       <section
@@ -1246,7 +1432,7 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#37575f] mb-4">
+            <h2 className={`${sectionTitleClass} text-center mb-4`}>
               Get In Touch
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">

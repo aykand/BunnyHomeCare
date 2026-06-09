@@ -7,19 +7,19 @@ import HubspotForm from "react-hubspot-form"; // Buraya eklendi
 
 const offers = [
   {
-    title: "Best Rate",
-    description: "Highest Hourly Rate in Area.",
-    img: "/images/best_rate.webp",
+    title: "Caregivers Tailored Matching",
+    description: "Bunny Home Care uses an AI-powered Client-Caregiver Matching System combined with human expertise to help connect each client with a caregiver who best fits their personal care needs, language preferences, cultural background, and daily living assistance requirements.",
+    img: "/images/tailored_mathing_bhc.webp",
   },
   {
     title: "Easy Switching",
-    description: "Fast, Easy, and Your Service Won’t Stop.",
-    img: "/images/easy_switching.webp",
+    description: "Switching means upgrading your care when your current agency isn't meeting your expectations. We handle the entire process for you, making the transition fast, seamless, and completely stress-free, ensuring your essential care services continue without interruption.",
+    img: "/images/easy_switching_bhc.webp",
   },
   {
     title: "5★ Customer Service",
     description:
-      "At Bunny Home Care, We Speak Your Language and Share Your Culture.",
+      "Families across Pennsylvania rate us with five-star reviews for our dedicated support. As a top-rated home care agency in PA, we match you with care professionals who share your language and culture. Experience the trusted service that brings true peace of mind to family caregivers.",
     img: "/images/customer_service.webp",
   },
   {
@@ -28,8 +28,7 @@ const offers = [
       <>
         {/* 'style' yerine 'className' ile alt boşluk verildi */}
         <p className="mb-4">
-          Licensed by the Pennsylvania Department of Health, A+ Trusted Company
-          by BBB.
+          As a trusted leader in the Pennsylvania home care sector, we are proud to hold an A+ accreditation from the Better Business Bureau (BBB). This distinction highlights our unwavering dedication to upholding the highest standards of professional integrity and regulatory compliance.
         </p>
 
         {/* Tailwind Sınıfları Eklendi:
@@ -58,12 +57,25 @@ const offers = [
     title: "Health Insurance",
     description: (
       <>
-        Medical, Dental, Vision & RX. <br />
+        <p className="mb-3">
+          We value your dedication. That's why we support our Pennsylvania caregivers with essential health perks to help cover their everyday needs:
+        </p>
+        <ul className="list-disc pl-5 mb-4 space-y-1">
+          <li>
+            <strong>Medical:</strong> Accessible health plans for you and your family.
+          </li>
+          <li>
+            <strong>Dental & Vision:</strong> Smart coverage for routine and preventative care.
+          </li>
+          <li>
+            <strong>Prescription (RX):</strong> Affordable access to the medications you need.
+          </li>
+        </ul>
         <a
           href="https://home.bunnyhomecare.com/health-plan"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary font-medium hover:underline transition-colors"
+          className="text-primary font-medium hover:underline transition-colors inline-block mt-2"
           // SEO İyileştirmesi: Linkin nereye gittiğini açıkça belirten metin kullanıldı.
           // İsterseniz 'aria-label' da ekleyerek erişilebilirliği daha da artırabilirsiniz.
           aria-label="Learn more about Bunny Home Care Health Plan"
@@ -73,7 +85,7 @@ const offers = [
       </>
     ),
     img: "/images/health_insurance.webp",
-},
+}
 ];
 
 export default function WhatWeOffer() {
