@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/Privacypolicy";
 import NonDiscrimination from "./pages/NonDiscrimination";
 import TermsOfService from "./pages/TermsOfService";
+import CaregiverOnboarding from './pages/CaregiverOnboarding';
 import BlogHome from "./pages/BlogHome";
 import BlogPost from "./pages/BlogPost";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/blog" element={<BlogHome />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/caregiver-onboarding" element={<CaregiverOnboarding />} />
         </Routes>
       </div>
 

@@ -9,7 +9,8 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTiktok,
-  FaYoutube
+  FaYoutube,
+  FaClipboardList
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -79,6 +80,7 @@ export default function Footer() {
           <h3 className="text-xl md:text-2xl font-semibold mb-3">Legal</h3>
           <ul className="space-y-3 text-lg">
             {[
+              { name: "Caregiver Onboarding", Icon: FaClipboardList, to: "/caregiver-onboarding"},
               { name: "Non Discrimination Policy", Icon: FaShieldAlt, to: "/non-discrimination-policy" },
               { name: "Terms of Service", Icon: FaFileAlt, to: "/terms-of-service" },
               { name: "Privacy Policy", Icon: FaLock, to: "/privacy-policy" },
