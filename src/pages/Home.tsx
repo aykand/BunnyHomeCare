@@ -496,10 +496,10 @@ function Home() {
     "url": "https://www.bunnyhomecare.com/",
     "logo": "https://www.bunnyhomecare.com/android-chrome-192x192.png",
     "description": "Compassionate, multilingual home care services for your family.",
-    "sameAs": [
+    "sameAs": [ // <-- Corrected: No backslashes here
       "https://www.facebook.com/bunnyhomecare",
       "https://www.instagram.com/bunnyhomecare"
-    ]
+    ] // <-- Corrected: No backslashes here
   };
   return (
     <div className="font-sans text-gray-800 text-center">
