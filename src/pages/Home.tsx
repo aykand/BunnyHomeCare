@@ -489,13 +489,25 @@ function Home() {
       img: "/images/mobility.webp",
     },
   ];
-
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bunny Home Care",
+    "url": "https://www.bunnyhomecare.com/",
+    "logo": "https://www.bunnyhomecare.com/android-chrome-192x192.png",
+    "description": "Compassionate, multilingual home care services for your family.",
+    "sameAs": [
+      "https://www.facebook.com/bunnyhomecare",
+      "https://www.instagram.com/bunnyhomecare"
+    ]
+  };
   return (
     <div className="font-sans text-gray-800 text-center">
       <Seo
         title="Bunny Home Care | Compassionate Multilingual Home Care in PA"
         description="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones."
         canonical="https://www.bunnyhomecare.com/"
+        structuredData={organizationSchema}
       />
       {/* HERO */}
       <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
