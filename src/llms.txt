@@ -1,0 +1,11 @@
+# Bunny Home Care
+
+> Compassionate, multilingual home care services that hire family members or friends to care for seniors.
+
+## Key Services
+- [About Us](https://www.bunnyhomecare.com/) - Learn about our mission and care team.
+- [Sitemap](https://www.bunnyhomecare.com/sitemap.xml) - Full XML structure of our website.
+
+## Contact Information
+- [Contact Support](mailto:help@bunnyhomecare.com) - General inquiries and care support.
+- [Marketing](mailto:marketing@bunnyhomecare.com) - Marketing department contact.
