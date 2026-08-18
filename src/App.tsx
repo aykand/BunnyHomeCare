@@ -1,3 +1,5 @@
+// src/App.tsx
+
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,18 +13,17 @@ import BlogPost from "./pages/BlogPost";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import { useEffect } from "react";
 
-
 export default function App() {
   const { pathname, search, hash, key } = useLocation();
 
-  // Tarayıcının otomatik scroll restore davranışını kapat
+  // Disable browser's automatic scroll restoration behavior
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
   }, []);
 
-  // URL değiştiğinde (hash YOKSA) sayfanın en üstüne çık
+  // Scroll to the top of the page when URL changes (unless a hash link is used)
   useEffect(() => {
     if (!hash) {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -54,9 +55,8 @@ export default function App() {
       <FloatingWhatsApp
         phoneNumber="+15557011444"
         accountName="Bunny Home Care"
-        avatar="\logos\bunny support.png"
-        chatMessage="👋 How can we help?
-While a specialist replies, please share your full name and email to better assist you."
+        avatar="/logos/bunny support.png" // CORRECTED PATH
+        chatMessage="👋 How can we help? While a specialist replies, please share your full name and email to better assist you."
         statusMessage="Typically replies within 5 mins"
         placeholder="Type your message..."
         darkMode={false}
@@ -64,8 +64,8 @@ While a specialist replies, please share your full name and email to better assi
         allowClickAway
         notification
         notificationSound
-        className="fixed bottom-6 right-6 z-50" // 👈 sola sabitlendi
-      /> 
+        className="fixed bottom-6 right-6 z-50"
+      />
 
       {/* ⚙️ Global Footer */}
       <Footer />

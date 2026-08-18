@@ -1,4 +1,5 @@
-// src/App.tsx
+// src/pages/Home.tsx
+
 import React, { useEffect, useState, useRef } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,15 +13,14 @@ import HubspotForm from "react-hubspot-form";
 import { useLocation } from "react-router-dom";
 import Seo from "../components/Seo";
 
-
 const sectionTitleClass =
   "text-2xl sm:text-3xl md:text-[34px] font-extrabold text-[#37575f] leading-snug";
+
 // ✅ CTA mesajı sadece ekran içerisinde olduğunda 5 saniye görünür
 function SwipeCTA() {
   const [visible, setVisible] = useState(true);
   const [inView, setInView] = useState(false);
   const ctaRef = useRef<HTMLDivElement>(null);
-
   const { hash } = useLocation();
 
   useEffect(() => {
@@ -36,7 +36,6 @@ function SwipeCTA() {
     return () => window.clearTimeout(t);
   }, [hash]);
 
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -44,17 +43,14 @@ function SwipeCTA() {
       },
       { threshold: 0.1 }
     );
-
     if (ctaRef.current) {
       observer.observe(ctaRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
     if (!inView) return;
-
     const timer = setTimeout(() => setVisible(false), 4000);
     return () => clearTimeout(timer);
   }, [inView]);
@@ -95,7 +91,7 @@ const allReviews = [
     name: "Marta Torres",
     avatar: "/avatars/m.webp",
     stars: 5,
-    text: "E podido experimentar grandes cambios, por los servicios que e recibido atraves de las ayudas y beneficios de bony hunter , muy en especial de la señorita Cristina que ha sido de gran ayuda para mi con la información brindada y la personalidad tan maravillosa al hablar conmigo… muchas gracias por su atención.",
+    text: "E podido experimentar grandes cambios, por los services que e recibido  de las ayudas y beneficios de bony hunter , muy en especial de la señorita Cristina que ha sido de gran ayuda para mi con la información brindada y la personalidad tan maravillosa al hablar conmigo… muchas gracias por su atención.",
   },
   {
     name: "Stephanie Brown",
@@ -223,7 +219,7 @@ const allReviews = [
     stars: 5,
     text: "Bunny Home Care has been a great place to work with. I have never had any issues and they are very cooperative.",
   },
-   {
+  {
     name: "Nurjahan Kamal",
     avatar: "/avatars/nurjahan.webp",
     stars: 5,
@@ -247,7 +243,7 @@ const allReviews = [
     stars: 5,
     text: "Great company to work for, very helpful staff. I highly recommend it.",
   },
-   {
+  {
     name: "Omer Khilwat",
     avatar: "/avatars/omer khilwat.webp",
     stars: 5,
@@ -259,7 +255,7 @@ const allReviews = [
     stars: 5,
     text: "Bunny Home care was exceptional in assisting me to become a caregiver for my father who is recovering from lung cancer chemotherapy and radiation. I am grateful for their professionalism, understanding, training and support.",
   },
-   {
+  {
     name: "Yessenia Pizarro",
     avatar: "/avatars/y.webp",
     stars: 5,
@@ -271,7 +267,7 @@ const allReviews = [
     stars: 5,
     text: "Great customer service! Amazing people to work with, fast respond, very happy to work with bunny home care. I highly recommend!",
   },
-   {
+  {
     name: "Mahadi N",
     avatar: "/avatars/mahadi n.webp",
     stars: 5,
@@ -302,7 +298,7 @@ const allReviews = [
     text: "My experience with Bunny Home Care is very good.",
   },
   {
-    name: "Elias Hechme",
+    name: "Eias Hechme",
     avatar: "/avatars/E.webp",
     stars: 5,
     text: "New clients with Bunny Home Care. We’ve had past experience with different agencies. But Bunny surpasses all of our expectations, from professionalism to simple attentiveness and understanding toward their clients needs. A pleasure to work and deal with Bunny Home Care.",
@@ -343,7 +339,7 @@ const allReviews = [
     stars: 5,
     text: "Bunny is a pleasure to work with. I've been very impressed with the compassionate service. I have referred them to my close friend who needed extra help caring for their parents. No complaints. Amazing company!!",
   },
-   {
+  {
     name: "shah bhuiyan",
     avatar: "/avatars/shah.webp",
     stars: 5,
@@ -355,7 +351,7 @@ const allReviews = [
     stars: 5,
     text: "I recently had the pleasure of experiencing the Bunny Home Care Service, and I must say that it exceeded all of my expectations. The staff ‘s responsiveness and readiness to help in all the steps of the process is outstanding! Would recommend Bunny Home Care if you need your loved ones to be cared for, all your questions answered, great customer service, professional staff!",
   },
-   {
+  {
     name: "Art Jagaryan",
     avatar: "/avatars/a.webp",
     stars: 5,
@@ -367,13 +363,13 @@ const allReviews = [
     stars: 5,
     text: "I had an amazing experience with them. They helped me a lot with my Dad’s case.",
   },
-   {
+  {
     name: "Kamal Kalra",
     avatar: "/avatars/K.webp",
     stars: 5,
     text: "Bunny home care service it’s not just a care service they care about everything .I’m very happy to work with them. Great experience 👍thanks",
   },
-   {
+  {
     name: "Tony Satouf",
     avatar: "/avatars/tony satouf.webp",
     stars: 5,
@@ -408,14 +404,15 @@ const allReviews = [
 function Home() {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-   const baseFrame =
+
+  const baseFrame =
     "rounded-xl shadow-xl w-[550px] md:w-[650px] h-[360px] md:h-[420px]";
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
   const swiperRef = useRef<any>(null);
   const [flippedServiceIndex, setFlippedServiceIndex] = useState<number | null>(
-  null
-);
+    null
+  );
 
   // ✅ Languages
   const languages = [
@@ -426,7 +423,7 @@ function Home() {
     { lang: "हिन्दी", phone: "+1 267-483-9642" },
     { lang: "العربية", phone: "+1 267-483-9642" },
     { lang: "বাংলা", phone: "+1 267-483-9642" },
-    { lang: "اردو", phone: "+1 267-483-9642" },
+    { lang: "اردu", phone: "+1 267-483-9642" },
     { lang: "Shqip", phone: "+1 267-483-9642" },
     { lang: "Italiano", phone: "+1 267-483-9642" },
     { lang: "Pilipino", phone: "+1 267-483-9642" },
@@ -493,15 +490,13 @@ function Home() {
     },
   ];
 
-  
   return (
     <div className="font-sans text-gray-800 text-center">
-    <Seo
-      title="Bunny Home Care | Compassionate Multilingual Home Care in PA"
-      description="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones."
-      canonical="https://www.bunnyhomecare.com/"
-    />
-
+      <Seo
+        title="Bunny Home Care | Compassionate Multilingual Home Care in PA"
+        description="Bunny Home Care provides professional, multilingual home care services for your family, helping you earn more while caring for your loved ones."
+        canonical="https://www.bunnyhomecare.com/"
+      />
       {/* HERO */}
       <section className="bg-gray-50 min-h-[75vh] flex items-center pt-24">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-8">
@@ -511,7 +506,6 @@ function Home() {
             <h1 className="text-4xl md:text-6xl font-bold text-[#37575f] leading-tight">
               5-Star Home Care Services for Seniors in Pennsylvania.
             </h1>
-
             {/* Açıklama */}
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Earn{" "}
@@ -524,57 +518,51 @@ function Home() {
             <p className="mt-2 text-xs text-left text-slate-500 italic">
               *Results may vary by case.
             </p>
-
-{/* Stats Row - Tüm öğeler yatay (flex-row) ve alta dayalı (items-end) */}
-<div className="flex flex-row justify-center md:justify-start items-end gap-10 pt-2 order-1 md:order-none">
-
-  {/* 1. +20 Years Experience */}
-  <div className="text-center">
-    <span className="text-2xl font-bold text-gray-900">+20</span>
-    <p className="text-gray-600 text-sm">
-      Years of Combined Experience
-    </p>
-  </div>
-
-  {/* 2. Google Rating */}
-  <a
-    href="https://share.google/7TGMFrT77hWjpaoti"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-center"
-  >
-    <div className="flex items-center justify-center gap-2">
-      <img
-        src="/logos/Google_logo.webp"
-        alt="Google"
-        loading="lazy"
-        decoding="async"
-        className="h-6"
-      />
-      <span className="text-lg font-bold text-gray-900">5.0</span>
-      <div className="flex text-yellow-400 text-sm">★★★★★</div>
-    </div>
-    <p className="text-sm text-gray-600">Customer Reviews</p>
-  </a>
-
-  {/* 3. BBB Logosu */}
-  <a
-    href="https://www.bbb.org/us/pa/feasterville-trevose/profile/home-health-care/bunny-home-care-llc-0241-236076009/#sealclick"
-    target="_blank"
-    rel="noopener noreferrer nofollow"
-    className="text-center"
-  >
-    <img
-      src="https://seal-dc-easternpa.bbb.org/seals/blue-seal-187-130-bbb-236076009.png"
-      alt="Bunny Home Care LLC BBB Business Review"
-      loading="lazy"
-      decoding="async"
-      className="border-0 w-28 h-auto"
-      />
-  </a>
-  
-</div>
-
+            {/* Stats Row - Tüm öğeler yatay (flex-row) ve alta dayalı (items-end) */}
+            <div className="flex flex-row justify-center md:justify-start items-end gap-10 pt-2 order-1 md:order-none">
+              {/* 1. +20 Years Experience */}
+              <div className="text-center">
+                <span className="text-2xl font-bold text-gray-900">+20</span>
+                <p className="text-gray-600 text-sm">
+                  Years of Combined Experience
+                </p>
+              </div>
+              {/* 2. Google Rating */}
+              <a
+                href="https://share.google/7TGMFrT77hWjpaoti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <img
+                    src="/logos/Google_logo.webp"
+                    alt="Google"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-6"
+                  />
+                  <span className="text-lg font-bold text-gray-900">5.0</span>
+                  <div className="flex text-yellow-400 text-sm">★★★★★</div>
+                </div>
+                <p className="text-sm text-gray-600">Customer Reviews</p>
+              </a>
+              {/* 3. BBB Logosu */}
+              <a
+                href="https://www.bbb.org/us/pa/feasterville-trevose/profile/home-health-care/bunny-home-care-llc-0241-236076009/#sealclick"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-center"
+              >
+                <img
+                  src="https://seal-dc-easternpa.bbb.org/seals/blue-seal-187-130-bbb-236076009.png"
+                  alt="Bunny Home Care LLC BBB Business Review"
+                  loading="lazy"
+                  decoding="async"
+                  className="border-0 w-28 h-auto"
+                />
+              </a>
+            </div>
             {/* Buttons row */}
             <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
               <a
@@ -593,7 +581,6 @@ function Home() {
               </a>
             </div>
           </div>
-
           {/* Right Image - Video */}
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
             <video
@@ -606,7 +593,6 @@ function Home() {
               playsInline
               poster="/images/bhc_hero.webp" // Video yüklenene kadar görünecek resim
             >
-              
               <source src="/videos/Bunny Home Care - Hero.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -616,131 +602,126 @@ function Home() {
 
       {/* ABOUT US */}
       <section
-  id="about"
-  className="py-16 px-6 bg-blue-50"
-  style={{ backgroundColor: "#eff6ff" }}
->
-  <div className="container mx-auto flex flex-col md:flex-row items-center">
-    {/* Text Section (Left Side) */}
-    <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
-      {/* 💻 Desktop version */}
-      <div className="hidden md:block">
-          <h2 className={`${sectionTitleClass} mb-6`}>About Us</h2>
-        <p className="text-lg leading-relaxed text-gray-700">
-          We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
-        </p>
-        <br />
-        <p className="text-lg leading-relaxed text-gray-700 mb-4">
-          With +20 years of combined experience and caring multicultural
-          professionals, Bunny Home Care is a BBB A+ Certified Trusted Company
-          focused on 5★ customer service in your language.
-        </p>
-
-        {/* 👇 DESKTOP BUTTON (Your requested snippet) */}
-        <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
-          <a
-            href="#become-a-caregiver"
-            className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
-          >
-            Get Started
-          </a>
-        </div>
-      </div>
-
-      {/* 📱 Mobile version - Accordion Card */}
-      <div className="md:hidden">
-        <div className="bg-primary rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
-          <button
-            type="button"
-            className="w-full flex justify-between items-center p-5 text-white md:text-gray-900 font-bold text-xl group"
-            onClick={() => {
-              const c = document.getElementById("about2");
-              const a = document.getElementById("arrow2");
-              c?.classList.toggle("hidden");
-              a?.classList.toggle("rotate-180");
-            }}
-          >
-            <span className="flex items-center gap-3">
-              <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+        id="about"
+        className="py-16 px-6 bg-blue-50"
+        style={{ backgroundColor: "#eff6ff" }}
+      >
+        <div className="container mx-auto flex flex-col md:flex-row items-center">
+          {/* Text Section (Left Side) */}
+          <div className="md:w-1/2 md:pr-12 w-full text-center md:text-left">
+            {/* 💻 Desktop version */}
+            <div className="hidden md:block">
+              <h2 className={`${sectionTitleClass} mb-6`}>About Us</h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
+              </p>
+              <br />
+              <p className="text-lg leading-relaxed text-gray-700 mb-4">
+                With +20 years of combined experience and caring multicultural
+                professionals, Bunny Home Care is a BBB A+ Certified Trusted Company
+                focused on 5★ customer service in your language.
+              </p>
+              {/* 👇 DESKTOP BUTTON (Your requested snippet) */}
+              <div className="flex justify-center md:justify-start gap-4 pt-4 order-2 md:order-none">
+                <a
+                  href="#become-a-caregiver"
+                  className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </span>
-              <span className="text-white md:text-gray-900">About Us</span>
-            </span>
-            <span
-              id="arrow2"
-              className="text-2xl text-white transform transition-transform duration-300 group-hover:scale-110"
-            >
-              ▼
-            </span>
-          </button>
-
-          <div
-            id="about2"
-            className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
-          >
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl mt-1">💙</span>
-                <p>
-                 We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
-                </p>
+                  Get Started
+                </a>
               </div>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl mt-1">🏆</span>
-                <p>
-                  With{" "}
-                  <span className="font-semibold text-primary">+20 years</span>{" "}
-                  of combined experience and caring multicultural professionals,
-                  Bunny Home Care is a{" "}
-                  <span className="font-semibold">BBB A+ Certified</span>{" "}
-                  Trusted Company focused on 5★ customer service in your
-                  language.
-                </p>
+            {/* 📱 Mobile version - Accordion Card */}
+            <div className="md:hidden">
+              <div className="bg-primary rounded-3xl shadow-xl border border-white/60 overflow-hidden backdrop-blur-sm">
+                <button
+                  type="button"
+                  className="w-full flex justify-between items-center p-5 text-white md:text-gray-900 font-bold text-xl group"
+                  onClick={() => {
+                    const c = document.getElementById("about2");
+                    const a = document.getElementById("arrow2");
+                    c?.classList.toggle("hidden");
+                    a?.classList.toggle("rotate-180");
+                  }}
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </span>
+                    <span className="text-white md:text-gray-900">About Us</span>
+                  </span>
+                  <span
+                    id="arrow2"
+                    className="text-2xl text-white transform transition-transform duration-300 group-hover:scale-110"
+                  >
+                    ▼
+                  </span>
+                </button>
+                <div
+                  id="about2"
+                  className="hidden px-6 pb-6 text-gray-700 text-base leading-relaxed space-y-4 animate-fadeIn"
+                >
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl mt-1">💙</span>
+                      <p>
+                        We provide home care services that allow family members or friends to get paid for taking care of their seniors with daily living activities and companionship.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl mt-1">🏆</span>
+                      <p>
+                        With{" "}
+                        <span className="font-semibold text-primary">+20 years</span>{" "}
+                        of combined experience and caring multicultural professionals,
+                        Bunny Home Care is a{" "}
+                        <span className="font-semibold">BBB A+ Certified</span>{" "}
+                        Trusted Company focused on 5★ customer service in your
+                        language.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Image Section (Right Side) */}
+          <div className="md:w-1/2 mt-8 md:mt-0 flex flex-col items-center justify-center">
+            <img
+              src="/images/About Us-Bunny Mascot.png"
+              alt="Bunny Mascot"
+              loading="lazy"
+              decoding="async"
+              className="max-w-[250px] md:max-w-[280px] w-full transition-transform duration-300 hover:scale-105"
+            />
+            {/* 📱 Mobile Button (Visible only on Mobile, below image) */}
+            <div className="md:hidden w-full">
+              <div className="flex justify-center gap-4 pt-6 order-2">
+                <a
+                  href="#become-a-caregiver"
+                  className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Get Started
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    {/* Image Section (Right Side) */}
-    <div className="md:w-1/2 mt-8 md:mt-0 flex flex-col items-center justify-center">
-      <img
-        src="/images/About Us-Bunny Mascot.png"
-        alt="Bunny Mascot"
-        loading="lazy"
-        decoding="async"
-        className="max-w-[250px] md:max-w-[280px] w-full transition-transform duration-300 hover:scale-105"
-      />
-
-      {/* 📱 Mobile Button (Visible only on Mobile, below image) */}
-      <div className="md:hidden w-full">
-        <div className="flex justify-center gap-4 pt-6 order-2">
-          <a
-            href="#become-a-caregiver"
-            className="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Get Started
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* WHAT WE OFFER */}
       <WhatWeOffer />
@@ -748,7 +729,6 @@ function Home() {
       {/* TESTIMONIALS */}
       <section className="px-6 py-16 bg-white" id="reviews">
         <h2 className={`${sectionTitleClass} mb-10 text-center`}>What People Say About Us</h2>
-
         {/* Reviews List */}
         <div className="max-w-3xl mx-auto space-y-8">
           {allReviews.slice(0, visibleCount).map((review, index) => (
@@ -764,7 +744,7 @@ function Home() {
                   loading="lazy"
                   decoding="async"
                   className="w-10 h-10 rounded-full mr-3"
-      />
+                />
                 <div>
                   <h3 className="font-semibold text-gray-900">{review.name}</h3>
                 </div>
@@ -774,9 +754,8 @@ function Home() {
                   loading="lazy"
                   decoding="async"
                   className="ml-auto w-6 h-6"
-      />
+                />
               </div>
-
               {/* Stars */}
               <div className="flex text-yellow-400 mb-2">
                 {Array.from({ length: review.stars }).map((_, i) => (
@@ -791,13 +770,11 @@ function Home() {
                   </svg>
                 ))}
               </div>
-
               {/* Review Text */}
               <p className="text-gray-700 leading-relaxed">{review.text}</p>
             </div>
           ))}
         </div>
-
         {/* See More */}
         {visibleCount < allReviews.length ? (
           <div className="text-center mt-8 mb-16">
@@ -862,7 +839,6 @@ function Home() {
                 </SwiperSlide>
               ))}
             </Swiper>
-
             {/* Custom Navigation Buttons */}
             <button
               onClick={() => swiperRef.current?.slidePrev()}
@@ -891,7 +867,6 @@ function Home() {
             Click on your preferred card to get more information in your language. 
           </span>
         </p>
-
         <div className="relative max-w-6xl mx-auto px-4 sm:px-8">
           <Swiper
             modules={[Navigation]}
@@ -925,7 +900,6 @@ function Home() {
                     <div className="absolute inset-0 flex items-center justify-center rounded-lg shadow-lg text-white font-bold text-lg backface-hidden bg-primary">
                       {lang.lang}
                     </div>
-
                     {/* Arka yüz */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-white text-gray-800 rounded-lg shadow-lg rotate-y-180 backface-hidden p-3">
                       <a
@@ -940,9 +914,12 @@ function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* Custom Navigation Buttons */}
-          <button className="custom-prev absolute -left-6 top-1/2 -translate-y-1/2 z-10 text-[#30d5c8]">
+          
+          {/* Custom Navigation Buttons (FIXED!) */}
+          <button
+            className="custom-prev absolute -left-6 top-1/2 -translate-y-1/2 z-10 text-[#30d5c8]"
+            aria-label="Previous Language"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 md:h-10 md:w-10"
@@ -958,8 +935,11 @@ function Home() {
               />
             </svg>
           </button>
-
-          <button className="custom-next absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-[#30d5c8]">
+          
+          <button
+            className="custom-next absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-[#30d5c8]"
+            aria-label="Next Language"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 md:h-10 md:w-10"
@@ -978,256 +958,240 @@ function Home() {
         </div>
       </section>
 
-      
-    {/* SWITCHING */}
-    <section className="px-6 py-16 md:py-20 bg-white" id="switching">
-      <div className="max-w-5xl mx-auto">
-        {/* Title */}
-        <div className="text-center mb-10">
-          <h2 className={`${sectionTitleClass} text-center mb-3`}>
-            Switching to Us Is Very Easy
-          </h2>
-
-          <p className="text-base sm:text-lg md:text-xl text-gray-700">
-            And your service won’t stop.
-          </p>
-        </div>
-
-        {/* Images */}
-        <div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-12 flex-nowrap">
-          {/* Bunny */}
-          <div className="flex-shrink-0">
-            <img
-              src="/images/Bunny_question.webp"
-              alt="Do these sound familiar?"
-              loading="lazy"
-              decoding="async"
-              className="w-[120px] sm:w-[170px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
-            />
+      {/* SWITCHING */}
+      <section className="px-6 py-16 md:py-20 bg-white" id="switching">
+        <div className="max-w-5xl mx-auto">
+          {/* Title */}
+          <div className="text-center mb-10">
+            <h2 className={`${sectionTitleClass} text-center mb-3`}>
+              Switching to Us Is Very Easy
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-700">
+              And your service won’t stop.
+            </p>
           </div>
-
-          {/* Chat */}
-          <div className="flex-shrink-0">
-            <img
-              src="/images/chat_bubbles.webp"
-              alt="Common caregiver complaints"
-              loading="lazy"
-              decoding="async"
-              className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
-            />
-          </div>
-        </div>
-
-        {/* Body */}
-        <div className="max-w-4xl mx-auto mb-10">
-          <div className="bg-[#f7fbfb] border border-gray-100 rounded-3xl p-5 sm:p-8 md:p-10 shadow-sm">
-            {/* First Text */}
-            <div className="max-w-3xl mx-auto text-center mb-6">
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
-                Frustrated by your current agency? Switch to Bunny Home Care. We will
-                make sure you receive the attention and support you deserve.
-              </p>
-            </div>
-
-            {/* Mobile Compact List */}
-            <div className="md:hidden space-y-3 mb-6">
-              {[
-                "Clear schedules and a transparent payment process",
-                "Support in your language",
-                "5-star customer service",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
-                >
-                  <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4 text-primary"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-
-                  <p className="text-sm font-semibold text-[#37575f] leading-5 text-left">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Desktop Cards */}
-            <div className="hidden md:grid md:grid-cols-3 gap-4 mb-7">
-              {[
-                "Clear schedules and transparent payment process",
-                "Support in your language",
-                "5-star customer service",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm text-center hover:shadow-md transition duration-300"
-                >
-                  <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 text-primary"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-
-                  <p className="text-sm sm:text-base font-semibold text-[#37575f] leading-6">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Second Text */}
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
-                Your current service won’t stop during the switch. We manage the
-                transfer paperwork to help prevent gaps in your care.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="flex justify-center">
-          <a
-            href="tel:+12674839642"
-            className="flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          {/* Images */}
+          <div className="max-w-4xl mx-auto flex items-center justify-center gap-6 md:gap-12 mb-12 flex-nowrap">
+            {/* Bunny */}
+            <div className="flex-shrink-0">
+              <img
+                src="/images/Bunny_question.webp"
+                alt="Do these sound familiar?"
+                loading="lazy"
+                decoding="async"
+                className="w-[120px] sm:w-[170px] md:w-[220px] object-contain transition-transform duration-300 hover:scale-105"
               />
-            </svg>
-            Call Us Now
-          </a>
+            </div>
+            {/* Chat */}
+            <div className="flex-shrink-0">
+              <img
+                src="/images/chat_bubbles.webp"
+                alt="Common caregiver complaints"
+                loading="lazy"
+                decoding="async"
+                className="w-[180px] sm:w-[260px] md:w-[340px] object-contain transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </div>
+          {/* Body */}
+          <div className="max-w-4xl mx-auto mb-10">
+            <div className="bg-[#f7fbfb] border border-gray-100 rounded-3xl p-5 sm:p-8 md:p-10 shadow-sm">
+              {/* First Text */}
+              <div className="max-w-3xl mx-auto text-center mb-6">
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
+                  Frustrated by your current agency? Switch to Bunny Home Care. We will
+                  make sure you receive the attention and support you deserve.
+                </p>
+              </div>
+              {/* Mobile Compact List */}
+              <div className="md:hidden space-y-3 mb-6">
+                {[
+                  "Clear schedules and a transparent payment process",
+                  "Support in your language",
+                  "5-star customer service",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
+                  >
+                    <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-semibold text-[#37575f] leading-5 text-left">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {/* Desktop Cards */}
+              <div className="hidden md:grid md:grid-cols-3 gap-4 mb-7">
+                {[
+                  "Clear schedules and transparent payment process",
+                  "Support in your language",
+                  "5-star customer service",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm text-center hover:shadow-md transition duration-300"
+                  >
+                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm sm:text-base font-semibold text-[#37575f] leading-6">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {/* Second Text */}
+              <div className="max-w-3xl mx-auto text-center">
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
+                  Your current service won’t stop during the switch. We manage the
+                  transfer paperwork to help prevent gaps in your care.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* CTA */}
+          <div className="flex justify-center">
+            <a
+              href="tel:+12674839642"
+              className="flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.358 4.07a1 1 0 01-.272 1.032l-2.12 2.12a16.001 16.001 0 007.586 7.586l2.12-2.12a1 1 0 011.032-.272l4.07 1.358a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              Call Us Now
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* TRUST */}
       <section className="px-5 md:px-8 py-14 md:py-16 bg-blue-50" id="trust">
-  <div className="max-w-6xl mx-auto">
-    {/* Header */}
-    <div className="max-w-4xl mx-auto text-center mb-10">
-
-      <h2 className={`${sectionTitleClass} text-center mb-4`}>
-        Licensed & Accredited
-      </h2>
-
-      <div className="w-16 h-1 bg-primary rounded-full mx-auto mb-6" />
-
-      <div className="relative overflow-hidden bg-[#f7fbfb] border border-gray-100 rounded-3xl px-5 py-6 sm:px-8 sm:py-7 shadow-sm">
-        <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full" />
-        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-primary/5 rounded-full" />
-
-        <p className="relative max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
-          We are licensed by the{" "}
-          <strong className="font-bold text-[#37575f]">
-            Pennsylvania Department of Health
-          </strong>
-          , we hold an{" "}
-          <strong className="font-bold text-[#37575f]">
-            A+ Accreditation from the Better Business Bureau (BBB)
-          </strong>
-          , and have a{" "}
-          <strong className="font-bold text-[#37575f]">
-            5-star recommendation on Google Reviews
-          </strong>
-          . Our credentials and care partnerships reflect the professional
-          standards behind our service.
-        </p>
-      </div>
-    </div>
-
-    {/* Logos */}
-    <Swiper
-      modules={[Autoplay]}
-      spaceBetween={24}
-      slidesPerView={2}
-      loop
-      autoplay={{ delay: 2000 }}
-      breakpoints={{
-        320: { slidesPerView: 2, spaceBetween: 16 },
-        640: { slidesPerView: 3, spaceBetween: 24 },
-        1024: { slidesPerView: 5, spaceBetween: 40 },
-      }}
-      className="max-w-6xl mx-auto"
-    >
-      {[
-        {
-          src: "/logos/padepartment.webp",
-          alt: "Pennsylvania Department of Health",
-        },
-        {
-          src: "/logos/bbb.webp",
-          alt: "Better Business Bureau A+ Accreditation",
-        },
-        {
-          src: "/logos/upmc.webp",
-          alt: "UPMC Community HealthChoices",
-        },
-        {
-          src: "/logos/amerihealth.webp",
-          alt: "AmeriHealth Caritas",
-        },
-        {
-          src: "/logos/keystone.webp",
-          alt: "Keystone First",
-        },
-        {
-          src: "/logos/pahealth.webp",
-          alt: "PA Health & Wellness",
-        },
-      ].map((logo, i) => (
-        <SwiperSlide
-          key={i}
-          className="flex items-center justify-center h-24"
-        >
-          <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm border border-gray-100 p-3 hover:shadow-md transition-all duration-300">
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              loading="lazy"
-              decoding="async"
-              className="max-h-12 w-auto object-contain"
-            />
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="max-w-4xl mx-auto text-center mb-10">
+            <h2 className={`${sectionTitleClass} text-center mb-4`}>
+              Licensed & Accredited
+            </h2>
+            <div className="w-16 h-1 bg-primary rounded-full mx-auto mb-6" />
+            <div className="relative overflow-hidden bg-[#f7fbfb] border border-gray-100 rounded-3xl px-5 py-6 sm:px-8 sm:py-7 shadow-sm">
+              <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full" />
+              <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-primary/5 rounded-full" />
+              <p className="relative max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg text-gray-700 leading-7 md:leading-8">
+                We are licensed by the{" "}
+                <strong className="font-bold text-[#37575f]">
+                  Pennsylvania Department of Health
+                </strong>
+                , we hold an{" "}
+                <strong className="font-bold text-[#37575f]">
+                  A+ Accreditation from the Better Business Bureau (BBB)
+                </strong>
+                , and have a{" "}
+                <strong className="font-bold text-[#37575f]">
+                  5-star recommendation on Google Reviews
+                </strong>
+                . Our credentials and care partnerships reflect the professional
+                standards behind our service.
+              </p>
+            </div>
           </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
-</section>
+          {/* Logos */}
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={24}
+            slidesPerView={2}
+            loop
+            autoplay={{ delay: 2000 }}
+            breakpoints={{
+              320: { slidesPerView: 2, spaceBetween: 16 },
+              640: { slidesPerView: 3, spaceBetween: 24 },
+              1024: { slidesPerView: 5, spaceBetween: 40 },
+            }}
+            className="max-w-6xl mx-auto"
+          >
+            {[
+              {
+                src: "/logos/padepartment.webp",
+                alt: "Pennsylvania Department of Health",
+              },
+              {
+                src: "/logos/bbb.webp",
+                alt: "Better Business Bureau A+ Accreditation",
+              },
+              {
+                src: "/logos/upmc.webp",
+                alt: "UPMC Community HealthChoices",
+              },
+              {
+                src: "/logos/amerihealth.webp",
+                alt: "AmeriHealth Caritas",
+              },
+              {
+                src: "/logos/keystone.webp",
+                alt: "Keystone First",
+              },
+              {
+                src: "/logos/pahealth.webp",
+                alt: "PA Health & Wellness",
+              },
+            ].map((logo, i) => (
+              <SwiperSlide
+                key={i}
+                className="flex items-center justify-center h-24"
+              >
+                <div className="w-40 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm border border-gray-100 p-3 hover:shadow-md transition-all duration-300">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 w-auto object-contain"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
 
       {/* CAREGIVER FORM */}
       <section className="py-16 bg-[#f9fafb]" id="become-a-caregiver">
@@ -1239,7 +1203,6 @@ function Home() {
           <p className="text-gray-600 mb-8">
             Fill out the form below and our team will reach out to you.
           </p>
-
           {/* Form Container */}
           <div
             id="custom-hubspot-form"
@@ -1263,166 +1226,149 @@ function Home() {
       </section>
 
       {/* CAREGIVER’S ROLE */}
-<section className="px-8 py-16 bg-white" id="services">
-  <h2 className={`${sectionTitleClass} text-center mb-4`}>
-    Caregiver's Role
-  </h2>
-
-  <p className="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed mb-10">
-    Caregivers support seniors with daily living activities, comfort, and
-    companionship at home.
-  </p>
-
-  {/* Desktop Grid */}
-  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    {caregiverServices.map((service, index) => {
-      const isFlipped = flippedServiceIndex === index;
-
-      return (
-        <div
-          key={index}
-          className="relative h-72 rounded-xl shadow-lg cursor-pointer perspective group"
-          onClick={() =>
-            setFlippedServiceIndex(isFlipped ? null : index)
-          }
-        >
-          <div
-            className={`relative w-full h-full transition-transform duration-700 transform preserve-3d ${
-              isFlipped ? "rotate-y-180" : ""
-            }`}
-          >
-            {/* Front Side */}
-            <div className="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-              <img
-                src={service.img}
-                alt={service.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-
-              <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {service.title}
-                </h3>
-
-                <p className="text-gray-100 mb-4 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-
-                <span className="inline-flex items-center text-white font-semibold text-sm">
-                  Click to learn more →
-                </span>
-              </div>
-            </div>
-
-            {/* Back Side */}
-            <div className="absolute inset-0 rounded-xl overflow-hidden rotate-y-180 backface-hidden bg-[#37575f] p-6 flex flex-col text-left">
-              <h3 className="text-2xl font-bold text-white mb-4 flex-shrink-0">
-                {service.title}
-              </h3>
-
-              <div className="flex-1 min-h-0 overflow-y-auto pr-2">
-                <p className="text-white/90 text-sm leading-relaxed">
-                  {service.details}
-                </p>
-              </div>
-
-              <button
-                type="button"
-                className="mt-5 inline-flex items-center justify-center bg-[#30d5c8] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#28c5b9] transition-colors flex-shrink-0"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setFlippedServiceIndex(null);
-                }}
-              >
-                Back
-              </button>
-            </div>
-          </div>
-        </div>
-      );
-    })}
-  </div>
-
-  {/* Mobile Slider */}
-  <div className="md:hidden max-w-md mx-auto">
-    <Swiper
-      modules={[Pagination]}
-      spaceBetween={20}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      className="pb-10"
-      onSlideChange={() => setFlippedServiceIndex(null)}
-    >
-      {caregiverServices.map((service, index) => {
-        const isFlipped = flippedServiceIndex === index;
-
-        return (
-          <SwiperSlide key={index}>
-            <div className="relative h-[390px] rounded-xl shadow-xl perspective">
+      <section className="px-8 py-16 bg-white" id="services">
+        <h2 className={`${sectionTitleClass} text-center mb-4`}>
+          Caregiver's Role
+        </h2>
+        <p className="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed mb-10">
+          Caregivers support seniors with daily living activities, comfort, and
+          companionship at home.
+        </p>
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {caregiverServices.map((service, index) => {
+            const isFlipped = flippedServiceIndex === index;
+            return (
               <div
-                className={`relative w-full h-full transition-transform duration-700 transform preserve-3d ${
-                  isFlipped ? "rotate-y-180" : ""
-                }`}
+                key={index}
+                className="relative h-72 rounded-xl shadow-lg cursor-pointer perspective group"
+                onClick={() =>
+                  setFlippedServiceIndex(isFlipped ? null : index)
+                }
               >
-                {/* Front Side */}
-                <div className="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
-                  <img
-                    src={service.img}
-                    alt={service.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-
-                  <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-gray-100 mb-4 text-base leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <button
-                      type="button"
-                      className="inline-flex items-center justify-center bg-[#30d5c8] text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-md hover:bg-[#28c5b9] transition-colors w-fit"
-                      onClick={() => setFlippedServiceIndex(index)}
-                    >
-                      Learn More →
-                    </button>
+                <div
+                  className={`relative w-full h-full transition-transform duration-700 transform preserve-3d ${
+                    isFlipped ? "rotate-y-180" : ""
+                  }`}
+                >
+                  {/* Front Side */}
+                  <div className="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-100 mb-4 text-sm leading-relaxed">
+                        {service.description}
+                      </p>
+                      <span className="inline-flex items-center text-white font-semibold text-sm">
+                        Click to learn more →
+                      </span>
+                    </div>
                   </div>
-                </div>
-
-                {/*Mobile Back Side */}
+                  {/* Back Side */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden rotate-y-180 backface-hidden bg-[#37575f] p-6 flex flex-col text-left">
                     <h3 className="text-2xl font-bold text-white mb-4 flex-shrink-0">
                       {service.title}
                     </h3>
-
                     <div className="flex-1 min-h-0 overflow-y-auto pr-2">
                       <p className="text-white/90 text-sm leading-relaxed">
                         {service.details}
                       </p>
                     </div>
-
                     <button
                       type="button"
                       className="mt-5 inline-flex items-center justify-center bg-[#30d5c8] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#28c5b9] transition-colors flex-shrink-0"
-                      onClick={() => setFlippedServiceIndex(null)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setFlippedServiceIndex(null);
+                      }}
                     >
                       Back
-                  </button>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        );
-      })}
-    </Swiper>
-  </div>
-</section>
+            );
+          })}
+        </div>
+        {/* Mobile Slider */}
+        <div className="md:hidden max-w-md mx-auto">
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            className="pb-10"
+            onSlideChange={() => setFlippedServiceIndex(null)}
+          >
+            {caregiverServices.map((service, index) => {
+              const isFlipped = flippedServiceIndex === index;
+              return (
+                <SwiperSlide key={index}>
+                  <div className="relative h-[390px] rounded-xl shadow-xl perspective">
+                    <div
+                      className={`relative w-full h-full transition-transform duration-700 transform preserve-3d ${
+                        isFlipped ? "rotate-y-180" : ""
+                      }`}
+                    >
+                      {/* Front Side */}
+                      <div className="absolute inset-0 rounded-xl overflow-hidden backface-hidden">
+                        <img
+                          src={service.img}
+                          alt={service.title}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black bg-opacity-30 p-6 flex flex-col justify-end text-left">
+                          <h3 className="text-2xl font-bold text-white mb-2">
+                            {service.title}
+                          </h3>
+                          <p className="text-gray-100 mb-4 text-base leading-relaxed">
+                            {service.description}
+                          </p>
+                          <button
+                            type="button"
+                            className="inline-flex items-center justify-center bg-[#30d5c8] text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-md hover:bg-[#28c5b9] transition-colors w-fit"
+                            onClick={() => setFlippedServiceIndex(index)}
+                          >
+                            Learn More →
+                          </button>
+                        </div>
+                      </div>
+                      {/*Mobile Back Side */}
+                      <div className="absolute inset-0 rounded-xl overflow-hidden rotate-y-180 backface-hidden bg-[#37575f] p-6 flex flex-col text-left">
+                        <h3 className="text-2xl font-bold text-white mb-4 flex-shrink-0">
+                          {service.title}
+                        </h3>
+                        <div className="flex-1 min-h-0 overflow-y-auto pr-2">
+                          <p className="text-white/90 text-sm leading-relaxed">
+                            {service.details}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          className="mt-5 inline-flex items-center justify-center bg-[#30d5c8] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#28c5b9] transition-colors flex-shrink-0"
+                          onClick={() => setFlippedServiceIndex(null)}
+                        >
+                          Back
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </section>
 
       {/* CONTACT */}
       <section
@@ -1439,7 +1385,6 @@ function Home() {
               Have questions? We're here to help you with caring solutions.
             </p>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* ✅ Left Side - HubSpot Form Embed */}
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-300 hover:shadow-2xl">
@@ -1457,7 +1402,6 @@ function Home() {
                 onSubmit={() => console.log("✅ Contact form submitted!")}
               />
             </div>
-
             {/* Right Side - Contact Info & Quick Actions */}
             <div className="space-y-6">
               {/* Contact Methods */}
@@ -1466,69 +1410,65 @@ function Home() {
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-  <a
-    href="tel:+12674839642"
-    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-  >
-    <div className="flex-1">
-      <p className="text-sm text-white font-medium">Phone</p>
-      <p className="text-lg font-semibold text-white">
-        +1 267-483-9642
-      </p>
-    </div>
-  </a>
-
-  <a
-    href="mailto:help@bunnyhomecare.com"
-    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
-  >
-    <div className="flex-1">
-      <p className="text-sm text-white font-medium">Email</p>
-      <p className="text-lg font-semibold text-white">
-        help@bunnyhomecare.com
-      </p>
-    </div>
-  </a>
-</div>
-
+                  <a
+                    href="tel:+12674839642"
+                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                  >
+                    <div className="flex-1">
+                      <p className="text-sm text-white font-medium">Phone</p>
+                      <p className="text-lg font-semibold text-white">
+                        +1 267-483-9642
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="mailto:help@bunnyhomecare.com"
+                    className="flex items-center gap-4 p-4 bg-primary rounded-xl hover:from-primary/10 hover:to-teal-100 transition-all duration-300 group"
+                  >
+                    <div className="flex-1">
+                      <p className="text-sm text-white font-medium">Email</p>
+                      <p className="text-lg font-semibold text-white">
+                        help@bunnyhomecare.com
+                      </p>
+                    </div>
+                  </a>
+                </div>
               </div>
-
               {/* Counties We Serve */}
               <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
                 <h3 className="text-2xl font-bold text-[#37575f] mb-6">
                   Counties We Serve
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
-                {[
-                  "Berks",
-                  "Bucks",
-                  "Carbon",
-                  "Chester",
-                  "Dauphin",
-                  "Delaware",
-                  "Lancaster",
-                  "Lebanon",
-                  "Lehigh",
-                  "Luzerne",
-                  "Monroe",
-                  "Montgomery",
-                  "Northampton",
-                  "Philadelphia",
-                  "Schuylkill",
-                  "York",
-                ].map((county, index) => (
-                  <div
-                    key={index}
-                    className="px-4 py-2 bg-primary rounded-lg text-center font-medium text-white transition-all duration-300 hover:scale-105"
-                  >
-                    {county}
-                  </div>
-                ))}
-              </div>
+                  {[
+                    "Berks",
+                    "Bucks",
+                    "Carbon",
+                    "Chester",
+                    "Dauphin",
+                    "Delaware",
+                    "Lancaster",
+                    "Lebanon",
+                    "Lehigh",
+                    "Luzerne",
+                    "Monroe",
+                    "Montgomery",
+                    "Northampton",
+                    "Philadelphia",
+                    "Schuylkill",
+                    "York",
+                  ].map((county, index) => (
+                    <div
+                      key={index}
+                      className="px-4 py-2 bg-primary rounded-lg text-center font-medium text-white transition-all duration-300 hover:scale-105"
+                    >
+                      {county}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-
           {/* Office Locations (Aynı kalıyor) */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
             <h3 className="text-2xl md:text-3xl font-bold text-[#37575f] mb-8 text-center">
@@ -1553,7 +1493,6 @@ function Home() {
                   ></iframe>
                 </div>
               </div>
-
               <div className="group">
                 <div className="mb-4">
                   <h4 className="text-xl font-bold text-[#37575f] mb-2 group-hover:text-primary transition-colors duration-300">
@@ -1572,7 +1511,6 @@ function Home() {
                   ></iframe>
                 </div>
               </div>
-
               <div className="group">
                 <div className="mb-4">
                   <h4 className="text-xl font-bold text-[#37575f] mb-2 group-hover:text-primary transition-colors duration-300">
