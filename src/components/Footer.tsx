@@ -86,7 +86,11 @@ export default function Footer() {
                   hover:scale-110
                 "
               >
-                <Icon className="w-4 h-4 text-white" />
+                <Icon
+                  className="w-4 h-4 text-white"
+                  aria-hidden="true"
+                  focusable="false"
+                />
               </a>
             ))}
           </div>
