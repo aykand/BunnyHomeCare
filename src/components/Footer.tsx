@@ -104,12 +104,12 @@ export default function Footer() {
 
           <ul className="space-y-3 text-lg">
             {[
-              { name: "About Us", href: "#about" },
-              { name: "Reviews", href: "#reviews" },
-              { name: "Switching", href: "#switching" },
-              { name: "Languages", href: "#languages" },
+              { name: "About Us", href: "/#about" },
+              { name: "Reviews", href: "/#reviews" },
+              { name: "Switching", href: "/#switching" },
+              { name: "Languages", href: "/#languages" },
               { name: "Caregiver Pay Calculator", href: "/pay-calculator" },
-              { name: "Contact", href: "#contact" },
+              { name: "Contact", href: "/#contact" },
             ].map((item) => (
               <li key={item.name}>
                 <a
