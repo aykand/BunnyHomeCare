@@ -10,6 +10,7 @@ import TermsOfService from "./pages/TermsOfService";
 import CaregiverOnboarding from './pages/CaregiverOnboarding';
 import BlogHome from "./pages/BlogHome";
 import BlogPost from "./pages/BlogPost";
+import PayCalculator from "./pages/PayCalculator";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import { useEffect } from "react";
 
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/blog" element={<BlogHome />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/caregiver-onboarding" element={<CaregiverOnboarding />} />
+          <Route path="/pay-calculator" element={<PayCalculator />} />
         </Routes>
       </div>
 

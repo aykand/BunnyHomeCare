@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Can I Request a Caregiver Who Speaks My Language?",
         paragraph:
-          "Yes. Families can specify their preferred language during initial intake. Discussing language needs early allows Bunny Home Care to identify and match fully qualified, native-speaking caregivers in your local community.",
+          "Yes. Families can specify their preferred language during initial intake. Discussing language needs early allows Bunny Home Carenp to identify and match fully qualified, native-speaking caregivers in your local community.",
       },
       {
         heading: "Multilingual Home Care with Bunny Home Care",

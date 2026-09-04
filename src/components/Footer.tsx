@@ -108,6 +108,7 @@ export default function Footer() {
               { name: "Reviews", href: "#reviews" },
               { name: "Switching", href: "#switching" },
               { name: "Languages", href: "#languages" },
+              { name: "Caregiver Pay Calculator", href: "/pay-calculator" },
               { name: "Contact", href: "#contact" },
             ].map((item) => (
               <li key={item.name}>
