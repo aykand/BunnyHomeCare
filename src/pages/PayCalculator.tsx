@@ -17,15 +17,6 @@ export default function PayCalculator() {
             <span className="inline-block bg-[#30d5c8]/15 text-[#37575f] font-semibold text-sm px-4 py-2 rounded-full mb-5">
               Caregiver Pay Calculator
             </span>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#37575f] leading-tight">
-              How Much Could You Earn?
-            </h1>
-
-            <p className="mt-5 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Enter your weekly hours and compare your current pay with a new
-              hourly rate.
-            </p>
           </div>
         </section>
 
