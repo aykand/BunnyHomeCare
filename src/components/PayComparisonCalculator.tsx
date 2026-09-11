@@ -111,19 +111,14 @@ export default function PayComparisonCalculator() {
       <div className="bg-[#eefcfb] rounded-3xl shadow-xl border border-[#30d5c8] overflow-hidden">
         {/* Header */}
         <div className="px-6 md:px-10 pt-10 pb-6 text-center">
-          <img
-            src="/logos/bunnyhomecare-with-bunny.webp"
-            alt="Bunny Home Care"
-            className="h-56 md:h-72 w-auto mx-auto mb-8 object-contain"
-          />
+        
 
           <h2 className="text-3xl md:text-5xl font-bold text-[#37575f] leading-tight">
              See How Much You Could Earn
          </h2>
 
           <p className="mt-4 text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Compare your current weekly pay with a different hourly rate and see the
-            potential difference over time.
+            Compare your current pay with Bunny Home Care and see the difference!
           </p>
         </div>
 
@@ -199,7 +194,7 @@ export default function PayComparisonCalculator() {
           <div className="mt-6">
             <label
               htmlFor="currentPay"
-              className="inline-block text-sm font-semibold text-[#37575f] bg-[#d9f8f5] border border-[#b8eee9] px-3 py-1.5 rounded-lg mb-2"
+              className="inline-block text-sm font-semibold text-[#37575f] bg-[#F2CD6D] border border-[#b8eee9] px-3 py-1.5 rounded-lg mb-2"
             >
               Your Current Weekly Pay Before Taxes
             </label>
